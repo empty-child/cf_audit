@@ -1,7 +1,15 @@
 from www import app
 from .db import database, User, Feature, Project, Task, fn_Random
 from .util import update_features, update_audit, update_features_cache
-from flask import session, url_for, redirect, request, render_template, flash, jsonify
+from flask import (
+    session,
+    url_for,
+    redirect,
+    request,
+    render_template,
+    flash,
+    jsonify,
+)
 from flask_oauthlib.client import OAuth
 from peewee import fn, OperationalError
 import json
@@ -19,7 +27,7 @@ openstreetmap = oauth.remote_app(
     access_token_url='https://www.openstreetmap.org/oauth/access_token',
     authorize_url='https://www.openstreetmap.org/oauth/authorize',
     consumer_key=app.config['OAUTH_KEY'] or '123',
-    consumer_secret=app.config['OAUTH_SECRET'] or '123'
+    consumer_secret=app.config['OAUTH_SECRET'] or '123',
 )
 
 
@@ -38,10 +46,11 @@ def dated_url_for(endpoint, **values):
     if endpoint == 'static':
         filename = values.get('filename', None)
         if filename:
-            file_path = os.path.join(app.root_path,
-                                     endpoint, filename)
+            file_path = os.path.join(app.root_path, endpoint, filename)
             values['q'] = int(os.stat(file_path).st_mtime)
     return url_for(endpoint, **values)
+
+
 app.jinja_env.globals['dated_url_for'] = dated_url_for
 
 
@@ -61,6 +70,7 @@ def get_user():
 def is_admin(user, project=None):
     if not user:
         return False
+    print(user.__dict__)
     if user.uid in config.ADMINS:
         return True
     if not project:
@@ -75,13 +85,21 @@ def front():
 
     def local_is_admin(proj):
         return is_admin(user, proj)
-    return render_template('index.html', user=user, projects=projects,
-                           admin=is_admin(user), is_admin=local_is_admin)
+
+    return render_template(
+        'index.html',
+        user=user,
+        projects=projects,
+        admin=is_admin(user),
+        is_admin=local_is_admin,
+    )
 
 
 @app.route('/robots.txt')
 def robots():
-    return app.response_class('User-agent: *\nDisallow: /', mimetype='text/plain')
+    return app.response_class(
+        'User-agent: *\nDisallow: /', mimetype='text/plain'
+    )
 
 
 @app.route('/login')
@@ -99,10 +117,7 @@ def oauth():
     resp = openstreetmap.authorized_response()
     if resp is None:
         return 'Denied. <a href="' + url_for('login') + '">Try again</a>.'
-    session['osm_token'] = (
-            resp['oauth_token'],
-            resp['oauth_token_secret']
-    )
+    session['osm_token'] = (resp['oauth_token'], resp['oauth_token_secret'])
     user_details = openstreetmap.get('user/details').data
     uid = int(user_details[0].get('id'))
     session['osm_uid'] = uid
@@ -142,14 +157,20 @@ def project(name, region=None):
     project = Project.get(Project.name == name)
     desc = project.description.replace('\n', '<br>')
     cnt = Feature.select(Feature.id).where(Feature.project == project)
-    val1 = Feature.select(Feature.id).where(Feature.project == project,
-                                            Feature.validates_count > 0)
-    val2 = Feature.select(Feature.id).where(Feature.project == project,
-                                            Feature.validates_count >= 2)
+    val1 = Feature.select(Feature.id).where(
+        Feature.project == project, Feature.validates_count > 0
+    )
+    val2 = Feature.select(Feature.id).where(
+        Feature.project == project, Feature.validates_count >= 2
+    )
     corrected = Feature.select(Feature.id).where(
-        Feature.project == project, Feature.audit.is_null(False), Feature.audit != '')
+        Feature.project == project,
+        Feature.audit.is_null(False),
+        Feature.audit != '',
+    )
     skipped = Feature.select(Feature.id).where(
-        Feature.project == project, Feature.audit.contains('"skip": true'))
+        Feature.project == project, Feature.audit.contains('"skip": true')
+    )
 
     if region is not None:
         val1 = val1.where(Feature.region == region)
@@ -164,11 +185,17 @@ def project(name, region=None):
 
     regions = []
     if project.regional:
-        regions = Feature.select(
-            Feature.region, fn.Count(),
-            fn.Sum(fn.Min(Feature.validates_count, 1))).where(
-                Feature.project == project).group_by(
-                Feature.region).order_by(Feature.region).tuples()
+        regions = (
+            Feature.select(
+                Feature.region,
+                fn.Count(),
+                fn.Sum(fn.Min(Feature.validates_count, 1)),
+            )
+            .where(Feature.project == project)
+            .group_by(Feature.region)
+            .order_by(Feature.region)
+            .tuples()
+        )
         if len(regions) == 1:
             regions = []
         else:
@@ -176,14 +203,33 @@ def project(name, region=None):
 
     user = get_user()
     if user:
-        has_skipped = Task.select().join(Feature).where(
-            Task.user == user, Task.skipped == True, Feature.project == project).count() > 0
+        has_skipped = (
+            Task.select()
+            .join(Feature)
+            .where(
+                Task.user == user,
+                Task.skipped == True,
+                Feature.project == project,
+            )
+            .count()
+            > 0
+        )
     else:
         has_skipped = False
-    return render_template('project.html', project=project, admin=is_admin(user, project),
-                           count=cnt.count(), desc=desc, val1=val1.count(), val2=val2.count(),
-                           corrected=corrected.count(), skipped=skipped.count(),
-                           has_skipped=has_skipped, region=region, regions=regions)
+    return render_template(
+        'project.html',
+        project=project,
+        admin=is_admin(user, project),
+        count=cnt.count(),
+        desc=desc,
+        val1=val1.count(),
+        val2=val2.count(),
+        corrected=corrected.count(),
+        skipped=skipped.count(),
+        has_skipped=has_skipped,
+        region=region,
+        regions=regions,
+    )
 
 
 @app.route('/browse/<name>')
@@ -191,8 +237,13 @@ def project(name, region=None):
 def browse(name, ref=None, region=None):
     project = Project.get(Project.name == name)
     region = request.args.get('region')
-    return render_template('browse.html', project=project, ref=ref, region=region,
-                           mapillary_id=config.MAPILLARY_CLIENT_ID)
+    return render_template(
+        'browse.html',
+        project=project,
+        ref=ref,
+        region=region,
+        mapillary_id=config.MAPILLARY_CLIENT_ID,
+    )
 
 
 @app.route('/map/<name>')
@@ -216,8 +267,13 @@ def tasks(name, ref=None, region=None):
         else:
             flash('Project validation is disabled')
             return redirect(url_for('project', name=name))
-    return render_template('task.html', project=project, ref=ref, region=region,
-                           mapillary_id=config.MAPILLARY_CLIENT_ID)
+    return render_template(
+        'task.html',
+        project=project,
+        ref=ref,
+        region=region,
+        mapillary_id=config.MAPILLARY_CLIENT_ID,
+    )
 
 
 # Lifted from http://flask.pocoo.org/snippets/44/
@@ -239,11 +295,19 @@ class Pagination(object):
     def has_next(self):
         return self.page < self.pages
 
-    def iter_pages(self, left_edge=2, left_current=2, right_current=5, right_edge=2):
+    def iter_pages(
+        self, left_edge=2, left_current=2, right_current=5, right_edge=2
+    ):
         last = 0
-        for num in xrange(1, self.pages + 1):
-            if (num <= left_edge or num > self.pages - right_edge or
-                    (num > self.page - left_current - 1 and num < self.page + right_current)):
+        for num in range(1, self.pages + 1):
+            if (
+                num <= left_edge
+                or num > self.pages - right_edge
+                or (
+                    num > self.page - left_current - 1
+                    and num < self.page + right_current
+                )
+            ):
                 if last + 1 != num:
                     yield None
                 yield num
@@ -257,6 +321,8 @@ def url_for_other_page(page):
     if show_validated:
         args['all'] = '1'
     return url_for(request.endpoint, **args)
+
+
 app.jinja_env.globals['url_for_other_page'] = url_for_other_page
 
 
@@ -266,8 +332,12 @@ def table(name, page):
     PER_PAGE = 200
     project = Project.get(Project.name == name)
     region = request.args.get('region')
-    query = Feature.select().where(Feature.project == project).order_by(
-        Feature.id).paginate(page, PER_PAGE)
+    query = (
+        Feature.select()
+        .where(Feature.project == project)
+        .order_by(Feature.id)
+        .paginate(page, PER_PAGE)
+    )
     show_validated = request.args.get('all') == '1'
     if not show_validated:
         query = query.where(Feature.validates_count < 2)
@@ -283,17 +353,26 @@ def table(name, page):
             coord = audit['move']
         else:
             coord = data['geometry']['coordinates']
-        f = {'ref': feature.ref, 'lon': coord[0], 'lat': coord[1],
-             'action': data['properties']['action']}
+        f = {
+            'ref': feature.ref,
+            'lon': coord[0],
+            'lat': coord[1],
+            'action': data['properties']['action'],
+        }
         tags = {}
-        for p, v in data['properties'].items():
-            if not p.startswith('tags') and not p.startswith('ref_unused_tags'):
+        for p, v in list(data['properties'].items()):
+            if not p.startswith('tags') and not p.startswith(
+                'ref_unused_tags'
+            ):
                 continue
-            k = p[p.find('.')+1:]
+            k = p[p.find('.') + 1 :]
             if k.startswith('ref'):
                 continue
             tag = {}
-            if data['properties']['action'] in ('create', 'delete') and p.startswith('tags.'):
+            if data['properties']['action'] in (
+                'create',
+                'delete',
+            ) and p.startswith('tags.'):
                 columns.add(k)
                 tag['before'] = ''
                 tag['after'] = v
@@ -305,7 +384,8 @@ def table(name, page):
                 if p.startswith('tags_') or p.startswith('ref_unused_tags'):
                     columns.add(k)
                 tag['accepted'] = p.startswith('tags_') or (
-                    audit and k in audit.get('override', []))
+                    audit and k in audit.get('override', [])
+                )
                 if p.startswith('tags_new'):
                     tag['before'] = ''
                     tag['after'] = v
@@ -317,19 +397,24 @@ def table(name, page):
                 elif p.startswith('tags_cha'):
                     i = v.find(' -> ')
                     tag['before'] = v[:i]
-                    tag['after'] = v[i+4:]
+                    tag['after'] = v[i + 4 :]
                     tag['action'] = 'changed'
                 elif p.startswith('ref_unused'):
-                    tag['before'] = data['properties'].get('tags.'+k, '')
+                    tag['before'] = data['properties'].get('tags.' + k, '')
                     tag['after'] = v
                     tag['action'] = 'changed'
             tags[k] = tag
         f['tags'] = tags
         features.append(f)
 
-    return render_template('table.html', project=project, pagination=pagination,
-                           columns=sorted(columns), rows=features,
-                           show_validated=show_validated)
+    return render_template(
+        'table.html',
+        project=project,
+        pagination=pagination,
+        columns=sorted(columns),
+        rows=features,
+        show_validated=show_validated,
+    )
 
 
 @app.route('/newproject')
@@ -379,20 +464,28 @@ def upload_project():
         project.url = None
     project.description = request.form['description'].strip()
     project.can_validate = request.form.get('validate') is not None
-    project.validate_modified = request.form.get('validate_modified') is not None
+    project.validate_modified = (
+        request.form.get('validate_modified') is not None
+    )
     project.hidden = request.form.get('is_hidden') is not None
     project.regional = request.form.get('regional') is not None
     project.prop_sv = request.form.get('prop_sv') is not None
 
     if 'json' not in request.files or request.files['json'].filename == '':
         if not pid:
-            return add_flash(pid, 'Would not create a project without features')
+            return add_flash(
+                pid, 'Would not create a project without features'
+            )
         features = []
     else:
         try:
-            features = json.load(codecs.getreader('utf-8')(request.files['json']))
+            features = json.load(
+                codecs.getreader('utf-8')(request.files['json'])
+            )
         except ValueError as e:
-            return add_flash(pid, 'Error in the uploaded features file: {}'.format(e))
+            return add_flash(
+                pid, 'Error in the uploaded features file: {}'.format(e)
+            )
         if 'features' not in features or not features['features']:
             return add_flash(pid, 'No features found in the JSON file')
         features = features['features']
@@ -400,9 +493,13 @@ def upload_project():
     audit = None
     if 'audit' in request.files and request.files['audit'].filename:
         try:
-            audit = json.load(codecs.getreader('utf-8')(request.files['audit']))
+            audit = json.load(
+                codecs.getreader('utf-8')(request.files['audit'])
+            )
         except ValueError as e:
-            return add_flash(pid, 'Error in the uploaded audit file: {}'.format(e))
+            return add_flash(
+                pid, 'Error in the uploaded audit file: {}'.format(e)
+            )
         if not audit:
             return add_flash(pid, 'No features found in the audit JSON file')
 
@@ -432,8 +529,8 @@ def clear_skipped(pid):
     if user:
         features = Feature.select().where(Feature.project == project)
         query = Task.delete().where(
-            Task.user == user, Task.skipped == True,
-            Task.feature.in_(features))
+            Task.user == user, Task.skipped == True, Task.feature.in_(features)
+        )
         query.execute()
     return redirect(url_for('project', name=project.name))
 
@@ -458,8 +555,14 @@ def export_audit(pid):
     except OperationalError:
         pass
     return app.response_class(
-        audit or '{}', mimetype='application/json',
-        headers={'Content-Disposition': 'attachment;filename=audit_{}.json'.format(project.name)})
+        audit or '{}',
+        mimetype='application/json',
+        headers={
+            'Content-Disposition': 'attachment;filename=audit_{}.json'.format(
+                project.name
+            )
+        },
+    )
 
 
 @app.route('/external_audit/<int:pid>')
@@ -467,7 +570,9 @@ def external_audit(pid):
     project = Project.get(Project.id == pid)
     if not is_admin(get_user(), project):
         return redirect(url_for('front'))
-    query = Feature.select().where(Feature.project == project, Feature.audit.is_null(False))
+    query = Feature.select().where(
+        Feature.project == project, Feature.audit.is_null(False)
+    )
     result = {}
     for feat in query:
         audit = json.loads(feat.audit or {})
@@ -483,11 +588,11 @@ def external_audit(pid):
             keep = {}
             for k in audit['keep']:
                 orig = None
-                if 'tags_deleted.'+k in props:
-                    orig = props['tags_deleted.'+k]
-                elif 'tags_changed.'+k in props:
-                    orig = props['tags_changed.'+k]
-                    orig = orig[:orig.find(' -> ')]
+                if 'tags_deleted.' + k in props:
+                    orig = props['tags_deleted.' + k]
+                elif 'tags_changed.' + k in props:
+                    orig = props['tags_changed.' + k]
+                    orig = orig[: orig.find(' -> ')]
                 if orig:
                     keep[k] = orig
             if keep:
@@ -499,9 +604,13 @@ def external_audit(pid):
             result[feat.ref] = eaudit
     return app.response_class(
         json.dumps(result, ensure_ascii=False, indent=1, sort_keys=True),
-        mimetype='application/json', headers={
-            'Content-Disposition': 'attachment;filename=ext_audit_{}.json'.format(project.name)
-        })
+        mimetype='application/json',
+        headers={
+            'Content-Disposition': 'attachment;filename=ext_audit_{}.json'.format(
+                project.name
+            )
+        },
+    )
 
 
 @app.route('/admin')
@@ -543,11 +652,16 @@ def all_features(pid):
     project = Project.get(Project.id == pid)
     region = request.args.get('region')
     if region:
-        query = Feature.select(Feature.ref, Feature.lat, Feature.lon, Feature.action).where(
-                Feature.project == project, Feature.region == region).tuples()
+        query = (
+            Feature.select(
+                Feature.ref, Feature.lat, Feature.lon, Feature.action
+            )
+            .where(Feature.project == project, Feature.region == region)
+            .tuples()
+        )
         features = []
         for ref, lat, lon, action in query:
-            features.append([ref, [lat/1e7, lon/1e7], action])
+            features.append([ref, [lat / 1e7, lon / 1e7], action])
         features_js = json.dumps(features, ensure_ascii=False)
     else:
         if not project.features_js:
@@ -558,8 +672,9 @@ def all_features(pid):
                 # Sometimes wait is too long and MySQL disappears
                 pass
         features_js = project.features_js
-    return app.response_class('features = {}'.format(features_js),
-                              mimetype='application/javascript')
+    return app.response_class(
+        'features = {}'.format(features_js), mimetype='application/javascript'
+    )
 
 
 class BBoxes(object):
@@ -589,13 +704,21 @@ def api_feature(pid):
         ref_and_audit = request.get_json()
         if ref_and_audit and len(ref_and_audit) == 2:
             skipped = ref_and_audit[1] is None
-            feat = Feature.get(Feature.project == project, Feature.ref == ref_and_audit[0])
-            user_did_it = Task.select(Task.id).where(
-                Task.user == user, Task.feature == feat).count() > 0
+            feat = Feature.get(
+                Feature.project == project, Feature.ref == ref_and_audit[0]
+            )
+            user_did_it = (
+                Task.select(Task.id)
+                .where(Task.user == user, Task.feature == feat)
+                .count()
+                > 0
+            )
             Task.create(user=user, feature=feat, skipped=skipped)
             if not skipped:
                 if len(ref_and_audit[1]):
-                    new_audit = json.dumps(ref_and_audit[1], sort_keys=True, ensure_ascii=False)
+                    new_audit = json.dumps(
+                        ref_and_audit[1], sort_keys=True, ensure_ascii=False
+                    )
                 else:
                     new_audit = None
                 if feat.audit != new_audit:
@@ -616,10 +739,15 @@ def api_feature(pid):
     else:
         try:
             # Maybe use a join: https://stackoverflow.com/a/35927141/1297601
-            task_query = Task.select(Task.id).where(Task.user == user, Task.feature == Feature.id)
-            query = Feature.select().where(
-                Feature.project == project, Feature.validates_count < 2).where(
-                    ~fn.EXISTS(task_query)).order_by(Feature.validates_count, fn_Random())
+            task_query = Task.select(Task.id).where(
+                Task.user == user, Task.feature == Feature.id
+            )
+            query = (
+                Feature.select()
+                .where(Feature.project == project, Feature.validates_count < 2)
+                .where(~fn.EXISTS(task_query))
+                .order_by(Feature.validates_count, fn_Random())
+            )
             if project.validate_modified:
                 query = query.where(Feature.action == 'm')
             if region:
@@ -628,7 +756,7 @@ def api_feature(pid):
                 bboxes = BBoxes(user)
                 feature = None
                 for f in query:
-                    if bboxes.contains(f.lat/1e7, f.lon/1e7):
+                    if bboxes.contains(f.lat / 1e7, f.lon / 1e7):
                         feature = f
                         break
                     elif not feature:
@@ -639,5 +767,8 @@ def api_feature(pid):
                 feature = query.get()
         except Feature.DoesNotExist:
             return jsonify(feature={}, ref=None, audit=None)
-    return jsonify(feature=json.loads(feature.feature), ref=feature.ref,
-                   audit=json.loads(feature.audit or 'null'))
+    return jsonify(
+        feature=json.loads(feature.feature),
+        ref=feature.ref,
+        audit=json.loads(feature.audit or 'null'),
+    )

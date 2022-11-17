@@ -1,27 +1,32 @@
-version: '3.4'
+version: '3.8'
 services:
-  cf-audit: &auditor
-    build: .
+  cf-audit: &cf-audit
+    image: geometalab/osm-conflate-cf-audit
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
     environment:
       # uncomment following line to enable debugging
       # DEBUG: yes
       DATABASE_URI: 'postgresql://cf_audit:pw@database:5432/cf_audit'
-      # enter the osm-ids here, which should get admin-rights.
-      ADMINS: ''
+    # command: ["gunicorn", "--reload", "-b", "0.0.0.0:8080", "cf_audit:application"]
+    # volumes:
+    #   - ../:/app/cf-audit
     env_file:
       - .env
     ports:
       - "8080:8080"
     depends_on:
       - database
+
   migrate:
-    <<: *auditor
+    <<: *cf-audit
     command: python migrate.py
     ports: []
+
   database:
-    image: postgres:10
+    image: postgres:15
     environment:
       POSTGRES_USER: cf_audit
       POSTGRES_PASSWORD: pw
       POSTGRES_DB: cf_audit
-
