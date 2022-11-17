@@ -70,7 +70,8 @@ def get_user():
 def is_admin(user, project=None):
     if not user:
         return False
-    print(user.__dict__)
+    if config.EVERY_ONE_IS_ADMIN:
+        return True
     if user.uid in config.ADMINS:
         return True
     if not project:
