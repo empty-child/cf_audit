@@ -1,6 +1,6 @@
 from www import app
 from .db import database, User, Feature, Project, Task, fn_Random
-from .util import update_features, update_audit, update_features_cache
+from .util import update_features, update_audit, update_features_cache, update_csv
 from flask import (
     session,
     url_for,
@@ -12,12 +12,14 @@ from flask import (
 )
 from flask_oauthlib.client import OAuth
 from peewee import fn, OperationalError
+from pathlib import Path
 import json
 import config
 import codecs
 import datetime
 import math
 import os
+
 
 oauth = OAuth()
 openstreetmap = oauth.remote_app(
@@ -254,6 +256,7 @@ def show_map(name, ref=None, region=None):
     region = request.args.get('region')
     return render_template('map.html', project=project, ref=ref, region=region)
 
+csv_file = Path('/tmp/audit.csv')
 
 @app.route('/run/<name>')
 @app.route('/run/<name>/<ref>')
@@ -714,6 +717,7 @@ def api_feature(pid):
                 .count()
                 > 0
             )
+
             Task.create(user=user, feature=feat, skipped=skipped)
             if not skipped:
                 if len(ref_and_audit[1]):
@@ -728,6 +732,8 @@ def api_feature(pid):
                 elif not user_did_it:
                     feat.validates_count += 1
                 feat.save()
+
+                update_csv(csv_file, project, user, ref_and_audit[0], ref_and_audit[1])
     region = request.args.get('region')
     fref = request.args.get('ref')
     if fref:
