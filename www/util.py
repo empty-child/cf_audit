@@ -4,6 +4,13 @@ import json
 import hashlib
 import csv
 
+def read_csv(file):
+    if file.exists():
+        with open(file, 'r') as csv_file:
+            return csv_file.read()
+    else:
+        return ""
+
 def write_csv_header(file):
     with open(file, 'w') as csv_file:
         writer = csv.writer(csv_file)

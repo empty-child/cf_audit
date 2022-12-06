@@ -1,6 +1,6 @@
 from www import app
 from .db import database, User, Feature, Project, Task, fn_Random
-from .util import update_features, update_audit, update_features_cache, update_csv
+from .util import update_features, update_audit, update_features_cache, update_csv, read_csv
 from flask import (
     session,
     url_for,
@@ -566,6 +566,20 @@ def export_audit(pid):
                 project.name
             )
         },
+    )
+
+@app.route('/export_csv/')
+@app.route('/export_csv')
+def download_csv():
+    if not is_admin(get_user()):
+        return redirect(url_for('front'))
+    csv = read_csv(csv_file)
+    return app.response_class(
+        csv or '',
+        mimetype="text/csv",
+        headers={"Content-disposition":
+                 "attachment; filename=audit_csv.csv"
+                 }
     )
 
 
