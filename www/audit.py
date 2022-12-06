@@ -20,7 +20,6 @@ import datetime
 import math
 import os
 
-
 oauth = OAuth()
 openstreetmap = oauth.remote_app(
     'OpenStreetMap',
@@ -568,6 +567,7 @@ def export_audit(pid):
         },
     )
 
+
 @app.route('/export_csv/')
 @app.route('/export_csv')
 def download_csv():
@@ -731,7 +731,6 @@ def api_feature(pid):
                 .count()
                 > 0
             )
-
             Task.create(user=user, feature=feat, skipped=skipped)
             if not skipped:
                 if len(ref_and_audit[1]):
@@ -746,7 +745,6 @@ def api_feature(pid):
                 elif not user_did_it:
                     feat.validates_count += 1
                 feat.save()
-
                 update_csv(csv_file, project, user, ref_and_audit[0], ref_and_audit[1])
     region = request.args.get('region')
     fref = request.args.get('ref')

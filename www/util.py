@@ -11,12 +11,14 @@ def read_csv(file):
     else:
         return ""
 
+
 def write_csv_header(file):
     with open(file, 'w') as csv_file:
         writer = csv.writer(csv_file)
         writer.writerow(["project", "user", "feature", "type"])
 
         csv_file.close()
+
 
 def update_csv(file, project, user, feature, type):
     if not file.exists():
@@ -27,6 +29,7 @@ def update_csv(file, project, user, feature, type):
         writer.writerow([project, user, feature, type])
 
         csv_file.close()
+
 
 def update_features(project, features, audit):
     curfeats = Feature.select(Feature).where(Feature.project == project)
