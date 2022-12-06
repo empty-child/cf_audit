@@ -720,7 +720,7 @@ def api_feature(pid):
     project = Project.get(Project.id == pid)
     if user and request.method == 'POST' and project.can_validate:
         ref_and_audit = request.get_json()
-        if ref_and_audit and len(ref_and_audit) == 2:
+        if ref_and_audit and len(ref_and_audit) == 3:
             skipped = ref_and_audit[1] is None
             feat = Feature.get(
                 Feature.project == project, Feature.ref == ref_and_audit[0]
@@ -745,7 +745,7 @@ def api_feature(pid):
                 elif not user_did_it:
                     feat.validates_count += 1
                 feat.save()
-                update_csv(csv_file, project, user, ref_and_audit[0], ref_and_audit[1])
+                update_csv(csv_file, project, user, ref_and_audit[0], ref_and_audit[2], ref_and_audit[1])
     region = request.args.get('region')
     fref = request.args.get('ref')
     if fref:

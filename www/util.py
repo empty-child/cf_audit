@@ -3,32 +3,45 @@ from peewee import fn
 import json
 import hashlib
 import csv
+import time
 
 def read_csv(file):
     if file.exists():
         with open(file, 'r') as csv_file:
             return csv_file.read()
     else:
-        return ""
+        write_csv_header(file)
+    return read_csv(file)
 
 
 def write_csv_header(file):
     with open(file, 'w') as csv_file:
         writer = csv.writer(csv_file)
-        writer.writerow(["project", "user", "feature", "type"])
+        writer.writerow(["project", "user", "ref_id", "osm_id" "type", "timestamp", "already_existed"])
 
         csv_file.close()
 
 
-def update_csv(file, project, user, feature, type):
+def update_csv(file, project, user, ref_id, osm_id, type):
     if not file.exists():
         write_csv_header(file)
 
     with open(file, 'a') as csv_file:
         writer = csv.writer(csv_file)
-        writer.writerow([project, user, feature, type])
+        exited_before = feature_in_csv(file, ref_id)
+        writer.writerow([project, user, ref_id, osm_id, type, time.time(), exited_before])
 
         csv_file.close()
+
+
+def feature_in_csv(file, feature_ref):
+    with open(file, 'r') as csv_file:
+        reader = csv.DictReader(csv_file)
+
+        for row in reader:
+            if row['ref_id'] == feature_ref:
+                return True
+        return False
 
 
 def update_features(project, features, audit):

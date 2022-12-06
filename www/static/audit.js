@@ -702,8 +702,9 @@ function prepareAudit(data) {
 function submit(e) {
   // Send audit result and query the next feature
   var audit = prepareAudit(e.data);
+  var osm_id = feature['properties']['osm_id'];
   console.log(JSON.stringify(audit));
   $('#reason_box').hide();
   $('#buttons button').each(function() { $(this).prop('disabled', true); });
-  queryNext([feature.ref, e.data.msg == 'skip' ? null : audit]);
+  queryNext([feature.ref, e.data.msg == 'skip' ? null : audit, osm_id != null ? osm_id : null]);
 }
