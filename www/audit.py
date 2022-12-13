@@ -12,7 +12,6 @@ from flask import (
 )
 from flask_oauthlib.client import OAuth
 from peewee import fn, OperationalError
-from pathlib import Path
 import json
 import config
 import codecs
