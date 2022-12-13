@@ -568,7 +568,6 @@ def export_audit(pid):
     )
 
 
-@app.route('/export_csv/')
 @app.route('/export_csv')
 def download_csv():
     if not is_admin(get_user()):
@@ -719,11 +718,11 @@ def api_feature(pid):
     user = get_user()
     project = Project.get(Project.id == pid)
     if user and request.method == 'POST' and project.can_validate:
-        ref_and_audit = request.get_json()
-        if ref_and_audit and len(ref_and_audit) == 3:
-            skipped = ref_and_audit[1] is None
+        ref_id, type, osm_id  = request.get_json()
+        if ref_id and type and osm_id:
+            skipped = type is None
             feat = Feature.get(
-                Feature.project == project, Feature.ref == ref_and_audit[0]
+                Feature.project == project, Feature.ref == ref_id
             )
             user_did_it = (
                 Task.select(Task.id)
@@ -733,9 +732,9 @@ def api_feature(pid):
             )
             Task.create(user=user, feature=feat, skipped=skipped)
             if not skipped:
-                if len(ref_and_audit[1]):
+                if len(type):
                     new_audit = json.dumps(
-                        ref_and_audit[1], sort_keys=True, ensure_ascii=False
+                        type, sort_keys=True, ensure_ascii=False
                     )
                 else:
                     new_audit = None
@@ -745,7 +744,7 @@ def api_feature(pid):
                 elif not user_did_it:
                     feat.validates_count += 1
                 feat.save()
-                update_csv(csv_file, project, user, ref_and_audit[0], ref_and_audit[2], ref_and_audit[1])
+                update_csv(csv_file, project, user, ref_id, osm_id, type)
     region = request.args.get('region')
     fref = request.args.get('ref')
     if fref:
