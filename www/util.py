@@ -25,8 +25,6 @@ def write_csv_header(file):
         writer = csv.writer(csv_file)
         writer.writerow(["project", "user", "ref_id", "osm_id" "type", "timestamp", "already_existed"])
 
-        csv_file.close()
-
 
 def update_csv(file, project, user, ref_id, osm_id, type):
     if not file.exists():
@@ -36,8 +34,6 @@ def update_csv(file, project, user, ref_id, osm_id, type):
             writer = csv.writer(csv_file)
             exited_before = feature_in_csv(file, ref_id)
             writer.writerow([project, user, ref_id, osm_id, type, time.time(), exited_before])
-
-            csv_file.close()
     except OSError:
         print(f"Couldn't write: {file}")
 
