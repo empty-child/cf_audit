@@ -255,8 +255,6 @@ def show_map(name, ref=None, region=None):
     region = request.args.get('region')
     return render_template('map.html', project=project, ref=ref, region=region)
 
-csv_file = Path(os.environ.get('CSV_FILE', ''))
-
 @app.route('/run/<name>')
 @app.route('/run/<name>/<ref>')
 def tasks(name, ref=None, region=None):
@@ -572,7 +570,7 @@ def export_audit(pid):
 def download_csv():
     if not is_admin(get_user()):
         return redirect(url_for('front'))
-    csv = read_csv(csv_file)
+    csv = read_csv(config.CSV_FILE)
     return app.response_class(
         csv or '',
         mimetype="text/csv",
@@ -744,7 +742,7 @@ def api_feature(pid):
                 elif not user_did_it:
                     feat.validates_count += 1
                 feat.save()
-                update_csv(csv_file, project, user, ref_id, osm_id, type)
+                update_csv(config.CSV_FILE, project, user, ref_id, osm_id, type)
     region = request.args.get('region')
     fref = request.args.get('ref')
     if fref:
