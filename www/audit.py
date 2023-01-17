@@ -1,6 +1,7 @@
 from www import app
 from .db import database, User, Feature, Project, Task, fn_Random
-from .util import update_features, update_audit, update_features_cache, update_csv, read_csv
+from .util import update_features, update_audit, update_features_cache
+from .csv_operations import update_csv, read_csv
 from flask import (
     session,
     url_for,

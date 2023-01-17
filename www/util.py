@@ -50,7 +50,7 @@ def feature_in_csv(file, feature_ref):
     except OSError:
         print(f"Couldn't read: {file}")
         return False
-
+import time
 
 def update_features(project, features, audit):
     curfeats = Feature.select(Feature).where(Feature.project == project)
