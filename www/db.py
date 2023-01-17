@@ -77,6 +77,15 @@ class Task(BaseModel):
     skipped = BooleanField(default=False)
 
 
+class Stats(BaseModel):
+    project_id = IntegerField()
+    user = IntegerField()
+    ref_id = IntegerField()
+    osm_id = IntegerField()
+    type = CharField(max_length=512)
+    timestamp = IntegerField()
+    already_existed = BooleanField()
+
 # ------------------------------ MIGRATION ------------------------------
 
 
@@ -93,7 +102,7 @@ def migrate():
     try:
         v = Version.select().get()
     except Version.DoesNotExist:
-        database.create_tables([User, Project, Feature, Task])
+        database.create_tables([User, Project, Feature, Task, Stats])
         v = Version(version=LAST_VERSION)
         v.save()
 
@@ -139,6 +148,7 @@ def migrate():
             migrator.add_column(
                 Task._meta.db_table, Task.skipped.db_column, Task.skipped
             ),
+
             migrator.drop_column(Project._meta.db_table, 'validated_count'),
         )
         v.version = 1
