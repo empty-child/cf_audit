@@ -717,7 +717,7 @@ def api_feature(pid):
     project = Project.get(Project.id == pid)
     if user and request.method == 'POST' and project.can_validate:
         ref_id, type, osm_id  = request.get_json()
-        if ref_id and type and osm_id:
+        if ref_id and osm_id:
             skipped = type is None
             feat = Feature.get(
                 Feature.project == project, Feature.ref == ref_id
