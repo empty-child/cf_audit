@@ -8,6 +8,7 @@ from peewee import (
     FixedCharField,
     BooleanField,
     DateField,
+    BigIntegerField,
 )
 from playhouse.migrate import (
     migrate as peewee_migrate,
@@ -79,11 +80,11 @@ class Task(BaseModel):
 
 class Stats(BaseModel):
     project_id = IntegerField()
-    user = IntegerField()
-    ref_id = IntegerField()
-    osm_id = IntegerField()
+    user = BigIntegerField()
+    ref_id = BigIntegerField()
+    osm_id = BigIntegerField()
     type = CharField(max_length=512)
-    timestamp = IntegerField()
+    timestamp = BigIntegerField()
     already_existed = BooleanField()
 
 # ------------------------------ MIGRATION ------------------------------

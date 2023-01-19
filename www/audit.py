@@ -1,7 +1,7 @@
 from www import app
 from .db import database, User, Feature, Project, Task, fn_Random
 from .util import update_features, update_audit, update_features_cache
-from .csv_operations import update_csv, read_csv
+from .csv_operations import update_stats, read_stats
 from flask import (
     session,
     url_for,
@@ -570,13 +570,13 @@ def export_audit(pid):
 def download_csv():
     if not is_admin(get_user()):
         return redirect(url_for('front'))
-    csv = read_csv()
+    csv = read_stats()
     return app.response_class(
         csv or '',
         mimetype="text/csv",
-        headers={"Content-disposition":
-                 "attachment; filename=audit_csv.csv"
-                 }
+        headers={
+            "Content-disposition": "attachment; filename=audit_csv.csv"
+        },
     )
 
 
@@ -742,7 +742,7 @@ def api_feature(pid):
                 elif not user_did_it:
                     feat.validates_count += 1
                 feat.save()
-                update_csv(config.CSV_FILE, project, user, ref_id, osm_id, type)
+                update_stats(project, user, ref_id, osm_id, type)
     region = request.args.get('region')
     fref = request.args.get('ref')
     if fref:
