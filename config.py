@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
@@ -12,8 +11,6 @@ DEFAULT_CONTENT_MAX_SIZE_IN_MB = 200
 MAX_CONTENT_LENGTH = int(
     os.environ.get('MAX_CONTENT_LENGTH', DEFAULT_CONTENT_MAX_SIZE_IN_MB * 1024 * 1024)
 )
-
-CSV_FILE = Path(os.environ.get('CSV_FILE', ''))
 
 # this is a nasty setting, but it makes usage locally much easier
 EVERY_ONE_IS_ADMIN = bool(int(os.environ.get('EVERY_ONE_IS_ADMIN', 0)))

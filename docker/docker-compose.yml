@@ -8,7 +8,6 @@ services:
     environment:
       # uncomment following line to enable debugging
       # DEBUG: yes
-      CSV_FILE: '/tmp/audit.csv'
       DATABASE_URI: 'postgresql://cf_audit:pw@database:5432/cf_audit'
     # command: ["gunicorn", "--reload", "-b", "0.0.0.0:8080", "cf_audit:application"]
     # volumes:
