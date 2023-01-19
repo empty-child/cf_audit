@@ -255,6 +255,7 @@ def show_map(name, ref=None, region=None):
     region = request.args.get('region')
     return render_template('map.html', project=project, ref=ref, region=region)
 
+
 @app.route('/run/<name>')
 @app.route('/run/<name>/<ref>')
 def tasks(name, ref=None, region=None):
