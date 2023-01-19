@@ -3,6 +3,7 @@ from peewee import fn
 import json
 import hashlib
 
+
 def update_features(project, features, audit):
     curfeats = Feature.select(Feature).where(Feature.project == project)
     ref2feat = {f.ref: f for f in curfeats}
