@@ -2,7 +2,6 @@ from .db import Feature, Task
 from peewee import fn
 import json
 import hashlib
-import time
 
 def update_features(project, features, audit):
     curfeats = Feature.select(Feature).where(Feature.project == project)
