@@ -2,22 +2,6 @@ from .db import Feature, Task
 from peewee import fn
 import json
 import hashlib
-import csv
-import time
-
-
-def feature_in_csv(file, feature_ref):
-    try:
-        with open(file, 'r') as csv_file:
-            reader = csv.DictReader(csv_file)
-
-            for row in reader:
-                if row['ref_id'] == feature_ref:
-                    return True
-            return False
-    except OSError:
-        print(f"Couldn't read: {file}")
-        return False
 import time
 
 def update_features(project, features, audit):
