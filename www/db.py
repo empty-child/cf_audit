@@ -149,7 +149,6 @@ def migrate():
             migrator.add_column(
                 Task._meta.db_table, Task.skipped.db_column, Task.skipped
             ),
-
             migrator.drop_column(Project._meta.db_table, 'validated_count'),
         )
         v.version = 1
