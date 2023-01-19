@@ -570,7 +570,7 @@ def export_audit(pid):
 def download_csv():
     if not is_admin(get_user()):
         return redirect(url_for('front'))
-    csv = read_csv(config.CSV_FILE)
+    csv = read_csv()
     return app.response_class(
         csv or '',
         mimetype="text/csv",
