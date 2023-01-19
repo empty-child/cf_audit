@@ -706,5 +706,5 @@ function submit(e) {
   console.log(JSON.stringify(audit));
   $('#reason_box').hide();
   $('#buttons button').each(function() { $(this).prop('disabled', true); });
-  queryNext([feature.ref, e.data.msg == 'skip' ? null : audit, osm_id != null ? osm_id : null]);
+  queryNext([feature.ref, e.data.msg == 'skip' ? null : audit, osm_id]);
 }
