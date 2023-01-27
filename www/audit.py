@@ -1,6 +1,7 @@
 from www import app
 from .db import database, User, Feature, Project, Task, fn_Random
 from .util import update_features, update_audit, update_features_cache
+from .stats_operations import update_stats, read_stats
 from flask import (
     session,
     url_for,
@@ -566,6 +567,20 @@ def export_audit(pid):
     )
 
 
+@app.route('/export_csv')
+def download_csv():
+    if not is_admin(get_user()):
+        return redirect(url_for('front'))
+    csv = read_stats()
+    return app.response_class(
+        csv or '',
+        mimetype="text/csv",
+        headers={
+            "Content-disposition": "attachment; filename=audit_csv.csv"
+        },
+    )
+
+
 @app.route('/external_audit/<int:pid>')
 def external_audit(pid):
     project = Project.get(Project.id == pid)
@@ -702,11 +717,11 @@ def api_feature(pid):
     user = get_user()
     project = Project.get(Project.id == pid)
     if user and request.method == 'POST' and project.can_validate:
-        ref_and_audit = request.get_json()
-        if ref_and_audit and len(ref_and_audit) == 2:
-            skipped = ref_and_audit[1] is None
+        ref_id, type, osm_id  = request.get_json()
+        if ref_id and osm_id:
+            skipped = type is None
             feat = Feature.get(
-                Feature.project == project, Feature.ref == ref_and_audit[0]
+                Feature.project == project, Feature.ref == ref_id
             )
             user_did_it = (
                 Task.select(Task.id)
@@ -716,9 +731,9 @@ def api_feature(pid):
             )
             Task.create(user=user, feature=feat, skipped=skipped)
             if not skipped:
-                if len(ref_and_audit[1]):
+                if len(type):
                     new_audit = json.dumps(
-                        ref_and_audit[1], sort_keys=True, ensure_ascii=False
+                        type, sort_keys=True, ensure_ascii=False
                     )
                 else:
                     new_audit = None
@@ -728,6 +743,7 @@ def api_feature(pid):
                 elif not user_did_it:
                     feat.validates_count += 1
                 feat.save()
+                update_stats(project, user, ref_id, osm_id, type)
     region = request.args.get('region')
     fref = request.args.get('ref')
     if fref:

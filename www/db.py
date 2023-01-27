@@ -8,6 +8,7 @@ from peewee import (
     FixedCharField,
     BooleanField,
     DateField,
+    BigIntegerField,
 )
 from playhouse.migrate import (
     migrate as peewee_migrate,
@@ -77,10 +78,19 @@ class Task(BaseModel):
     skipped = BooleanField(default=False)
 
 
+class Stats(BaseModel):
+    project_id = IntegerField()
+    user = BigIntegerField()
+    ref_id = BigIntegerField(index=True)
+    osm_id = BigIntegerField()
+    type = CharField(max_length=512)
+    timestamp = BigIntegerField()
+    already_existed = BooleanField()
+
 # ------------------------------ MIGRATION ------------------------------
 
 
-LAST_VERSION = 4
+LAST_VERSION = 5
 
 
 class Version(BaseModel):
@@ -93,7 +103,8 @@ def migrate():
     try:
         v = Version.select().get()
     except Version.DoesNotExist:
-        database.create_tables([User, Project, Feature, Task])
+        database.create_tables([User, Project, Feature, Task, Stats])
+
         v = Version(version=LAST_VERSION)
         v.save()
 
@@ -187,7 +198,14 @@ def migrate():
                 Feature.region,
             ),
         )
+
         v.version = 4
+        v.save()
+
+    if v.version == 4:
+        database.create_tables([Stats])
+
+        v.version = 5
         v.save()
 
     logging.info('Migrated the database to version %s', v.version)
