@@ -21,6 +21,14 @@ def is_ref_id_in_db(ref_id):
 
 def update_stats(project, user, ref_id, osm_id, type):
     try:
-        Stats(project_id=project, user=user, ref_id=ref_id, osm_id=osm_id, type=type, timestamp=time.time(), already_existed = is_ref_id_in_db(ref_id)).save()
+        Stats(
+            project_id=project,
+            user=user,
+            ref_id=ref_id,
+            osm_id=osm_id,
+            type=type,
+            timestamp=time.time(),
+            already_existed=is_ref_id_in_db(ref_id),
+        ).save()
     except Data:
         abort(500, "Can't connect to database")
