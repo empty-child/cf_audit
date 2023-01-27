@@ -5,11 +5,14 @@ from io import StringIO
 from flask import abort
 
 def read_stats():
-    csv_string = 'sep=;\rproject;user;ref_id;osm_id;type;timestamp;already_existed\r'
+    csv_output = StringIO()
 
-    for item in Stats.select():
-        csv_string += f'{item.project_id};{item.user};{item.ref_id};{item.osm_id};{item.type};{item.timestamp};{item.already_existed}\r'
-    return csv_string
+    writer = csv.DictWriter(csv_output, Stats._meta.fields.keys())
+    writer.writeheader()
+
+    writer.writerows(Stats.select().dicts())
+
+    return csv_output.getvalue()
 
 
 def is_ref_id_in_db(ref_id):

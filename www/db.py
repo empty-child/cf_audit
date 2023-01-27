@@ -81,7 +81,7 @@ class Task(BaseModel):
 class Stats(BaseModel):
     project_id = IntegerField()
     user = BigIntegerField()
-    ref_id = BigIntegerField()
+    ref_id = BigIntegerField(index=True)
     osm_id = BigIntegerField()
     type = CharField(max_length=512)
     timestamp = BigIntegerField()
@@ -90,7 +90,7 @@ class Stats(BaseModel):
 # ------------------------------ MIGRATION ------------------------------
 
 
-LAST_VERSION = 4
+LAST_VERSION = 5
 
 
 class Version(BaseModel):
@@ -104,6 +104,7 @@ def migrate():
         v = Version.select().get()
     except Version.DoesNotExist:
         database.create_tables([User, Project, Feature, Task, Stats])
+
         v = Version(version=LAST_VERSION)
         v.save()
 
@@ -197,7 +198,14 @@ def migrate():
                 Feature.region,
             ),
         )
+
         v.version = 4
+        v.save()
+
+    if v.version == 4:
+        database.create_tables([Stats])
+
+        v.version = 5
         v.save()
 
     logging.info('Migrated the database to version %s', v.version)
