@@ -717,9 +717,9 @@ def api_feature(pid):
     user = get_user()
     project = Project.get(Project.id == pid)
     if user and request.method == 'POST' and project.can_validate:
-        ref_id, type, osm_id  = request.get_json()
+        ref_id, action, osm_id  = request.get_json()
         if ref_id and osm_id:
-            skipped = type is None
+            skipped = action is None
             feat = Feature.get(
                 Feature.project == project, Feature.ref == ref_id
             )
@@ -731,9 +731,9 @@ def api_feature(pid):
             )
             Task.create(user=user, feature=feat, skipped=skipped)
             if not skipped:
-                if len(type):
+                if len(action):
                     new_audit = json.dumps(
-                        type, sort_keys=True, ensure_ascii=False
+                        action, sort_keys=True, ensure_ascii=False
                     )
                 else:
                     new_audit = None
@@ -743,7 +743,7 @@ def api_feature(pid):
                 elif not user_did_it:
                     feat.validates_count += 1
                 feat.save()
-                update_stats(project, user, ref_id, osm_id, type)
+                update_stats(project.title, user, ref_id, osm_id, action)
     region = request.args.get('region')
     fref = request.args.get('ref')
     if fref:
