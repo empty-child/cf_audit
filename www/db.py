@@ -85,6 +85,7 @@ class Stats(BaseModel):
     user = BigIntegerField()
     ref_id = CharField(max_length=512, index=True)
     osm_id = BigIntegerField()
+    osm_type = CharField(max_length=256)
     action = CharField(max_length=512)
     timestamp = DateTimeField(default=datetime.datetime.utcnow())
     already_existed = BooleanField()

@@ -29,13 +29,14 @@ def is_ref_id_in_db(ref_id):
     return Stats.select().where(Stats.ref_id == ref_id).count() > 0
 
 
-def update_stats(project, user, ref_id, osm_id, action):
+def update_stats(project, user, ref_id, osm_id, osm_type, action):
     try:
         Stats(
             project_name=project,
             user=user,
             ref_id=ref_id,
             osm_id=osm_id,
+            osm_type=osm_type,
             action=action,
             timestamp=datetime.now(),
             already_existed=is_ref_id_in_db(ref_id),
