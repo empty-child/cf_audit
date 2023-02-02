@@ -9,8 +9,6 @@ def read_stats():
     csv_output = StringIO()
 
     writer = csv.DictWriter(csv_output, Stats._meta.fields.keys())
-    print(Stats._meta.fields.keys())
-    print(type(Stats._meta.fields.keys()))
     writer.writeheader()
     results = Stats.select().dicts()
 
@@ -42,5 +40,4 @@ def update_stats(project, user, ref_id, osm_id, osm_type, action):
             already_existed=is_ref_id_in_db(ref_id),
         ).save()
     except Exception as e :
-        print(e)
         abort(500, "Can't connect to database")
