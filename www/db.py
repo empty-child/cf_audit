@@ -9,6 +9,7 @@ from peewee import (
     BooleanField,
     DateField,
     BigIntegerField,
+    DateTimeField,
 )
 from playhouse.migrate import (
     migrate as peewee_migrate,
@@ -19,6 +20,7 @@ from playhouse.migrate import (
 from playhouse.db_url import connect
 import config
 import logging
+import datetime
 
 database = connect(config.DATABASE_URI)
 if 'mysql' in config.DATABASE_URI:
@@ -79,13 +81,15 @@ class Task(BaseModel):
 
 
 class Stats(BaseModel):
-    project_id = IntegerField()
+    project_name = CharField(max_length=512, index=True)
     user = BigIntegerField()
-    ref_id = BigIntegerField(index=True)
+    ref_id = CharField(max_length=512, index=True)
     osm_id = BigIntegerField()
-    type = CharField(max_length=512)
-    timestamp = BigIntegerField()
+    osm_type = CharField(max_length=256)
+    action = CharField(max_length=512)
+    timestamp = DateTimeField()
     already_existed = BooleanField()
+
 
 # ------------------------------ MIGRATION ------------------------------
 
