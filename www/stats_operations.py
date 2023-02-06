@@ -44,5 +44,5 @@ def update_stats(project, user, ref_id, osm_id, osm_type, action):
             timestamp=datetime.now(),
             already_existed=is_ref_id_in_db(ref_id),
         ).save()
-    except Exception as e :
+    except Exception:
         abort(500, "Can't connect to database")
