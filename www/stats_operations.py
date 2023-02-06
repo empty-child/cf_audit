@@ -15,15 +15,13 @@ def read_stats():
 
     writer = csv.DictWriter(csv_output, new_keys)
     writer.writeheader()
-    results = Stats.select().dicts()
+    results = Stats.select(Stats.ref_id, Stats.project_name, Stats.osm_type, Stats.osm_id, Stats.timestamp, Stats.already_existed, Stats.action, Stats.user).dicts()
 
     for result in results:
         result.update({
-            'already_existed' : 'true' if bool(result.get('Stats.already_existed')) else 'false',
-            'timestamp' : result.get('timestamp').isoformat()
-                       })
-
-        result.pop('id')
+            'already_existed' : str(result.get('already_existed')).lower(),
+            'timestamp' : result.get('timestamp').isoformat(),
+        })
 
     writer.writerows(results)
 
