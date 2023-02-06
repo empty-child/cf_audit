@@ -8,14 +8,11 @@ from flask import abort
 def read_stats():
     csv_output = StringIO()
 
-    keys = Stats._meta.fields.keys();
-
-    new_keys = list(keys)
-    new_keys.remove('id')
-
-    writer = csv.DictWriter(csv_output, new_keys)
+    csv_fields = Stats._meta.fields.copy();
+    csv_fields.pop('id')
+    writer = csv.DictWriter(csv_output, csv_fields.keys())
     writer.writeheader()
-    results = Stats.select(Stats.ref_id, Stats.project_name, Stats.osm_type, Stats.osm_id, Stats.timestamp, Stats.already_existed, Stats.action, Stats.user).dicts()
+    results = Stats.select(*csv_fields.values()).dicts()
 
     for result in results:
         result.update({
