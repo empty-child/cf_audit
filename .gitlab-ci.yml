@@ -1,5 +1,6 @@
 stages:
   - build
+  - deploy
 
 build:
   stage: build
@@ -11,5 +12,15 @@ build:
     - mkdir -p /kaniko/.docker
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
     - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/docker/Dockerfile --destination $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+  only:
+    - master
+
+deploy:
+  stage: deploy
+  image: curlimages/curl
+  script:
+    - curl -X POST https://portainer.geoh.infs.ch/api/webhooks/f0ac9f2e-0ded-47cc-9327-2c54a817b6a9
+    - sleep 20
+    - curl -X POST https://portainer.geoh.infs.ch/api/webhooks/8eebc153-cf8f-4007-ac41-4fea7c2eaa32
   only:
     - master
