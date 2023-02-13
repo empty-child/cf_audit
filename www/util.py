@@ -33,7 +33,9 @@ def update_features(project, features, audit):
         if 'ref_id' in f['properties']:
             ref = f['properties']['ref_id']
         else:
-            ref = '{}{}'.format(f['properties']['osm_type'], f['properties']['osm_id'])
+            ref = '{}{}'.format(
+                f['properties']['osm_type'], f['properties']['osm_id']
+            )
 
         update = False
         if ref in ref2feat:
@@ -71,12 +73,14 @@ def update_features(project, features, audit):
         q = Feature.delete().where(Feature.ref << list(deleted))
         q.execute()
 
-    for ref, f_audit in audit.items():
+    for ref, f_audit in list(audit.items()):
         if ref in ref2feat and ref not in updated:
             if not f_audit:
                 f_audit = None
             else:
-                f_audit = json.dumps(f_audit, ensure_ascii=False, sort_keys=True)
+                f_audit = json.dumps(
+                    f_audit, ensure_ascii=False, sort_keys=True
+                )
             feat = ref2feat[ref]
             if f_audit != feat.audit:
                 feat.audit = f_audit
@@ -85,17 +89,26 @@ def update_features(project, features, audit):
                 feat.save()
 
     project.bbox = ','.join([str(x) for x in (minlon, minlat, maxlon, maxlat)])
-    project.feature_count = Feature.select().where(Feature.project == project).count()
+    project.feature_count = (
+        Feature.select().where(Feature.project == project).count()
+    )
     project.features_js = None
-    if Feature.select(fn.Count(fn.Distinct(Feature.region))).where(
-            Feature.project == project).scalar() <= 1:
+    if (
+        Feature.select(fn.Count(fn.Distinct(Feature.region)))
+        .where(Feature.project == project)
+        .scalar()
+        <= 1
+    ):
         project.regional = False
     project.save()
 
 
 def update_audit(project):
-    query = Feature.select(Feature.ref, Feature.audit).where(
-        Feature.project == project, Feature.audit.is_null(False)).tuples()
+    query = (
+        Feature.select(Feature.ref, Feature.audit)
+        .where(Feature.project == project, Feature.audit.is_null(False))
+        .tuples()
+    )
     audit = {}
     for feat in query:
         if feat[1]:
@@ -106,11 +119,14 @@ def update_audit(project):
 
 
 def update_features_cache(project):
-    query = Feature.select(Feature.ref, Feature.lat, Feature.lon, Feature.action).where(
-            Feature.project == project).tuples()
+    query = (
+        Feature.select(Feature.ref, Feature.lat, Feature.lon, Feature.action)
+        .where(Feature.project == project)
+        .tuples()
+    )
     features = []
     for ref, lat, lon, action in query:
-        features.append([ref, [lat/1e7, lon/1e7], action])
+        features.append([ref, [lat / 1e7, lon / 1e7], action])
     data = json.dumps(features, ensure_ascii=False)
     project.features_js = data
     return data

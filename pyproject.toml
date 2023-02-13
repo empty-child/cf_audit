@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "cf-audit"
+version = "0.1.0"
+description = "audit frontend for osm-conflate"
+authors = ["None"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.11"
+peewee = "^3.15.4"
+flask = "^2.2.2"
+flask-compress = "^1.13"
+flask-oauthlib = "^0.9.6"
+uwsgi = "^2.0.21"
+psycopg2-binary = "^2.9.5"
+uvicorn = "^0.19.0"
+gunicorn = "^20.1.0"
+
+
+[tool.poetry.group.dev.dependencies]
+blue = "^0.9.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
