@@ -569,8 +569,6 @@ def export_audit(pid):
 
 @app.route('/export_csv')
 def download_csv():
-    if not is_admin(get_user()):
-        return redirect(url_for('front'))
     csv = read_stats()
     return app.response_class(
         csv or '',
@@ -579,7 +577,6 @@ def download_csv():
             "Content-disposition": "attachment; filename=audit_csv.csv"
         },
     )
-
 
 @app.route('/external_audit/<int:pid>')
 def external_audit(pid):
