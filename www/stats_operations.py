@@ -1,4 +1,4 @@
-import csv
+import csv, json
 import time
 from datetime import datetime
 from .db import Stats
@@ -37,7 +37,7 @@ def update_stats(project, user, ref_id, osm_id, osm_type, action):
             ref_id=ref_id,
             osm_id=osm_id,
             osm_type=osm_type,
-            action=action,
+            action=json.dumps(action),
             timestamp=datetime.now(),
             already_existed=is_ref_id_in_db(ref_id),
         ).save()

@@ -740,7 +740,7 @@ def api_feature(pid):
                 elif not user_did_it:
                     feat.validates_count += 1
                 feat.save()
-                update_stats(project.title, user, ref_id, properties['osm_id'], properties['osm_type'] ,action)
+                update_stats(project.title, user, ref_id, properties['osm_id'], properties['osm_type'], action)
     region = request.args.get('region')
     fref = request.args.get('ref')
     if fref:
