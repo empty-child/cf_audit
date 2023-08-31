@@ -1,0 +1,4366 @@
+{
+    "type": "FeatureCollection",
+    "dataset_attributes": {
+        "@spider": "winterthur_ch",
+        "attribution": "optional",
+        "attribution:name:de": "Stadt Winterthur",
+        "attribution:name:en": "City of Winterthur",
+        "attribution:wikidata": "Q9125",
+        "license": "Creative Commons Zero",
+        "license:website": "https://stadtplan.winterthur.ch/stadtgruen/spielplatzkontrolle-service/swagger/index.html",
+        "license:wikidata": "Q6938433",
+        "spider:collection_time": "2023-08-20T10:24:27.533548"
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "id": "uHB0bT7TO9JMujHS36X0bDiYy4I=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "46",
+                "addr:street": "Wartstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Neuwiesen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.719198953045323,
+                    47.50226048502928
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "W13xDBzrEHu37cJKkujyaaIbLkw=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "225",
+                "addr:street": "W\u00fclflingerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "WJS Profil W\u00fclflingen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.698324318530878,
+                    47.51044149868278
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "j0lvrdsaGVo2fo6SWn00LEb3PJs=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "69",
+                "addr:street": "W\u00e4sserwiesenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten W\u00e4sserwiesen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.68512576958861,
+                    47.511265544965624
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "ECqYm47FOdYq-PhwkniqqDtrS_Q=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "10a",
+                "addr:street": "Wingertlistrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten S\u00fclacker"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.760513795031683,
+                    47.490552117962075
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "omyRNA3D_tsTEtMpZTqMQlp0kYU=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "141",
+                "addr:street": "R\u00f6merstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus R\u00f6merstrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.752109381670481,
+                    47.50685655303057
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "Rr1t-pW-eX7alTaf3UgXB6GgQhQ=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "8",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "20",
+                "addr:street": "Rappstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Rappstrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.690038281657959,
+                    47.50871031329889
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "QkW_MSxndpBMlB1Yvl-lCHgHuSI=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "20",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "7",
+                "addr:street": "Nussbaumweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Breite"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.729243262782202,
+                    47.49139262994556
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "gfhU547vJS617A5R8FEKUctcGxk=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "1",
+                "addr:street": "Lindstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Altstadt"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.729942591584598,
+                    47.50066518309712
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "itpyvsodL-RWegnBMeCXSk0faWo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "15",
+                "addr:street": "Rebwiesenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Rebwiesen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.705253952582558,
+                    47.49474499188717
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "WFy2NmStApvBHVqAymqDa-fmyr0=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "14",
+                "addr:street": "H\u00fcndlerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "SchuBe Laubegg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.701809230408113,
+                    47.47805961723298
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "OaoSkHpwDrAhOjg6yL-w8-Tb1N4=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "1",
+                "addr:street": "Scheideggstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Gutschick"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.749167055050824,
+                    47.49241038611424
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "gUo6lY7TFFjIWoln-BNpzK1wUR0=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "52",
+                "addr:street": "Buchackerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Schachen Pavillon"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.717394752135778,
+                    47.517278577761566
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "8fDGsipqbCVfRuekJFDcOuA5pJs=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "51",
+                "addr:street": "Weberstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Weberstrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.739749701994167,
+                    47.49252884073208
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "V90BITRu70yLU80tRnWf6_c_mYQ=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "140",
+                "addr:street": "Guggenb\u00fchlstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Wallr\u00fcti"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.759900823480553,
+                    47.51831956528067
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "xaDNJc5ZCyjTW9bebyoHGFbMtds=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "25a",
+                "addr:street": "B\u00fcelhofstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "TH B\u00fcelhofstrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.76379532123637,
+                    47.484181491410574
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "4EHbX-Mfs5tOxi4IjEovtZG_Poo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "90",
+                "addr:street": "Talackerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Talacker"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.751034515903841,
+                    47.50091119302598
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "Q3QGjwTZTLRJvLoUVTeqdT7uGQo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "146",
+                "addr:street": "Guggenb\u00fchlstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Wallr\u00fcti"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.759886148931088,
+                    47.51980748668526
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "kANd3d0xwoqYjDjdfBxYMdIkdlM=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "42",
+                "addr:street": "W\u00fclflingerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus W\u00fclflingerstrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.71636472152273,
+                    47.506421434060876
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "NQr0grhOL9cXbeMJwDxSnNMjRp8=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "2",
+                "addr:street": "Weierweid",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Weierweid"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.777715810257583,
+                    47.46683296089923
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "E5bC_M-9K9R5a97nOTwUQ-RGBdE=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "15",
+                "addr:street": "Sch\u00fctzenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Sch\u00fctzenwiese"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.71756109322982,
+                    47.5016892500038
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "AsNDOUuJQgf4TETxdAAXv8Z41eY=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "54",
+                "addr:street": "Stadlerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "SchuBe Guggenb\u00fchl"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.758177912928025,
+                    47.512546924797746
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "tzX2Xu5toIrS-iuJ79baLkDVdDo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "50",
+                "addr:street": "Ida-Str\u00e4uli-Strasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Neuhegi Kindergarten"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.767343763836143,
+                    47.504525156923954
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "nKitTi1SveHM6OEOu4FAe8gVxpI=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "9",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "45",
+                "addr:street": "Lindstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten \u00c4usseres Lind"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.724968812582757,
+                    47.50713201538209
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "SItHkEXyg5S4fggxof2JhbLqpEQ=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Weinbergstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Weinbergstrasse Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.709838525069063,
+                    47.510119062541484
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "nH_59NuLZAUO8LmdFcGFraGNdFk=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Camping Sch\u00fctzenweiher"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.716249144514368,
+                    47.519835238966074
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "JJ98McbUZjggh6bMw9vu-YUxWv4=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Salstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Blumenau Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.710008723232733,
+                    47.50611474160134
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "zb7vN7TE0g-ZA7qCfzSCCpS_dq8=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Feldstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Delphinplatz Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.718539256909779,
+                    47.50765902823889
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "XcfvIAVeUkeZcPf3SlvTnlNgGV4=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Schneeballweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Weststrasse Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.714867594921825,
+                    47.50743311372025
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "1nh5Cbt9_EsnMhdH5T3hnPXQguY=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Weststrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Feldtal Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.70611705113357,
+                    47.50946359739875
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "DN1rlHUw5a7P1Te08w1nEB3e13c=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "22",
+                "@spider": "winterthur_ch",
+                "addr:street": "Weststrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Fl\u00fceli-Weststrasse Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.709589687519472,
+                    47.50899951018243
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "EUbrcNQ--o7yl5dLD_XqMubrsNU=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "W\u00fclflingerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Fl\u00fceli Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.707438235714925,
+                    47.50795877633161
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "9NZS_5AzhM0WcywmZ8lIWkaQoWs=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Dellerrain",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schenkelwiese Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.693315380026434,
+                    47.50778603500726
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "fbVahu1HYfoDsWJKDl_21Y9_VNo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "40",
+                "addr:street": "Holzlegistrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Freizeitanlage Holzlegi"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.690311450836031,
+                    47.513127565866775
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "4ZTlvag0JEFh9Nb1GLm14m08bbg=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Euelstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Hardau Mini-Pitch Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.682482572456372,
+                    47.51116205565925
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "F4S3wpJcqOkis9ja6W7Z4jb46Fg=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Hardgutstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Hardau Quartierspielplatz"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.681101784698672,
+                    47.51198325212995
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "vC_19ENVDcI9ofD7uOd0IB_P0wk=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Eisweiherstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Zelgli Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.737179654057403,
+                    47.4896845431288
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "8q3X3sTWdvntLH8ZymLW1NQUOog=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Rehweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Steglitobel Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.73409550476038,
+                    47.488648545337796
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "-vXDp3m8dYXEqDs22D_blBjF1mQ=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "19",
+                "addr:street": "Scheideggstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Gutschick Quartierspielplatz"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.749590043570391,
+                    47.49296015720005
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "cplODU0EX8lwE2992QxR9UuZGE0=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Salomon-Bleuler-Weg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Salomon Bleulerweg Spielplatz"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.738672915100375,
+                    47.49227065321163
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "Ajp82s8OTJLM_1tFgrLloP3ihSs=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "54",
+                "addr:street": "T\u00f6sstalstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kita Fantasia"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.736322920106597,
+                    47.49553454303345
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "Y81iRsx9eGBq2b3yjBozbK_g5_c=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "10",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "24",
+                "addr:street": "Talhofweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Talhof"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.702195935112238,
+                    47.51072421625195
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "hSHMz_qvO5j7SWfRNC4btiK4TvA=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "18",
+                "addr:street": "Agnesstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Agnesstrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.713230545721196,
+                    47.49381108153967
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "f6PNZr3jAUMf59KDg6qkfj8Xo14=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Museumstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Stadtgarten Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.727925740683336,
+                    47.501135608321654
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "qdRqFnYMs1Tw-YMFPF3-TFNNRJA=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Hermann-G\u00f6tz-Strasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Inneres Lind Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.73399828473191,
+                    47.50391681507073
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "Qa2bAWm2_l6xxpWzSyYoteuSe4g=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Gottfried-Keller-Strasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Rychenberg Park"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.734232559988257,
+                    47.50534083437127
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "UkZXvw3qtuC5cuc6e_tqSQFRaig=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Im Alpenblick",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Alpenblick Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.728891076823686,
+                    47.49512930785256
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "z9DAMaVpnKdTVCuzjNhBCgNU2O4=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "1",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "1",
+                "addr:street": "Bruderhausstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Bruderhaus Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.726558610398607,
+                    47.47744006251918
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "xA2PtPzhI_o846Loh80MGSsYF0c=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Hochwachtstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "B\u00fcel Park"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.727056164318649,
+                    47.4942801334723
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "8Na1MOLLCxY-tSic3y2kZIcRVvY=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Untere Vogelsangstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Frohberg Park"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.722027786863721,
+                    47.496150043676195
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "8Wd4xpjJKPctAR6HYwace9PBaIw=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Zwetschgenweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Jonas-Furrer-Strasse Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.718939036972301,
+                    47.48929980463319
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "Qi6gcw8yKsLtK55XzUh0Q5ZyAAE=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Sonnenbergstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "L\u00e4rchenstrasse Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.720789687808988,
+                    47.492349424554064
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "wig3HTS5DrBC2qy6KCcYMq9RY-E=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Obere Briggerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "T\u00f6ssfeld Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.713694107216224,
+                    47.49344232268038
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "nCXVJOZOGxcGrutCqfGoXtrSt5c=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "5",
+                "addr:street": "Br\u00fchlbergstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Br\u00fchlbergstrasse Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.70888430442747,
+                    47.49619379925933
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "YmECrXKQpRNJG302Gs_0j_w3H9c=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Z\u00fcrcherstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Br\u00fchlgut Park"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.713540510852026,
+                    47.49655483145321
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "JqnCCgIhS3x8L_hKRlGs0WpOs24=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Rennweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Wartstrasse Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.717562761333223,
+                    47.50231755562543
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "ZHsgdclO1m1Sr84kO4BKByFFkmo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "63",
+                "addr:street": "Wartstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kita Zauberschiff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.713763825834304,
+                    47.503476726712336
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "gJvZAX9qGNs3VE2_NexnDNxf-So=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Baumschulstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Baumschulstrasse Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.748048553221235,
+                    47.50142800692551
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "6D5GsLEQqC30bKbGBaGkT1Qa3G8=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Unterwegli",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "R\u00f6merstrasse Vicus"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.754074170278813,
+                    47.50673603842661
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "83nAxcXjOf3EYg8GNqsTUoRwKqc=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Talwiesenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Talwiesenstrasse Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.754122129497484,
+                    47.50269265648318
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "M86pby_-mp7aX80aUsqUlwseeP4=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Grabenackerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Grabenackerstrasse Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.756625743681044,
+                    47.5127877619552
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "Xln96NsfmHU_2Yu10-zCW8mZL1o=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "2",
+                "@spider": "winterthur_ch",
+                "addr:street": "Barbara-Reinhart-Strasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Eulachpark"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.762365651501536,
+                    47.50544976323735
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "SLvQon6j4WPmabMVtTdXWC-QR-Y=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Kehlhof",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Hegi Dorfanlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.772598093688769,
+                    47.5062575547469
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "l5EVahbgAQMWmKlyIlKYVWOj5X8=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "76",
+                "addr:street": "Hegifeldstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Asylheim Hegifeldstrasse 76"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.76900097186434,
+                    47.50747876599522
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "tsNRKol7QtLzyW5wcTpbcQKXONo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Im H\u00f6lderli",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Freizeitanlage H\u00f6lderli"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.763867672978913,
+                    47.49356652851718
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "BCias_wcc2ecz9zXW6wxmETo7Pk=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "95",
+                "addr:street": "Weierstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Freizeitanlage Chiesgrueb"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.779103833525966,
+                    47.466704157906214
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "Oi_58GZLFKcviMQUMJu5u1pCGg0=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "36",
+                "addr:street": "Schlachthofstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Freizeitanlage N\u00e4gelsee"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.694880706554848,
+                    47.497764986137405
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "EfbIw-nbM6f95lZCnASl4seRfyI=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Metzgerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "N\u00e4gelsee Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.703564343313138,
+                    47.494564163025046
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "cmJgpscje64CDjTHLxSpJqsXaqI=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "8",
+                "addr:street": "H\u00fcndlerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Freizeitanlage D\u00e4ttnau"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.701228080389834,
+                    47.47768082423335
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "do-HLwnAbpYZsM3mHxLw_Fzmr7w=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Gustavstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Gustavstrasse Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.710787911104218,
+                    47.48661673931677
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "2fj24n2tNUkOo33lFOzJ4VV52K4=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Churfirstenweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Churfirsten Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.717969909037045,
+                    47.51147280047097
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "OU6CAwKWanSCJJf5Z0wzwqSJZIM=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Eichliwaldstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Sch\u00fctzenweiher Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.715757302382812,
+                    47.51854200783794
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "gFgxhgCMzd4ALgQ8rRPSvgwNa3k=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kronaustrasse Freizeitanlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.750557426224422,
+                    47.49751057919211
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "Qw19XBLgcphtaH5kFDWArWOFcQc=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Wolfensberg Sonnenbad"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.714307185970041,
+                    47.51323171990728
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "zxKqISoSHY1j7g6h6tN2Sq8wduQ=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "132",
+                "addr:street": "D\u00e4ttnauerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Am Weiher"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.691706053517157,
+                    47.484987897412644
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "CEf4qozuE1cBfkezaMCZ5FJVRuc=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Hardau Mini-Pitch Anlage - Street Soccer"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.682510938556252,
+                    47.511371747835454
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "ftKiyvQCUixz_vdzTjnHz0BXi5k=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "15",
+                "addr:street": "Agnesstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus T\u00f6ssfeld"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.713984570463527,
+                    47.492725487852475
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "vlHgbUL8mDMLSN4bt8ALy5b8joI=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "137",
+                "addr:street": "Z\u00fcrcherstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Altes Gemeindehaus"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.707014875797817,
+                    47.49129276394751
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "AUQ-RCYrwVRnBk06czQAMTCf1OE=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "13",
+                "addr:street": "Waldeggstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Waldegg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.758971776585481,
+                    47.481734450137665
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "n5iljo5rIFYUKW64SVqbFPZJBBo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "35",
+                "addr:street": "Am Bach",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Am Bach"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.750091653580439,
+                    47.48729013329855
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "QdqF4rPFayHGmH-ZY_30yjwqxPI=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "5",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "18b",
+                "addr:street": "Endlikerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Mattenbach Primar"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.74132218639358,
+                    47.48975108149345
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "rITlGDpUwIAWZ1-mQd_wor06_ds=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "21",
+                "addr:street": "Pestalozzistrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "KJH Kinder- und Jugendheim Oberi"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.754238081145857,
+                    47.5088746564905
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "XwIqtA85Z-VV1Ef9l6ijh3a76PA=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "19",
+                "addr:street": "Agnesstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus T\u00f6ssfeld Pavillon"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.713982992514012,
+                    47.49205268082673
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "2_DsOByXgvgj0uyo1G6D7i5AleM=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "56",
+                "addr:street": "T\u00f6sstalstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Sch\u00f6nengrund Pavillon"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.737093345164537,
+                    47.495274570823796
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "HIwk0B4zG-Zp3NT3kDMee39jAU4=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Krebsbachweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Oberseen Sportanlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.77203278765924,
+                    47.47676920006462
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "ZlVJw2B7uqqB8PBjYLBG4k-LBv0=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "34",
+                "addr:street": "Unterr\u00fctiweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Unterr\u00fctiweg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.718254034164438,
+                    47.51599649627561
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "hnpVq8SFdbu_6bP9T2XclKyeGWc=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "18",
+                "addr:street": "Emil-Kl\u00f6ti-Strasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Emil-Kl\u00f6ti"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.706204107022913,
+                    47.49325440626913
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "E5JT0qtnMVkhKMPA9izpFY4Z8tg=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "35",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "56",
+                "addr:street": "St. Gallerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Hermannstrasse Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.741676639822717,
+                    47.497937919015015
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "gQ89hj3Laz44CGbsd9aFi3zYsNU=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "46",
+                "addr:street": "Museumstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "TH Lind S\u00fcd"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.731615884852552,
+                    47.50175406537531
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "AS7oD7kebICYYdgNTeb_VgFG-Gs=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "24",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "2",
+                "addr:street": "Hermann-B\u00fchler-Strasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Sennhof Altbau"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.75873901421697,
+                    47.46686805747805
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "SguTwZ6tb4T2h-bX4imTyMLlJgQ=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "18",
+                "addr:street": "Wiesenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Wiesenstrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.715120508549985,
+                    47.508030331833965
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "1wvNO_kl1lHpxRvuS28X_jh0s30=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Robert-Sulzer-Gasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Dialogplatz"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.715768996745497,
+                    47.49581045344764
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "qqXyyRX7F8eMSN-rZsdlj96hYRE=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "6",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "1",
+                "addr:street": "Steinbruchweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Gerzler"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.754551554716672,
+                    47.51250478939767
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "BE5ansyEuPH5IfCUrPivGOjgROE=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "14",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "4a",
+                "addr:street": "Hegifeldstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Eulachpark"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.7619235752603,
+                    47.50533017096894
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "LRup-kCOZdkF_WpVsF3QAVM5cL8=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "6",
+                "addr:street": "Mettlenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Hegi Dorf"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.77196390284345,
+                    47.50492896047119
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "EEHFdrogg9Q0Ts-WQ7zZB2hHAR8=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "38",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "70.1",
+                "addr:street": "Reutlingerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Reutlingen Pavillon"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.752171602499423,
+                    47.52734415252903
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "DH4CEhKLaTiIAQ5QbMUArX4kht0=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "33",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "16",
+                "addr:street": "Espenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Wyden Naturnah"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.68245852414132,
+                    47.507434214798444
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "RQSIX4Ih7owsf_E-QTSNCeMdz5M=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "18",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "59",
+                "addr:street": "Wieshofstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Ausserdorf (Wieshofstr. 59)"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.691132712921037,
+                    47.507536001306775
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "kbQwTymXHxQZjJqlyQ7V0GoBfdQ=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "42",
+                "addr:street": "Erlenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Erlen (Erlenstrasse 40 42)"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.699572828834574,
+                    47.508811028203596
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "hGVGHJB0CS2c_vRlTfUoY45GSCU=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "284",
+                "addr:street": "Wartstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "SchuBe Wartstrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.698091043057316,
+                    47.510178683236624
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "6SWPYmNMDgkDdnkawrS5G-eDiLI=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "16",
+                "addr:street": "Espenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Wyden"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.681772786975964,
+                    47.50765789960912
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "38uMg2anvwHwvSzDMwctcq9Uu3A=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "25",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "1",
+                "addr:street": "Ruchwiesenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Zinzikon"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.752732032559353,
+                    47.51877104691434
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "1_BInshF408X2YA9DzDTJ7lan4c=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "76",
+                "addr:street": "Bachtelstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Bachtelstrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.716790646125473,
+                    47.50934397622523
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "saoAEJCbvBxsp5rPH35mIQQ8epE=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "28",
+                "addr:street": "Rappstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Ausserdorf Pavillon (Rappstr. 28)"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.69049484160627,
+                    47.508170661050045
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "dKxU9xLmx7XOuk1Ia-Kl-pC8MFw=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "12",
+                "addr:street": "Scheideggstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "SchuBe Gutschick"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.751198730350248,
+                    47.492187511085326
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "Wa0TCvtQt9-rsViYy7WUvzTL61k=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "50",
+                "addr:street": "Ida-Str\u00e4uli-Strasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Neuhegi Schulhaus"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.767926912461816,
+                    47.5041646112086
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "1XrmY9JXyEf2ZRlH_T2Ru0KLjUY=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "4",
+                "@spider": "winterthur_ch",
+                "addr:street": "Sulzerallee",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Sulzer Park"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.768129433891307,
+                    47.50259035327849
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "T3d6_0Cie1SkYf7aJlY-Lmm3fyg=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "84",
+                "addr:street": "Wolfensbergstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "G\u00fcetli Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.711514693483768,
+                    47.513641634222715
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "ZC0yHH5PSCFQyiRvfuwN2a5K9y8=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Juchstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Juch Park"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.721524325756103,
+                    47.507175250225444
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "TJ_EL1fqqpv5Y4qtq30vKjczujs=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Weinbergstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Winzerstrasse Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.704772105346526,
+                    47.511234761396395
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "6XDCSIimxBM4-MeRJkaqveNNQX0=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Geerackerweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Langwiesen Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.688204334442897,
+                    47.513861249811995
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "zl4KrYdErU2XgVGGV0EXhhqRUgo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "1",
+                "addr:street": "G\u00e4rtnerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Adlergarten Alters- und Pflegezentrum"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.737117630799984,
+                    47.496771187158906
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "ZRESBwXXo2cVfddS1NJ_vVu1PRI=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "81",
+                "addr:street": "Neum\u00fchlestrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Auwiesen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.708446813433504,
+                    47.48306904921638
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "pGOm9g0saCT9KeNBVX9xLdDFaFk=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Alte R\u00f6merstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Alte R\u00f6merstrasse Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.75130554459445,
+                    47.50584052166502
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "ZMc3otasg-E-EfRUaXM6FQdzPh8=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Talwiesenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Talwiesen Quartierspielplatz"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.750254040882616,
+                    47.501091035678606
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "LIkobL2mpKEe1__rbAFOe9w2eYc=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Frauenfelderstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Freizeitanlage Eichw\u00e4ldli"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.766151009762014,
+                    47.519544058450094
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "4-x-Ad4p_ss1nx1I2_HgXY4ZTrg=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "24",
+                "addr:street": "Kanzleistrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Freizeitanlage Kanzleistrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.764595130961812,
+                    47.48456209349169
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "zdLWZTfmslC99tqNsHNaev44SqM=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "80",
+                "addr:street": "H\u00fcndlerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "H\u00fcndlerstrasse Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.700162507519057,
+                    47.482799581239924
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "_6ml_l9XlUn5YKds2eqgrnnEAJ8=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "\u00c4usseres Lind Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.724915965498479,
+                    47.50771091370447
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "afowLjO9S9_HhEi_9vGahwvsiuE=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Bruderhaus Anlage Umgebung"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.728621432372565,
+                    47.475926783208834
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "DQWaXhB00fJO_KQkoRPaho9GGAM=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "364",
+                "addr:street": "T\u00f6sstalstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Sennhof"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.757726006361432,
+                    47.46690627364996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "-YPVPzwUzoiTRvT2HERgV30l9GQ=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "4",
+                "addr:street": "Sempacherweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Steinacker"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.753012590302209,
+                    47.48508699019238
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "wkJWoWQsUObLcyI6XGNhZGPb27k=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "20",
+                "addr:street": "Untere Briggerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus T\u00f6ssfeld Alte Badi"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.713656012503165,
+                    47.492207319676005
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "D1TM6uL_kzRtYpRLB9pj_2Q4ihE=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "11",
+                "addr:street": "Gutenbergstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Gutenberg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.709555505314288,
+                    47.4912160172079
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "1mA5r8o3F5sMqRm3kkGEK-3kj60=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "11",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "12",
+                "addr:street": "Gotzenwilerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Oberseen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.770911056253105,
+                    47.47851950829568
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "ROIeHSKfSCx6SIs0v_OFL92XbLs=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "34",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "10",
+                "addr:street": "Unterer Deutweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "SchuBe Tiefenbrunnen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.740527748558865,
+                    47.49371711259951
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "7Pk1DQi3HbHcxIL4BequYUSXKRQ=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "16",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "14",
+                "addr:street": "H\u00fcndlerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Laubegg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.701816665497972,
+                    47.4784112362641
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "1dT5ZqNRQDhybcELZ5O8pBhzJ8g=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "23",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "18a",
+                "addr:street": "Endlikerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Mattenbach SchuBe"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.742023429676756,
+                    47.489605947944675
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "MHFoF5B7lCl3KTnTDJA3mPedl4g=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Nussbaumweg Anlage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.728941324324317,
+                    47.49154469461997
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "8qP9JzXpficka39CKeWTW5lYHZU=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "9c",
+                "addr:street": "Wurmb\u00fchlstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus T\u00e4gelmoos SchuBe"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.763234979674595,
+                    47.489884679430276
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "czDz_PHlHjyYZwBKsk36-gUV4tM=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "255",
+                "addr:street": "T\u00f6sstalstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "KGS Dorf Seen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.761287689645565,
+                    47.48344118525525
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "NFVPxgIO_z4EEiclGOk8-oGFObg=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "27",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "44",
+                "addr:street": "W\u00fclflingerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus W\u00fclflingerstrasse Modulbau"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.71597103812662,
+                    47.50606088423723
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "euV3j8qPaMySdqq3XeLyCLaiM-I=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "21",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "50e",
+                "addr:street": "Holzlegistrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Langwiesen Modulbau"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.68977446033616,
+                    47.51496759071815
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "NSWU85o_-niIkoUjsFGhJxpjzyA=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "69",
+                "addr:street": "Im oberen Gern",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Im Gern"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.779303307178417,
+                    47.503650633426055
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "PH3E9eI8BpKg3dKvZiPY2LootRg=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "75",
+                "addr:street": "Eidbergstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Eidberg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.793276122034205,
+                    47.473714161808275
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "WRzT9MEwyuw7DnX1Ll-o2J8jyko=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "2",
+                "addr:street": "Eckwiesenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Hohfurri"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.69576798392097,
+                    47.50857430049628
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "cQsq_f3jiTsMVAiCphSSTO62Duk=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "38",
+                "addr:street": "Eidbergstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Gotzenwil"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.77878180831384,
+                    47.473017041372486
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "BuFIvF-35xY_9nEB1kp4VLF7swo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "33",
+                "addr:street": "H\u00f6rnlistrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus H\u00f6rnlistrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.74559319464575,
+                    47.49278294011247
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "mxpTlxsLYsOvwx8qSinnf_JPSMs=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "108",
+                "addr:street": "Ibergstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Iberg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.778509797928193,
+                    47.46451750759814
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "_CEgjpC0OPVPfk8IPQgu0qt2kOY=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "54",
+                "addr:street": "Buchackerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Schachen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.717002063239176,
+                    47.5172920251303
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "ogqp9egHMuxaDcFibwBzuSrodKQ=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "6",
+                "addr:street": "In der H\u00e4rti",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten H\u00e4rti"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.685312739386417,
+                    47.51439306678318
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "uXSyVVnipEL_pFL0svg2z_0ltSU=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Gireizi"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.7459911489348,
+                    47.49248596857172
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "kG0jnuZ6J0c_jeyQpPDDs9zfFRg=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "8",
+                "addr:street": "Hobelwerkweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Hegifeld"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.763095632610517,
+                    47.50771627876368
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "bWwUEbEw7URwUgokdXQYDUYoiBo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "59a",
+                "addr:street": "St.-Georgen-Strasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Inneres Lind"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.73374670640853,
+                    47.50216452303592
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "f9MKajwC0zlgj3Ptoc8gRBXqiEY=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "2a",
+                "addr:street": "Weberstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Sch\u00f6nengrund Kindergarten"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.736259376344687,
+                    47.49480655071489
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "x14d8TWEnGK4_EYB1ZVsShqDfPU=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "15",
+                "addr:street": "Stofflerenweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "KGS Stofflerenweg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.760537412908674,
+                    47.51691620581021
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "F99znBOHZBPm5wfLOy-s1g3O4Ro=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "29",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "1",
+                "addr:street": "Hermann-B\u00fchler-Strasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Sennhof Neubau"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.758802218325123,
+                    47.466289444690766
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "pD8V_12cNWCMH6EmYuUrhV6f85I=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "13",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "32",
+                "addr:street": "Unterwegli",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Unterwegli"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.7529861235266,
+                    47.50416215956036
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "Ig4gYOCXSpbcirjf_fPkH81Cjfs=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "17",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "8",
+                "addr:street": "Feldstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Feldstrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.71703290749535,
+                    47.50826654575705
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "QrXwBfiAGX051V4AZ0-3Pa4Jtag=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "18b",
+                "addr:street": "H\u00fcndlerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Laubegg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.70202127240403,
+                    47.478517879635525
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "5N_LkqMZFgzEWtd160VNvst2Lh8=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "3",
+                "addr:street": "Heiniweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Schooren"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.763306164895349,
+                    47.517604437591594
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "vOmTxLEE9AFy-PBPic6JGwhGQzc=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:street": "Eggweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Heiligberg Sportplatz"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.72920902288482,
+                    47.493461234330034
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "DRkGMb7PjT5x-AycimgYfUW2vmc=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "79",
+                "addr:street": "Eichliackerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "SchuBe Eichliacker am Gleis"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.712001892522744,
+                    47.48631672442309
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "cq_gb2s79suilWCcssc5kr0YTuA=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "19",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "5",
+                "addr:street": "Br\u00fchlbergstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Br\u00fchlbergstrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.712686099618004,
+                    47.496076497487934
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "GANp9M2Ho2hI27AObilC1PdyZGE=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "2b",
+                "addr:street": "Weberstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Sch\u00f6nengrund"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.737561437855524,
+                    47.49412441840779
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "DClTFfBUg1RGdB8LBswJ5Z_CtRs=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "83",
+                "addr:street": "Unterer Deutweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "CPS Maurerschule"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.736738663485806,
+                    47.491441303594655
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "V3d7CZlEgaih6OaE_W3aRJwQC7Y=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "27",
+                "addr:street": "B\u00fcelhofstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten B\u00fcelhof"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.764658764093047,
+                    47.4840024014908
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "tWosEGcKxoZZPiYuC_HrWGVXJsI=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "7",
+                "addr:street": "Bachwiesenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Gr\u00fcntal"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.770320887345619,
+                    47.48258221090101
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "qUDeH3sfkkXq4pVNEDL-zW9fuYk=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "30",
+                "addr:street": "Weierh\u00f6he",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Weiherh\u00f6he"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.768813833300705,
+                    47.470866156156696
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "3yPbJWvJi6A_xSWrc-yiRlaWOeM=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "51",
+                "addr:street": "Steigstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Steig"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.702256469973863,
+                    47.47336722030713
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "nq38BcJqgtd3fQsYfsFsZiKBFsc=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "29",
+                "addr:street": "Strittackerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Strittacker"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.711376558391358,
+                    47.48761065901176
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "oO0XA0ht8O5m9qwWcly0l0tDYK4=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "134",
+                "addr:street": "R\u00f6merstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Unteres B\u00fcel"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.753353603188566,
+                    47.505702487718764
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "mENXiClEk7EyTbXklf5Fo4VYxAQ=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "17",
+                "addr:street": "Talackerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Rychenberg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.75250683958055,
+                    47.50779619880289
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "-fACcpSZDi2IMpGxtn2rw9okcWc=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "12",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "48",
+                "addr:street": "Reism\u00fchleweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Reism\u00fchle"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.769875175347966,
+                    47.5054757770515
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "p9WYHEAbZQpk3eZlvXeeVhzCF6I=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "1",
+                "addr:street": "St. Gallerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Geiselweid"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.73476014595125,
+                    47.498686357220635
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "p64aolfGdMnG345EwubWresVjKQ=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "2",
+                "addr:street": "Eulachstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "SchuBe An der Eulach"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.69331523385095,
+                    47.51029853166587
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "-lrdJ4W63Du2U0QUrKEd5_M4EKs=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "37",
+                "addr:street": "Hinterdorfstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Hinterdorfstrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.763011780671945,
+                    47.48654461563539
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "tVKOixKEPu5GZWrx2EfYwZvmYqI=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "59",
+                "addr:street": "Klosterstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Eichliacker"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.710245796974528,
+                    47.48813128405369
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "KmqClMnlXQ7C7MpZ4n4HyKQfEUo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "13",
+                "addr:street": "Rosenaustrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Rosenau"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.708535297522454,
+                    47.48560219974399
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "ZUmapSKMc_aqNHL3ptb4oZjBEuo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "1",
+                "addr:street": "Scheideggstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Gutschick"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.748769850493638,
+                    47.4925873108557
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "zf-HPkg_aWtmAOQUDPRUcUHanvw=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "39",
+                "addr:street": "B\u00e4umlistrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Lindberg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.751042383149201,
+                    47.51022085427365
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "xpUaCJHu5rDJD33IAr_7Ug46euA=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "10",
+                "addr:street": "Ruchwiesenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Zinzikon"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.75444886779493,
+                    47.51824689236007
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "ZbU_pKG-XVVSfW9Z0V0IA7vTkf4=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "26",
+                "addr:street": "Talhofweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Talhof"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.702307142132607,
+                    47.51118963736097
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "uhWiDzBEaOxIWY2b6Kh5Hzf-_qg=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "50",
+                "addr:street": "Holzlegistrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Langwiesen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.689195231532768,
+                    47.51335834762099
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "hZuIZy4DRHZ6y8RFKUcWnXnrNWo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "3",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "39",
+                "addr:street": "B\u00e4umlistrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Statt Spiel Platz"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.745951113663033,
+                    47.49251588888118
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "2y9V64mWGggFyQLEMTOSrq5SvtE=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "180",
+                "addr:street": "R\u00f6merstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Oberi Dorf"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.75569752553222,
+                    47.50754848196495
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "yI5VTBgnFCdHEP81c6f5k44ZnTg=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "18",
+                "addr:street": "Schlosstalstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Schlosstal"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.707191718526868,
+                    47.49506737608119
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "AUmKwnoJTna_J3oXB6ozQ6N5QUo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "32",
+                "addr:street": "B\u00fcelhofstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus B\u00fcelwiesen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.764193394555233,
+                    47.48364674545779
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "H3wy2KgSczEEzHV0HsHM1GZ-zxs=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "37",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "70",
+                "addr:street": "Reutlingerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Reutlingen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.751820043481011,
+                    47.52763605270814
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "H7Cyta41IoGIA3-__4wfHsr4VWo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "4",
+                "addr:street": "Lindenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "SchuBe Alte Feuerwehr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.731239269440026,
+                    47.501823782208724
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "KUEddgrGfgbHYIb6oY3PYfQaAWM=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "69",
+                "addr:street": "St.-Georgen-Strasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "TH Lind Nord"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.731682083820981,
+                    47.50211650329797
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "8nfJHAh0DMCUpQP9-HgQ6T1VRgA=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "178",
+                "addr:street": "Schlossm\u00fchlestrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Schlossberg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.695303130637683,
+                    47.501912143934675
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "oWeDJPNWcLTvLvORpoeKP_mzXoM=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "40",
+                "addr:street": "Erlenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Erlen (Erlenstrasse 38)"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.700004304947448,
+                    47.50842394130967
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "cmFtZeCXQjFhiQLwXl-y23Nu34Q=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "7",
+                "addr:street": "Wieshofstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Wieshof"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.69420787177141,
+                    47.509795228130336
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "YYVGaSm27qjhuYGQO1i2DeizCqQ=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "1",
+                "addr:street": "Oberzelgweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "SchuBe Sennhof (Oberzelg)"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.760208249729276,
+                    47.46479341864938
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "GCt-E9mMbDj2ytVs7ESio5ZJeDM=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "2",
+                "addr:street": "Zelglistrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Zelglistrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.707173232662612,
+                    47.49124281492848
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "jBNMkdP9Or0wwMS5KYyMK4X_O_g=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "28",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "71",
+                "addr:street": "Talwiesenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Mattenbach Oberstufe"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.741928891512678,
+                    47.490282440961025
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "RPieXc9WqbnHnQniXQilw-cLYMk=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "88",
+                "addr:street": "Wiesendangerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Stadel"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.764533285465097,
+                    47.534169883322676
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "rw0hSpKdzBFdZ78OhujfK8GayQ0=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "11",
+                "addr:street": "Hochwachtstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Heiligberg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.726264232378227,
+                    47.49537866737343
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "6Tvvcv7Y5OcLKBc0r1SMDV786RI=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "20",
+                "addr:street": "Wiesenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Wiesenstrasse"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.714219546859564,
+                    47.50785267798529
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "CWuwmXd5X7AUznaLxdnkciq8l2s=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "11",
+                "addr:street": "Florenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "HPS Michaelschule"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.769672521924537,
+                    47.486445213602394
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "Ivl0Rx_jYfMD1bqaAw7GsIkSkVo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "38",
+                "addr:street": "Wingertlistrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Wingertli"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.759460788609744,
+                    47.48901850402782
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "utp2LpBztOS0E9fPa07fmWhd7K4=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "7",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "9c",
+                "addr:street": "Wurmb\u00fchlstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus T\u00e4gelmoos"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.763683730866234,
+                    47.49003857813235
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "u3gIEXUXHh7RavUzDgdgS1oiWLc=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "35c",
+                "addr:street": "Hegistrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Talwiesen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.75374293234676,
+                    47.50194025709747
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "0SWUIndogfFBg7jkSTd34cXuSk0=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "56",
+                "addr:street": "Stadlerstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Guggenb\u00fchl"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.758599623720759,
+                    47.51363270462471
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "QG8h4M4nuSrZ56xqWf1DY1eV-Uo=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "8",
+                "addr:street": "Hobelwerkweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Hegifeld"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.76269557012126,
+                    47.507926213522246
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "0_pRcHXGLgonZTtcFCRQb2iFfZs=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "5",
+                "addr:street": "L\u00f6wenstrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus Feld"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.72001726707901,
+                    47.508318650906915
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "M8x65XUZPESaQpTWHHOiejmew78=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "17a",
+                "addr:street": "Wingertlistrasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Sonnenfeld"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.761710705521798,
+                    47.48961852179597
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "qM4Ufx4iELuF84CHWDUGr2MZ_-0=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "ref:emergency": "36",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "56",
+                "addr:street": "Eigenheimweg",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Kindergarten Eigenheim"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.743238756059403,
+                    47.49618646719778
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "Fj2x92uWVGbQsF8-SzAiAND537A=",
+            "properties": {
+                "operator": "Stadtgr\u00fcn Winterthur",
+                "operator:wikidata": "Q56825906",
+                "leisure": "playground",
+                "@spider": "winterthur_ch",
+                "addr:housenumber": "88",
+                "addr:street": "St.-Georgen-Strasse",
+                "addr:city": "Winterthur",
+                "addr:country": "CH",
+                "name": "Schulhaus St. Georgen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.726240531109955,
+                    47.50288079129555
+                ]
+            }
+        }
+    ]
+}
