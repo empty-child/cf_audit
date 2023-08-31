@@ -63,7 +63,7 @@ L.BingLayer = L.TileLayer.extend({
 		document.getElementsByTagName("head")[0].appendChild(script);
 	},
 
-	hash: function() {
+	initMetadata: function() {
 		var r = this.meta.resourceSets[0].resources[0];
 		this.options.subdomains = r.imageUrlSubdomains;
 		this._url = r.imageUrl;
