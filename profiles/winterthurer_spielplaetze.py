@@ -9,7 +9,7 @@ License: MIT
 # '''
 # Where to get the latest feed
 # '''
-download_url = 'https://gitlab.ost.ch/ifs/geometalab/cf_audit/-/tree/master/profiles/geojson/winterthurer_spielplaetze.geojson'
+download_url = 'https://gitlab.ost.ch/ifs/geometalab/cf_audit/-/raw/master/profiles/geojson/winterthurer_spielplaetze.geojson'
 
 # '''
 # What will be put into "source" tags.
@@ -19,7 +19,7 @@ source = 'https://alltheplaces.xyz'
 # '''
 # Tags for querying with overpass api
 # '''
-query = '[leisure=playground|leisure=park]'
+query = '[leisure~"playground|park"]'
 
 # '''
 # A set of tags, which are more trustworthy from the external source than the ones from OSM
@@ -71,17 +71,20 @@ no_dataset_id = True
 def dataset(fileobj):
     # by the way the import happens, all imports and functions must be defined inside this function!
     import requests
+    
 
-    data_url = download_url
+    data_url = 'https://gitlab.ost.ch/ifs/geometalab/cf_audit/-/raw/master/profiles/geojson/winterthurer_spielplaetze.geojson'
     r = requests.get(data_url)
+    
     result = r.json()
     json_data = result['features']
 
     data = []
     processed_ids = []
+    
     for element in json_data:
         el_prop = element['properties']
-        shop_id = el_prop['ref']
+        shop_id = element['id']
 
         # Not all entries have geometry set
         if 'geometry' in element:
@@ -100,7 +103,7 @@ def dataset(fileobj):
         else:
             processed_ids.append(shop_id)
 
-            # Class SourcePoint() will be available after this file was imported during execution
+            # Class SourcePoint() will be available after this file was imported during execution            
             data.append(SourcePoint(shop_id, lat, lon, tags))
 
     return data
