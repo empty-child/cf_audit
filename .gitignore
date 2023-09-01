@@ -1,6 +1,7 @@
 __pycache__/
 mockup/
 venv/
+.idea/
 config_local.py
 *.pyc
 *.db
