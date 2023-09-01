@@ -17,9 +17,6 @@ $(function() {
     "OSM": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>', maxZoom: 19
     }),
-    "Bing": L.bingLayer("AqXL21QURkJrJz4m4-IJn2smkeX5KIYsdhiNIH97boShcUMagCnQPn3JMYZjFEoH", {
-      type: "Aerial", maxZoom: 21
-    }),
     'Esri': L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       attribution: '<a href="https://wiki.openstreetmap.org/wiki/Esri">Terms & Feedback</a>', maxZoom: 22
     }),
@@ -45,7 +42,7 @@ $(function() {
     }).addTo(map2);
 
     delete imageryLayers['OSM'];
-    imageryLayers['Bing'].addTo(map2);
+    imageryLayers['Esri'].addTo(map2);
 
     var move = true;
     map1.on('move', function() {
