@@ -345,7 +345,7 @@ def table(name, page):
         query = query.where(Feature.validates_count < 2)
     if region:
         query = query.where(Feature.region == region)
-    pagination = Pagination(page, PER_PAGE, query.count(True))
+    pagination = Pagination(page, PER_PAGE, query.count())
     columns = set()
     features = []
     for feature in query:
