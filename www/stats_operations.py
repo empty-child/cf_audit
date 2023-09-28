@@ -9,7 +9,7 @@ def read_stats():
     csv_output = StringIO()
 
     csv_fields = Stats._meta.fields.copy();
-    csv_fields.pop('id')
+    #csv_fields.pop('id')
     writer = csv.DictWriter(csv_output, csv_fields.keys())
     writer.writeheader()
     results = Stats.select(*csv_fields.values()).dicts()
