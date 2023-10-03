@@ -27,6 +27,10 @@ html, body {
   left: 0;
 }
 
+#map1.fillmap {
+  height: 100%;
+}
+
 #popup {
   display: none;
 }

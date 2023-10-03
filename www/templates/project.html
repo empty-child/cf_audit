@@ -15,55 +15,88 @@
 
 #p_val2 {
   background-color: #52be80;
-  width: {{ (300 * val2 / count) | round(1) }}px;
+  width: {{ (300 * (val2 + 0.001) / count) | round(1) }}px;
 }
 
 #p_val1 {
   background-color: #f7dc6f;
-  width: {{ (300 * (val1 - val2) / count) | round(1) }}px;
+  width: {{ (300 * (val1 - val2 + 0.001) / count) | round(1) }}px;
 }
 </style>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.2.0/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.2.0/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="{{ dated_url_for('static', filename='style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='Control.MiniMap.min.css') }}" />
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.2.0/dist/leaflet.markercluster.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='Bing.js') }}"></script>
+    <script src="{{ url_for('static', filename='Control.MiniMap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='PermalinkAttribution.js') }}"></script>
+    <script src="{{ dated_url_for('static', filename='StreetViewButtons.js') }}"></script>
+    <script>
+      AP = {
+        endpoint: '{{ url_for('api') }}',
+        projectId: {{ project.id }},
+        forceRef: {% if ref %}'{{ ref }}'{% else %}null{% endif %},
+        imagesPath: '{{ url_for('static', filename='images') }}',
+        featureTemplateUrl: '{{ url_for('tasks', name=project.name, ref='tmpl') }}',
+        browseTemplateUrl: '{{ url_for('browse', name=project.name, ref='tmpl') }}',
+        proprietarySV: {{ project.prop_sv | tojson }},
+        mapillaryId: '{{ mapillary_id }}',
+        region: '{{ region }}',
+        readonly: true
+      };
+    </script>
+    <script src="{{ url_for('all_features', pid=project.id) }}"></script>
+    <script src="{{ dated_url_for('static', filename='audit.js') }}"></script>
 {% endblock %}
+
 {% block content %}
-<h1>{{ project.title }}</h1>
-<div class="description">{{ desc | safe }}</div>
-{% if project.url %}<p><a href="{{ project.url }}">Additional info →</a></p>{% endif %}
-<p><a href="{{ url_for('browse', name=project.name, region=region) }}">Browse points</a>
-(<a href="{{ url_for('show_map', name=project.name, region=region) }}">on a map</a>,
-<a href="{{ url_for('table', name=project.name, region=region) }}">as a table</a>)</p>
-{% if project.can_validate %}
-<p><a href="{{ url_for('tasks', name=project.name, region=region) }}">Validate the import</a></p>
-{% endif %}
-{% if admin %}
-<p><a href="{{ url_for('add_project', pid=project.id) }}">Edit</a>,
-<a href="{{ url_for('export_audit', pid=project.id) }}">Download Audit</a>,
-<a href="{{ url_for('external_audit', pid=project.id) }}">Audit for Source</a></p>
-{% endif %}
-<div id="progress"><span id="p_val2"></span><span id="p_val1"></span></div>
-<ul>
-    <li>Total features: {{ project.feature_count }}</li>
-    <li>Features to validate: {{ count }}</li>
-    <li>Features looked at: {{ val1 }}</li>
-    <li>Validated twice: {{ val2 }}</li>
-    <li>Have corrections: {{ corrected }}</li>
-    <li>To be ignored: {{ skipped }}</li>
-</ul>
-{% if has_skipped %}
-<p><a href="{{ url_for('clear_skipped', pid=project.id) }}">Put skipped items back</a> on your review list</p>
-{% endif %}
-{% if regions %}
-Filter by region:
-<select onchange="javascript:switchRegion(this)" tmpl="{{ url_for('project', name=project.name, region='REG') }}">
-  {% for r in regions %}
-  <option value="{{ r[0] or '' }}"{% if (r[0] or None) == region %} selected{% endif %}>{{ r[0] or 'All' }} ({{ r[2] }} / {{ r[1] }})</option>
-  {% endfor %}
-</select>
-{% endif %}
-<p><a href="{{ url_for('front') }}">Return</a></p>
-<script language="javascript">
-function switchRegion(target) {
-  var region = target.value;
-  window.location = target.getAttribute('tmpl').replace(/REG/, region);
-}
-</script>
+    <div id="left">
+        <h1>{{ project.title }}</h1>
+        <div class="description">{{ desc | safe }}</div>
+        {% if project.url %}<p><a href="{{ project.url }}">Additional info →</a></p>{% endif %}
+        <p><a href="{{ url_for('browse', name=project.name, region=region) }}">Browse points</a>
+        (<a href="{{ url_for('show_map', name=project.name, region=region) }}">on a map</a>,
+        <a href="{{ url_for('table', name=project.name, region=region) }}">as a table</a>)</p>
+        {% if project.can_validate %}
+        <p><a href="{{ url_for('tasks', name=project.name, region=region) }}">Validate the import</a></p>
+        {% endif %}
+        {% if admin %}
+        <p><a href="{{ url_for('add_project', pid=project.id) }}">Edit</a>,
+        <a href="{{ url_for('export_audit', pid=project.id) }}">Download Audit</a>,
+        <a href="{{ url_for('external_audit', pid=project.id) }}">Audit for Source</a></p>
+        {% endif %}
+        <div id="progress"><span id="p_val2"></span><span id="p_val1"></span></div>
+        <ul>
+            <li>Total features: {{ project.feature_count }}</li>
+            <li>Features to validate: {{ count }}</li>
+            <li>Features looked at: {{ val1 }}</li>
+            <li>Validated twice: {{ val2 }}</li>
+            <li>Have corrections: {{ corrected }}</li>
+            <li>To be ignored: {{ skipped }}</li>
+        </ul>
+        {% if has_skipped %}
+        <p><a href="{{ url_for('clear_skipped', pid=project.id) }}">Put skipped items back</a> on your review list</p>
+        {% endif %}
+        {% if regions %}
+        Filter by region:
+        <select onchange="javascript:switchRegion(this)" tmpl="{{ url_for('project', name=project.name, region='REG') }}">
+          {% for r in regions %}
+          <option value="{{ r[0] or '' }}"{% if (r[0] or None) == region %} selected{% endif %}>{{ r[0] or 'All' }} ({{ r[2] }} / {{ r[1] }})</option>
+          {% endfor %}
+        </select>
+        {% endif %}
+        <p><a href="{{ url_for('front') }}">Return</a></p>
+        <script language="javascript">
+        function switchRegion(target) {
+          var region = target.value;
+          window.location = target.getAttribute('tmpl').replace(/REG/, region);
+        }
+        </script>
+    </div>
+    <div id="map1" class="fillmap"></div>
 {% endblock %}
