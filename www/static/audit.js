@@ -548,7 +548,7 @@ function renderTagTable(data, audit, editNewTags) {
   });
 
   function buildTable() {
-    var rows = '', notset = '<span class="notset">not set</span>'
+    var rows = '<tr>TAG</th><th>New</th><th>Old</th></tr>', notset = '<span class="notset">not set</span>'
     for(var i = 0; i < key.length; i++){
       key = keys[i];
       if (key.length == 2)
