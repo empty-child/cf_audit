@@ -547,16 +547,17 @@ function renderTagTable(data, audit, editNewTags) {
     return a.length == b.length ? ((a[0] > b[0]) - (b[0] - a[0])) : a.length - b.length;
   });
 
+
   function buildTable() {
-    var rows = '<tr>TAG</th><th>New</th><th>Old</th></tr>', notset = '<span class="notset">not set</span>'
-    for(var i = 0; i < key.length; i++){
+    var rows = '<tr><th>TAG</th><th>New</th><th>Old</th></tr>', notset = '<span class="notset">not set</span>'
+    for(var i = 0; i < keys.length; i++){
       key = keys[i];
-      if (key.length == 2)
-        rows += '<tr class="notagedit"><th>' + esc(key[0]) + '</th><td>' + esc(key[1]) + '</td></tr>'; // CASE NO KEYS?
-      else {
+      if (key.length == 2) {
+        rows += '<tr class="notagedit"><th>' + esc(key[1]) + '</th><td>' + esc(key[0]) + '</td></tr>';
+      } else {
         rows += '<tr class="tagedit"><th>' + esc(key[0]) + '</th>';
-        rows += '<td>' + (!key[1] ? notset : esc(key[1])) + '&nbsp;<input type="radio" name="r'+i+'" value="1-'+i+'"></td>';
-        rows += '<td>' + (!key[2] ? notset : esc(key[2])) + '&nbsp;<input type="radio" name="r'+i+'" value="2-'+i+'"></td></tr>';
+        rows += '<td>' + (!key[2] ? notset : esc(key[2])) + '&nbsp;<input type="radio" name="r'+i+'" value="2-'+i+'"></td>';
+        rows += '<td>' + (!key[1] ? notset : esc(key[1])) + '&nbsp;<input type="radio" name="r'+i+'" value="1-'+i+'"></td></tr>';
       }
     }
     $('#tags').empty().append(rows);
