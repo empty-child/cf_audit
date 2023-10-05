@@ -83,14 +83,14 @@ h1 {
 
 .tags tr {
   border: 1px solid lightgrey;
-  border-bottom: none;
+  /*border-bottom: none;*/
 }
 
 .tags tr.lower {
   border-top: none;
 }
 
-.tags th, tr.lower, tr.notagedit {
+.tags th, tr.lower, tr.notagedit, .tags td {
   border-bottom: 1px solid lightgrey;
 }
 
