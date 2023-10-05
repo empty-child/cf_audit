@@ -22,6 +22,12 @@ import config
 import logging
 import datetime
 
+from .extended_migrator import (
+    ExtendedMySQLMigrator,
+    ExtendedSqliteMigrator,
+    ExtendedPostgresqlMigrator
+)
+
 database = connect(config.DATABASE_URI)
 if 'mysql' in config.DATABASE_URI:
     fn_Random = fn.Rand
@@ -41,6 +47,9 @@ class User(BaseModel):
 
 
 class Project(BaseModel):
+    class Meta:
+        db_table = 'project'
+
     name = CharField(max_length=32, index=True, unique=True)
     title = CharField(max_length=250)
     description = TextField()
@@ -48,7 +57,7 @@ class Project(BaseModel):
     feature_count = IntegerField()
     can_validate = BooleanField()
     hidden = BooleanField(default=False)
-    bbox = CharField(max_length=60)
+    bbox = CharField(max_length=250)
     updated = DateField()
     owner = ForeignKeyField(User, related_name='projects')
     overlays = TextField(null=True)
@@ -79,7 +88,6 @@ class Task(BaseModel):
     feature = ForeignKeyField(Feature, index=True, on_delete='CASCADE')
     skipped = BooleanField(default=False)
 
-
 class Stats(BaseModel):
     project_name = CharField(max_length=512, index=True)
     user = BigIntegerField()
@@ -94,7 +102,7 @@ class Stats(BaseModel):
 # ------------------------------ MIGRATION ------------------------------
 
 
-LAST_VERSION = 5
+LAST_VERSION = 6
 
 
 class Version(BaseModel):
@@ -116,11 +124,11 @@ def migrate():
         return
 
     if 'mysql' in config.DATABASE_URI:
-        migrator = MySQLMigrator(database)
+        migrator = ExtendedMySQLMigrator(database)
     elif 'sqlite' in config.DATABASE_URI:
-        migrator = SqliteMigrator(database)
+        migrator = ExtendedSqliteMigrator(database)
     else:
-        migrator = PostgresqlMigrator(database)
+        migrator = ExtendedPostgresqlMigrator(database)
 
     if v.version == 0:
         # Making a copy of Project.owner field, because it's not nullable
@@ -210,6 +218,18 @@ def migrate():
         database.create_tables([Stats])
 
         v.version = 5
+        v.save()
+    if v.version == 5:
+        if 'mysql' in config.DATABASE_URI:
+            peewee_migrate( 
+                migrator.change_column_type(Project._meta.name, 'bbox', 'varchar(255)')
+            )
+        else:
+            peewee_migrate( 
+                migrator.change_column_type(Project._meta.name, 'bbox', 'character varying(255)')
+            )
+
+        v.version = 6
         v.save()
 
     logging.info('Migrated the database to version %s', v.version)
