@@ -535,6 +535,7 @@ function renderTagTable(data, audit, editNewTags) {
     }
   }
 
+
   // Render the table
   function esc(s) {
     s = s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -546,19 +547,23 @@ function renderTagTable(data, audit, editNewTags) {
     return a.length == b.length ? ((a[0] > b[0]) - (b[0] - a[0])) : a.length - b.length;
   });
 
-  var rows = '', notset = '<span class="notset">not set</span>';
-  for (var i = 0; i < keys.length; i++) {
-    key = keys[i];
-    if (key.length == 2)
-      rows += '<tr class="notagedit"><th>' + esc(key[0]) + '</th><td>' + esc(key[1]) + '</td></tr>';
-    else {
-      rows += '<tr class="tagedit"><th rowspan="2">' + esc(key[0]) + '</th>';
-      rows += '<td>' + (!key[1] ? notset : esc(key[1])) + '&nbsp;<input type="radio" name="r'+i+'" value="1-'+i+'"></td>';
-      rows += '</tr><tr class="tagedit lower"><td>' + (!key[2] ? notset : esc(key[2])) + '&nbsp;<input type="radio" name="r'+i+'" value="2-'+i+'"></td></tr>';
-    }
-  }
-  $('#tags').empty().append(rows);
 
+  function buildTable() {
+    var rows = '<tr><th>TAG</th><th>New</th><th>Old</th></tr>', notset = '<span class="notset">not set</span>'
+    for(var i = 0; i < keys.length; i++){
+      key = keys[i];
+      if (key.length == 2) {
+        rows += '<tr class="notagedit"><th>' + esc(key[1]) + '</th><td>' + esc(key[0]) + '</td></tr>';
+      } else {
+        rows += '<tr class="tagedit"><th>' + esc(key[0]) + '</th>';
+        rows += '<td>' + (!key[2] ? notset : esc(key[2])) + '&nbsp;<input type="radio" name="r'+i+'" value="2-'+i+'"></td>';
+        rows += '<td>' + (!key[1] ? notset : esc(key[1])) + '&nbsp;<input type="radio" name="r'+i+'" value="1-'+i+'"></td></tr>';
+      }
+    }
+    $('#tags').empty().append(rows);
+  }
+
+  buildTable()
   // Set state of each row
   function cellColor(row, which) {
     if (which == 1)
