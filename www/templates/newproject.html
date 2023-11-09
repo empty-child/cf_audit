@@ -1,27 +1,184 @@
-{% extends "layout.html" %}
-{% block title %}{% if project.name %}Edit{% else %}Create{% endif %} a project — {% endblock %}
-{% block content %}
-<h1>{% if project.name %}Update{% else %}Create{% endif %} a project</h1>
-<form action="{{ url_for('upload_project') }}" method="POST" enctype="multipart/form-data">
-    <input type="hidden" name="pid" value="{{ project.id or '' }}">
-    Short name: <input type="text" name="name" value="{{ project.name or '' }}"><br>
-    Title: <input type="text" size="100" name="title" value="{{ project.title or '' }}"><br>
-    URL: <input type="text" size="100" name="url" value="{{ project.url or '' }}"><br>
-    Description:<br>
-    <textarea name="description" cols="100" rows="10">{{ project.description or '' }}</textarea><br>
-    <br>
-    JSON: <input type="file" name="json"><br>
-    Audit: <input type="file" name="audit"><br>
-    <input type="checkbox" id="is_hidden" name="is_hidden" {% if project.hidden %}checked="checked"{% endif %}><label for="is_hidden"> Hide from the projects list</label><br>
-    <input type="checkbox" id="validate" name="validate" {% if project.can_validate %}checked="checked"{% endif %}><label for="validate"> Enable validation</label><br>
-    <input type="checkbox" id="validate_modified" name="validate_modified" {% if project.validate_modified %}checked="checked"{% endif %}><label for="validate_modified"> Validate only modified features</label><br>
-    <input type="checkbox" id="regional" name="regional" {% if project.regional %}checked="checked"{% endif %}><label for="regional"> Split validation by regions</label><br>
-    <input type="checkbox" id="prop_sv" name="prop_sv" {% if project.prop_sv %}checked="checked"{% endif %}><label for="prop_sv"> Show proprietary Street View</label><br>
-    <br>
-    <input type="submit">
-</form>
-{% if project.id %}
-<p><a href="{{ url_for('delete_project', pid=project.id) }}" style="color:red;" onclick="javascript:return confirm('You sure want to delete the project?');">Delete</a></p>
-{% endif %}
-<p><a href="{{ url_for('front') }}">Return</a></p>
+{% extends "layout.html" %} {% block title %}{% if project.name %}Edit{% else
+%}Create{% endif %} a project — {% endblock %} {% block content %}
+<main class="container">
+  <header class="mb-4">
+    <p>
+      {% if project.name %}<a
+        class="btn btn-outline-secondary"
+        href="{{ url_for('project', name=project.name) }}"
+      >
+        &lt; Return to project overview</a
+      >{% else %}<a
+        class="btn btn-outline-secondary"
+        href="{{ url_for('front') }}"
+      >
+        &lt; Return to main overview </a
+      >{% endif %}
+    </p>
+  </header>
+  <h1>
+    {% if project.name %}Update project {{ project.title }}{% else %}Create a
+    new project{% endif %}
+  </h1>
+  <form
+    action="{{ url_for('upload_project') }}"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <input type="hidden" name="pid" value="{{ project.id or '' }}" />
+    <div class="mb-3">
+      <label for="name" class="form-label">Short name: (for routing)</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        value="{{ project.name or '' }}"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="title">Project title:</label>
+      <input
+        type="text"
+        class="form-control"
+        size="100"
+        name="title"
+        value="{{ project.title or '' }}"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="url">URL of project webpage:</label>
+      <input
+        type="text"
+        class="form-control"
+        size="100"
+        name="url"
+        value="{{ project.url or '' }}"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description:</label>
+      <textarea class="form-control" name="description" cols="100" rows="4">
+        {{ project.description or '' }}
+    </textarea
+      >
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="json">JSON:</label>
+      <input class="form-control" type="file" name="json" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="audit">Audit:</label>
+      <input class="form-control" type="file" name="audit" />
+    </div>
+    <div class="mb-3">
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="is_hidden"
+          name="is_hidden"
+          {%
+          if
+          project.hidden
+          %}checked="checked"
+          {%
+          endif
+          %}
+        /><label class="form-label" for="is_hidden">
+          Hide from the projects list</label
+        >
+      </div>
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="validate"
+          name="validate"
+          {%
+          if
+          project.can_validate
+          %}checked="checked"
+          {%
+          endif
+          %}
+        /><label class="form-label" for="validate"> Enable validation</label>
+      </div>
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="validate_modified"
+          name="validate_modified"
+          {%
+          if
+          project.validate_modified
+          %}checked="checked"
+          {%
+          endif
+          %}
+        /><label class="form-label" for="validate_modified">
+          Validate only modified features</label
+        >
+      </div>
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="regional"
+          name="regional"
+          {%
+          if
+          project.regional
+          %}checked="checked"
+          {%
+          endif
+          %}
+        /><label class="form-label" for="regional">
+          Split validation by regions</label
+        >
+      </div>
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="prop_sv"
+          name="prop_sv"
+          {%
+          if
+          project.prop_sv
+          %}checked="checked"
+          {%
+          endif
+          %}
+        /><label class="form-label" for="prop_sv">
+          Show proprietary Street View</label
+        >
+      </div>
+    </div>
+    <div class="d-flex gap-2">
+      <button class="btn btn-primary" type="submit">
+        {% if project.name %}Update{% else %}Create{% endif %} Project
+      </button>
+      {% if project.id %}
+      <a
+        class="btn btn-outline-danger"
+        href="{{ url_for('delete_project', pid=project.id) }}"
+        style="color: red"
+        onclick="javascript:return confirm('You sure want to delete the project?');"
+        >Delete Project</a
+      >
+      {% endif %} {% if project.name %}<a
+        class="btn btn-outline-secondary"
+        href="{{ url_for('project', name=project.name) }}"
+      >
+        Cancel & Return to Project </a
+      >{% else %}<a
+        class="btn btn-outline-secondary"
+        href="{{ url_for('front') }}"
+      >
+        Cancel & Return to Main Overview </a
+      >{% endif %}
+    </div>
+  </form>
+</main>
 {% endblock %}

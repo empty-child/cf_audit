@@ -1,24 +1,23 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-#map1, #map2 {
+#map1,
+#map2 {
   position: fixed;
   right: 0;
   left: 35%;
   height: 50%;
 }
+
 #map1 {
   top: 0;
 }
+
 #map2 {
   bottom: 0;
 }
 
 @media screen and (max-width: 600px) {
-  .leaflet-control-minimap { display: none !important; }
+  .leaflet-control-minimap {
+    display: none !important;
+  }
 }
 
 #map1.bigmap {
@@ -35,29 +34,22 @@ html, body {
   display: none;
 }
 
-#left {
+#left-panel {
   width: 35%;
   padding: 0.5em;
-  font-size: 14px;
-  font-family: sans-serif;
-  margin-bottom: 250px;
-  line-height: 1;
+  padding-right: 1.5rem;
 }
 
 #buttons {
   position: fixed;
   background: white;
-  bottom: 0;
-  width: 35%;
+  bottom: 1rem;
+  width: calc(35% - 2.5rem);
 }
 
 p.toproject {
   font-size: 12px;
   margin: 0;
-}
-
-h1 {
-  font-size: 26px;
 }
 
 .hint {
@@ -71,80 +63,36 @@ h1 {
   color: darkred;
 }
 
-.tags_wrapper {
-  margin: 1em 0;
-  overflow-x: auto;
-  width: 95%;
-}
-
-.tags {
-  border-collapse: collapse;
-}
-
-.tags tr {
-  border: 1px solid lightgrey;
-  /*border-bottom: none;*/
-}
-
-.tags tr.lower {
-  border-top: none;
-}
-
-.tags th, tr.lower, tr.notagedit, .tags td {
-  border-bottom: 1px solid lightgrey;
-}
-
-.tags th {
-  text-align: left;
-  padding-right: 1em;
-}
-
-.tags .tagedit td {
-  cursor: pointer;
-}
-
-.tags td {
-  padding: 2px 0;
-}
-
 .tags td a {
   color: inherit;
 }
 
-.tags td.red { background-color: pink; }
-.tags td.green { background-color: lightgreen; }
-.tags td.yellow { background-color: yellow; }
+.tags td.red {
+  background-color: pink;
+}
+
+.tags td.green {
+  background-color: lightgreen;
+}
+
+.tags td.yellow {
+  background-color: yellow;
+}
 
 .tags .notset {
   color: lightgrey;
   font-style: italic;
 }
 
-.tags td.red .notset { color: grey; }
+.tags td.red .notset {
+  color: grey;
+}
 
 td input {
   float: right;
   height: 1em;
 }
 
-#fixme {
-  width: 90%;
-}
-
-#buttons button {
-  display: inline-block;
-  width: 95%;
-  margin-bottom: 0.5em;
-  border: solid 1px lightgrey;
-  font-size: 26px;
-}
-
-#buttons #submit_reason {
-  width: inherit;
-  margin: 0;
-  font-size: 16px;
-  vertical-align: bottom;
-}
 
 #reason_box p {
   margin: 0;
@@ -157,33 +105,4 @@ td input {
 #reason_box #create {
   background-color: lightgreen;
   margin-top: 0.5em;
-}
-
-#buttons .b_good {
-  background-color: lightgreen;
-  height: 4em;
-}
-
-.b_good:hover, .b_next:hover, .b_readonly:hover {
-  font-weight: bold;
-}
-
-#buttons .b_bad {
-  background-color: white;
-  color: pink;
-}
-
-#buttons #bad_dup, #buttons #bad_nosuch {
-  width: 47%;
-  vertical-align: bottom;
-}
-
-#buttons .b_bad:hover {
-  color: red;
-}
-
-#buttons .b_zoom {
-  width: 47%;
-  height: 3em;
-  vertical-align: bottom;
 }

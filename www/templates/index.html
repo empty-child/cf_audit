@@ -1,21 +1,43 @@
-{% extends "layout.html" %}
-{% block content %}
-<h1>Auditing Tool for OSM Conflator</h1>
-{% if admin %}
-<p><a href="{{ url_for('add_project') }}">Create a project</a></p>
-<p><a href="{{ url_for('download_csv') }}">Download CSV</a></p>
-{% endif %}
-<p>Imports that need validating:</p>
-<ul>
-  {% for proj in projects %}
-  {% if not proj.hidden or is_admin(proj) %}
-  <li>{% if proj.hidden %}🕶️ {% endif %}<a href="{{ url_for('project', name=proj.name) }}">{{ proj.title }}</a> ({{ proj.feature_count }})</li>
-  {% endif %}
-  {% endfor %}
-</ul>
-{% if not user %}
-<p><a href="{{ url_for('login') }}">Login to validate imports</a></p>
-{% else %}
-<p><a href="{{ url_for('profile') }}">Your settings</a></p>
-{% endif %}
+{% extends "layout.html" %} {% block content %}
+<main class="container">
+  <div class="d-flex flex-row justify-content-end gap-2 mb-4">
+    {% if not user %}
+    <mark>Login to edit stuff</mark>
+    <a class="btn" href="{{ url_for('login') }}">Login to validate imports</a>
+    {% else %}
+    <a class="btn btn-outline-secondary" href="{{ url_for('profile') }}"
+      >Your settings</a
+    >
+    {% if admin %}
+    <a class="btn btn-light" href="{{ url_for('add_project') }}"
+      >Add a new project</a
+    >
+    <a class="btn btn-light" href="{{ url_for('download_csv') }}">
+      Download Audit CSV
+    </a>
+    {% endif %} {% endif %}
+  </div>
+  <header class="row">
+    <h1>CFAudit: Auditing Tool for OSM Conflator</h1>
+    <p>
+      This website takes a JSON output from OSM Conflator and presents logged-in
+      users an interface for validating each imported point, one-by-one. It
+      records any changes and produces a file that can be later feeded back to
+      the Conflator.
+    </p>
+  </header>
+
+  <p><b>Projects</b> that need validating (click on one to see the details):</p>
+  <ul class="list-group">
+    {% for proj in projects %} {% if not proj.hidden or is_admin(proj) %}
+    <a
+      class="list-group-item list-group-item-action"
+      href="{{ url_for('project', name=proj.name) }}"
+    >
+      {% if proj.hidden %}🕶️ {% endif %} {{ proj.title }} {% if admin %} ({{
+      proj.feature_count }} features) {% endif %}
+    </a>
+    {% endif %} {% endfor %}
+  </ul>
+</main>
 {% endblock %}
