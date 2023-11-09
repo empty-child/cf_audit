@@ -85,6 +85,18 @@ def front():
     user = get_user()
     projects = Project.select().order_by(Project.updated.desc())
 
+    project_states = {}
+
+    for project in projects: 
+        val1 = Feature.select(Feature.id).where(
+            Feature.project == project, Feature.validates_count > 0
+        )
+        val2 = Feature.select(Feature.id).where(
+            Feature.project == project, Feature.validates_count >= 2
+        )
+
+        project_states[project.name] = [val1.count(), val2.count()]
+
     def local_is_admin(proj):
         return is_admin(user, proj)
 
@@ -92,6 +104,7 @@ def front():
         'index.html',
         user=user,
         projects=projects,
+        project_states=project_states,
         admin=is_admin(user),
         is_admin=local_is_admin,
     )

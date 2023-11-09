@@ -1,18 +1,53 @@
 {% extends "layout.html" %}
 {% block content %}
+<style>
+.projectTile {
+  max-width: 300px;
+  height: 300px;
+  flex: 1;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+
+.projectSpace {
+  display: flex;
+}
+
+
+.counter {
+  position: absolute;
+  bottom: 0;
+}
+
+</style>
+
 <h1>Auditing Tool for OSM Conflator</h1>
 {% if admin %}
 <p><a href="{{ url_for('add_project') }}">Create a project</a></p>
 <p><a href="{{ url_for('download_csv') }}">Download CSV</a></p>
 {% endif %}
 <p>Imports that need validating:</p>
-<ul>
-  {% for proj in projects %}
-  {% if not proj.hidden or is_admin(proj) %}
-  <li>{% if proj.hidden %}🕶️ {% endif %}<a href="{{ url_for('project', name=proj.name) }}">{{ proj.title }}</a> ({{ proj.feature_count }})</li>
-  {% endif %}
-  {% endfor %}
-</ul>
+
+<div class="projectSpace">
+{% for proj in projects %}
+{% if not proj.hidden or is_admin(proj) %}
+  <div class="projectTile" onclick="window.location='{{ url_for('project', name=proj.name) }}';" style="background: linear-gradient(to right, rgba(119,152,171,1) 0%, rgba(119,152,171,1) {{(100 * (project_states[proj.name][1]) / (proj.feature_count + 0.000001))}}%, rgba(195,219,197,1) {{(100 * (project_states[proj.name][1] + 0.001) / (proj.feature_count + 0.001))}}%, rgba(195,219,197,1) {{(100 * (project_states[proj.name][0] - project_states[proj.name][1]) / (proj.feature_count + 0.001))}}%, rgba(232,220,185,1) {{(100 * (project_states[proj.name][0] - project_states[proj.name][1]) / (proj.feature_count + 0.001))}}%, rgba(232,220,185,1) 100%);">    
+    <h1>{% if proj.hidden %}🕶️ {% endif %} {{proj.title}}</h1>
+    <p>{{proj.description}}</p>
+    <div class="counter">
+      <p class="">Viewed: {{project_states[proj.name][0]}}</p>
+      <p class="">Viewed Twice: {{project_states[proj.name][1]}}</p>
+      <p class="">Total: {{proj.feature_count}}</p>
+    </div>
+  </div>
+{% endif %}
+{% endfor %}
+</div>
+
 {% if not user %}
 <p><a href="{{ url_for('login') }}">Login to validate imports</a></p>
 {% else %}
