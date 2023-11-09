@@ -15,12 +15,12 @@
 
 #p_val2 {
   background-color: #52be80;
-  width: {{ (300 * (val2 + 0.001) / count) | round(1) }}px;
+  width: {{ (300 * (val2 + 0.001) / (count + 0.000000000001)) | round(1) }}px;
 }
 
 #p_val1 {
   background-color: #f7dc6f;
-  width: {{ (300 * (val1 - val2 + 0.001) / count) | round(1) }}px;
+  width: {{ (300 * (val1 - val2 + 0.001) / (count + 0.0000000001)) | round(1) }}px;
 }
 </style>
 
@@ -97,6 +97,10 @@
           window.location = target.getAttribute('tmpl').replace(/REG/, region);
         }
         </script>
+        <div class="tags_wrapper">
+            <table id="tags" class="tags">
+            </table>
+        </div>
     </div>
     <div id="map1" class="fillmap"></div>
 {% endblock %}
