@@ -70,6 +70,7 @@ $(function() {
         button.innerHTML = '← to the project';
         button.style.width = 'auto';
         button.style.padding = '0 4px';
+        button.setAttribute('id', 'backToProject');
         return container;
       }
     });
