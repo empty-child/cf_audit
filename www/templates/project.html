@@ -41,12 +41,11 @@
       AP = {
         endpoint: '{{ url_for('api') }}',
         projectId: {{ project.id }},
+        projectUrl: '{{ url_for('project', name=project.name, region=region) }}',
         forceRef: {% if ref %}'{{ ref }}'{% else %}null{% endif %},
         imagesPath: '{{ url_for('static', filename='images') }}',
-        featureTemplateUrl: '{{ url_for('tasks', name=project.name, ref='tmpl') }}',
-        browseTemplateUrl: '{{ url_for('browse', name=project.name, ref='tmpl') }}',
-        proprietarySV: {{ project.prop_sv | tojson }},
-        mapillaryId: '{{ mapillary_id }}',
+        featureTemplateUrl: '{{ url_for('tasks', name=project.name, ref='tmpl', region=region) }}',
+        browseTemplateUrl: '{{ url_for('browse', name=project.name, ref='tmpl', region=region) }}',
         region: '{{ region }}',
         readonly: true
       };
@@ -134,6 +133,20 @@
     </script>
   </div>
   <div id="map1" class="fillmap"></div>
+  <div id="popup">
+      <p><span id="title">{{ project.title }}</span>.{% if project.can_validate %} <span id="editthis"><a href="#" id="editlink">Edit this</a></span>{% endif %}</p>
+      <p id="hint" class="hint">
+        <span id="transparent">Transparent marker is the <span id="tr_which"></span> point location.</span>
+      </p>
+      <div class="tags_wrapper">
+        <table id="tags" class="tags">
+        </table>
+      </div>
+      <div id="remarks_box" class="remarks_box">
+        <b>Remarks:</b> <span id="remarks_content"></span>
+      </div>
+      <p id="last_action" class="last_action">Rejected with the verdict "<span id="last_verdict"></span>".</p>
+    </div>
 
 </main>
 {% endblock %}
