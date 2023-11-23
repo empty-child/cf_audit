@@ -61,22 +61,6 @@ $(function() {
     });
   }
 
-  if (!$('p.toproject').length) {
-    var ProjectButton = L.Control.extend({
-      onAdd: function() {
-        var container = L.DomUtil.create('div', 'leaflet-bar'),
-            button = L.DomUtil.create('a', '', container);
-        button.href = AP.projectUrl;
-        button.innerHTML = '← to the project';
-        button.style.width = 'auto';
-        button.style.padding = '0 4px';
-        button.setAttribute('id', 'backToProject');
-        return container;
-      }
-    });
-    map1.addControl(new ProjectButton({ position: 'topleft' }));
-  }
-
   L.control.zoom({position: map2 ? 'topright' : 'topleft'}).addTo(map1);
   L.control.layers(imageryLayers, {}, {collapsed: false, position: 'bottomright'}).addTo(map2 || map1);
   if (map2 && L.streetView) {
