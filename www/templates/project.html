@@ -33,6 +33,7 @@
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.2.0/dist/leaflet.markercluster.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename='Bing.js') }}"></script>
     <script src="{{ url_for('static', filename='Control.MiniMap.min.js') }}"></script>
     <script src="{{ url_for('static', filename='PermalinkAttribution.js') }}"></script>
@@ -64,6 +65,7 @@
   <div id="left-panel">
     <section class="mb-4" id="left-panel-navigation">
       <a role="button" class="btn btn-outline-secondary" href="{{ url_for('front') }}">&lt; return to overview</a>
+      <a role="button" class="btn btn-outline-secondary btn float-end" href="{{ url_for('table', name=project.name, region=region) }}">View points in a table</a>
     </section>
    
     <h1>{{ project.title }}</h1>
@@ -75,17 +77,18 @@
       </div>
       </div>
     </div>
-    <div class="flex pt-4">
-      <p>
-        <!-- <a href="{{ url_for('browse', name=project.name, region=region) }}">Browse points</a>
-        (<a href="{{ url_for('show_map', name=project.name, region=region) }}">on a map</a>, -->
-        <a role="button" class="btn btn-secondary" href="{{ url_for('table', name=project.name, region=region) }}">View points in a table</a>
-      </p>
+    <div class="d-flex flex-row pt-4">
       {% if admin %}
-      <p><a role="button" class="btn btn-secondary" href="{{ url_for('add_project', pid=project.id) }}">Edit</a>
-        <a role="button" class="btn btn-secondary" href="{{ url_for('export_audit', pid=project.id) }}">Download Audit</a>
-        <a role="button" class="btn btn-secondary" href="{{ url_for('external_audit', pid=project.id) }}">Audit for Source</a>
-      </p>
+      <div class="dropdown pr-1">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span>&#8942;</span> 
+        </button>
+        <ul class="dropdown-menu">
+          <li><a role="button" class="dropdown-item" href="{{ url_for('add_project', pid=project.id) }}">Edit</a></li>
+          <li><a role="button" class="dropdown-item" href="{{ url_for('export_audit', pid=project.id) }}">Download Audit</a></li>
+          <li><a role="button" class="dropdown-item" href="{{ url_for('external_audit', pid=project.id) }}">Download for Source</a></li>
+        </ul>
+      </div>
       {% endif %}
       {% if project.can_validate %}
       <p class="">
@@ -123,7 +126,6 @@
         </ul>
       </div>
     </div>
-    
 
     <script language="javascript">
       function switchRegion(target) {

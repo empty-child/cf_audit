@@ -106,3 +106,11 @@ td input {
   background-color: lightgreen;
   margin-top: 0.5em;
 }
+
+.dropdown {
+  position: relative;
+}
+
+.inline_blocks {
+  display: inline-block;
+}
