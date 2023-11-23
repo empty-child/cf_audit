@@ -79,12 +79,12 @@
       <p>
         <!-- <a href="{{ url_for('browse', name=project.name, region=region) }}">Browse points</a>
         (<a href="{{ url_for('show_map', name=project.name, region=region) }}">on a map</a>, -->
-        <a href="{{ url_for('table', name=project.name, region=region) }}">View points in a table</a>
+        <a role="button" class="btn btn-secondary" href="{{ url_for('table', name=project.name, region=region) }}">View points in a table</a>
       </p>
       {% if admin %}
-      <p><a href="{{ url_for('add_project', pid=project.id) }}">Edit</a>,
-        <a href="{{ url_for('export_audit', pid=project.id) }}">Download Audit</a>,
-        <a href="{{ url_for('external_audit', pid=project.id) }}">Audit for Source</a>
+      <p><a role="button" class="btn btn-secondary" href="{{ url_for('add_project', pid=project.id) }}">Edit</a>
+        <a role="button" class="btn btn-secondary" href="{{ url_for('export_audit', pid=project.id) }}">Download Audit</a>
+        <a role="button" class="btn btn-secondary" href="{{ url_for('external_audit', pid=project.id) }}">Audit for Source</a>
       </p>
       {% endif %}
       {% if project.can_validate %}
@@ -93,7 +93,7 @@
       </p>
       {% endif %}
       {% if has_skipped %}
-      <p class=""><a href="{{ url_for('clear_skipped', pid=project.id) }}">Put skipped items back</a> on your review list</p>
+      <p class=""><a role="button" class="btn btn-secondary" href="{{ url_for('clear_skipped', pid=project.id) }}">Put skipped items back</a> on your review list</p>
       {% endif %}
       {% if regions %}
       Filter by region:
