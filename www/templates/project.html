@@ -49,11 +49,7 @@
         region: '{{ region }}',
         readonly: true
       };
-
-      window.onload = () => {
-        // Quick and dirty fix
-        document.getElementById('backToProject').style.display = "none"
-      };
+      
     </script>
     <script src="{{ url_for('all_features', pid=project.id) }}"></script>
     <script src="{{ dated_url_for('static', filename='audit.js') }}"></script>
