@@ -2,8 +2,7 @@
 <main class="container">
   <div class="d-flex flex-row justify-content-end gap-2 mb-4">
     {% if not user %}
-    <mark>Login to edit stuff</mark>
-    <a class="btn" href="{{ url_for('login') }}">Login to validate imports</a>
+    <a class="btn btn-outline-secondary" href="{{ url_for('login') }}">Login</a>
     {% else %}
 
     {% if admin %}
@@ -15,8 +14,16 @@
     </a>
     {% endif %} 
     
-    <a class="btn btn-outline-secondary px-1" href="{{ url_for('profile') }}"
-    >User Settings {{ username.name }} <img src="{{ username.img }}" class="rounded-circle shadow-4" style="width: 25px;" alt="Avatar"> </a>
+    <div class="dropdown pr-1">
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ username.name }} <img src="{{ username.img }}" class="rounded-circle shadow-4" style="width: 25px;" alt="Avatar">
+      </button>
+      <ul class="dropdown-menu">
+        <li><a role="button" class="dropdown-item" href="{{ url_for('profile') }}">User Settings</a></li>
+        <li><a role="button" class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
+      </ul>
+    </div>
+
     {% endif %}
   </div>
   <header class="row">
