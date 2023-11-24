@@ -19,6 +19,7 @@ import codecs
 import datetime
 import math
 import os
+import requests
 
 oauth = OAuth()
 openstreetmap = oauth.remote_app(
@@ -57,6 +58,7 @@ app.jinja_env.globals['dated_url_for'] = dated_url_for
 
 def get_user():
     if 'osm_uid' in session:
+        get_user_name()
         try:
             return User.get(User.uid == session['osm_uid'])
         except User.DoesNotExist:
@@ -67,6 +69,9 @@ def get_user():
                 del session['osm_uid']
     return None
 
+def get_user_name():
+    if 'osm_uid' in session:
+        return requests.get(f'https://api.openstreetmap.org/api/0.6/user/{session["osm_uid"]}.json').json()['user']['display_name']
 
 def is_admin(user, project=None):
     if not user:
