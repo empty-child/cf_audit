@@ -58,7 +58,6 @@ app.jinja_env.globals['dated_url_for'] = dated_url_for
 
 def get_user():
     if 'osm_uid' in session:
-        get_user_name()
         try:
             return User.get(User.uid == session['osm_uid'])
         except User.DoesNotExist:
@@ -69,9 +68,17 @@ def get_user():
                 del session['osm_uid']
     return None
 
-def get_user_name():
+def get_full_user():
     if 'osm_uid' in session:
-        return requests.get(f'https://api.openstreetmap.org/api/0.6/user/{session["osm_uid"]}.json').json()['user']['display_name']
+        user_details = openstreetmap.get('user/details.json').data['user']
+
+        img = user_details['img']['href']
+        if not img:
+            img = 'https://i2.wp.com/www.openstreetmap.org/assets/avatar_large-54d681ddaf47c4181b05dbfae378dc0201b393bbad3ff0e68143c3d5f3880ace.png?ssl=1'
+
+        return {'id': user_details['id'], 'name': user_details['display_name'], 'img': img}
+    else:
+        return {'id': '', 'name': '', 'img': ''}
 
 def is_admin(user, project=None):
     if not user:
@@ -88,6 +95,7 @@ def is_admin(user, project=None):
 @app.route('/')
 def front():
     user = get_user()
+    username = get_full_user()
     projects = Project.select().order_by(Project.updated.desc())
 
     def local_is_admin(proj):
@@ -96,6 +104,7 @@ def front():
     return render_template(
         'index.html',
         user=user,
+        username=username,
         projects=projects,
         admin=is_admin(user),
         is_admin=local_is_admin,

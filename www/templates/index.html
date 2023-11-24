@@ -5,9 +5,7 @@
     <mark>Login to edit stuff</mark>
     <a class="btn" href="{{ url_for('login') }}">Login to validate imports</a>
     {% else %}
-    <a class="btn btn-outline-secondary" href="{{ url_for('profile') }}"
-      >User Settings</a
-    >
+
     {% if admin %}
     <a class="btn btn-light" href="{{ url_for('add_project') }}"
       >Add a new project</a
@@ -15,7 +13,11 @@
     <a class="btn btn-light" href="{{ url_for('download_csv') }}">
       Download Audit CSV
     </a>
-    {% endif %} {% endif %}
+    {% endif %} 
+    
+    <a class="btn btn-outline-secondary px-1" href="{{ url_for('profile') }}"
+    >User Settings {{ username.name }} <img src="{{ username.img }}" class="rounded-circle shadow-4" style="width: 25px;" alt="Avatar"> </a>
+    {% endif %}
   </div>
   <header class="row">
     <h1>cf_audit GUI: Auditing Tool for OSM Conflator</h1>
