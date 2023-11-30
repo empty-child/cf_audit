@@ -34,7 +34,7 @@ master_tags = ('ref', 'inscription',)
 # that should actually be duplicates.
 # this issue should be looked into further for non-example datasets, and might need some adaptations for each dataset
 # '''
-max_distance = 500
+max_distance = 10
 
 # '''
 # Dataset points that are closer than this distance (in meters) will be considered duplicates of each other.
