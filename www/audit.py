@@ -188,6 +188,9 @@ def project(name, region=None):
         Feature.project == project, Feature.audit.contains('"skip": true')
     )
 
+    updated_nodes = Feature.select(Feature.id).where(Feature.action == 'm')
+    created_nodes = Feature.select(Feature.id).where(Feature.action == 'c')
+
     if region is not None:
         val1 = val1.where(Feature.region == region)
         val2 = val2.where(Feature.region == region)
@@ -240,6 +243,8 @@ def project(name, region=None):
         desc=desc,
         val1=val1.count(),
         val2=val2.count(),
+        created_nodes=created_nodes.count(),
+        updated_nodes=updated_nodes.count(),
         corrected=corrected.count(),
         skipped=skipped.count(),
         has_skipped=has_skipped,
