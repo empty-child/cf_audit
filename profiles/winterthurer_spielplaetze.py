@@ -34,7 +34,7 @@ master_tags = ('name', 'access')
 # that should actually be duplicates.
 # this issue should be looked into further for non-example datasets, and might need some adaptations for each dataset
 # '''
-max_distance = 500
+max_distance = 80
 
 # '''
 # Dataset points that are closer than this distance (in meters) will be considered duplicates of each other.
@@ -45,7 +45,7 @@ duplicate_distance = 20
 # Use bbox from dataset points (default). False = query whole world, [minlat, minlon, maxlat, maxlon] to override
 # restrict bounding box, makes query much, much faster!
 # '''
-bbox = [8.655,47.449,8.811,47.549]
+bbox = [45.7309, 5.8509, 47.8443, 10.5805]
 
 # '''
 # increase overpass timeout for large datasets!
