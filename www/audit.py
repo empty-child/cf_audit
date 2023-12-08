@@ -188,8 +188,8 @@ def project(name, region=None):
         Feature.project == project, Feature.audit.contains('"skip": true')
     )
 
-    updated_nodes = Feature.select(Feature.id).where(Feature.action == 'm')
-    created_nodes = Feature.select(Feature.id).where(Feature.action == 'c')
+    updated_nodes = Feature.select(Feature.id).where(Feature.project == project, Feature.action == 'm')
+    created_nodes = Feature.select(Feature.id).where(Feature.project == project, Feature.action == 'c')
 
     if region is not None:
         val1 = val1.where(Feature.region == region)
