@@ -41,6 +41,11 @@
         <table id="tags" class="tags">
         </table>
       </div>
+      {% if project.title == 'Winterthurer Sitzbänke' %}
+      <div class="hint">
+        <span>Gib mit direction=* in Altgrad die Blickrichtung an (z.B. "315") ." wenn der Key "direction" nicht existiert.</span>        
+      </div>
+      {% endif %}
       <div id="fixme_box">
         <p>Value for the <tt>fixme</tt> tag if needed:<br>
         <input type="text" id="fixme"></p>
