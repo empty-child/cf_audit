@@ -83,8 +83,16 @@ def dataset(fileobj):
     processed_ids = []
     
     for element in json_data:
+
         el_prop = element['properties']
         shop_id = element['id']
+
+        if 'ref:emergency' in el_prop:
+            el_prop['ref'] = el_prop['ref:emergency']
+
+            el_prop.pop('ref:emergency')
+
+
 
         # Not all entries have geometry set
         if 'geometry' in element:
@@ -92,6 +100,7 @@ def dataset(fileobj):
             lon = element['geometry']['coordinates'][0]
         else:
             print(f'-- NO GEOMETRY for {shop_id}')
+
 
         tags = el_prop
 
