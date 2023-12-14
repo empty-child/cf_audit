@@ -59,7 +59,7 @@
 <main class="container-fluid">
   <div id="left-panel">
     <section class="mb-4" id="left-panel-navigation">
-      <a role="button" class="btn btn-outline-secondary" href="{{ url_for('front') }}">&lt; return to overview</a>
+      <a role="button" class="btn btn-outline-secondary" href="{{ url_for('front') }}">&lt; Return to Overview</a>
       <a role="button" class="btn btn-outline-secondary btn float-end" href="{{ url_for('table', name=project.name, region=region) }}">View points in a table</a>
     </section>
    
@@ -91,7 +91,7 @@
       </p>
       {% endif %}
       {% if has_skipped %}
-      <p class=""><a role="button" class="btn btn-secondary" href="{{ url_for('clear_skipped', pid=project.id) }}">Put skipped items back</a></p>
+      <p class=""><a role="button" class="btn btn-secondary" href="{{ url_for('clear_skipped', pid=project.id) }}">Put Skipped Items Back</a></p>
       {% endif %}
       {% if regions %}
       Filter by region:
@@ -112,13 +112,13 @@
           <span class="progress-bar" id="p_val1"></span>
         </div>
         <ul>
-          <li>Total features: {{ project.feature_count }}</li>
+          <li>Total OSM elements: {{ project.feature_count }}</li>
           <ul>
-            <li>Update Nodes: {{ updated_nodes }}</li>
-            <li>Create new Nodes: {{ created_nodes }} </li>
+            <li>Updated nodes/polygon/relations: {{ updated_nodes }}</li>
+            <li>Created nodes/polygon/relations: {{ created_nodes }} </li>
           </ul>
-          <li>Features to validate: {{ count }}</li>
-          <li>Features looked at: {{ val1 }}</li>
+          <li>OSM elements to validate: {{ count }}</li>
+          <li>OSM elements looked at: {{ val1 }}</li>
           <li>Validated twice: {{ val2 }}</li>
           <li>Have corrections: {{ corrected }}</li>
           <li>To be ignored: {{ skipped }}</li>
