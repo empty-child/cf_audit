@@ -24,6 +24,7 @@ deploy:
     - curl -X POST https://portainer.geoh.infs.ch/api/webhooks/8eebc153-cf8f-4007-ac41-4fea7c2eaa32
   only:
     - master
+    - updatedUI
 
 build-updated-gui:
   stage: build
