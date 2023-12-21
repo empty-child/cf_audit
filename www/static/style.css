@@ -114,3 +114,7 @@ td input {
 .inline_blocks {
   display: inline-block;
 }
+
+#fixme {
+  width: 100%;
+}
