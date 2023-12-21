@@ -405,6 +405,7 @@ function prepareSidebar(data, audit) {
   }
 
   function formatObjectRef(props) {
+    return (props['osm_type'] == 'node' ? 'point' : 'polygon')
     return ' a <a href="https://www.openstreetmap.org/' +
       props['osm_type'] + '/' + props['osm_id'] + '" target="_blank">' +
       (props['osm_type'] == 'node' ? 'point' : 'polygon') + '</a>';
@@ -414,14 +415,22 @@ function prepareSidebar(data, audit) {
   if (props['action'] == 'create')
     title = 'Create new node';
   else if (props['action'] == 'delete')
-    title = 'Delete' + formatObjectRef(props);
+    title = 'Delete ' + formatObjectRef(props);
   else if (props['were_coords'])
-    title = 'Modify and move' + formatObjectRef(props);
+    title = 'Modify and move ' + formatObjectRef(props);
   else if (props['ref_coords'])
-    title = 'Update tags on' + formatObjectRef(props);
+    title = 'Update tags on ' + formatObjectRef(props);
   else
-    title = 'Mark' + formatObjectRef(props) + ' as obsolete';
+    title = 'Mark ' + formatObjectRef(props) + ' as obsolete';
   $('#title').html(title);
+
+  $('#toOSM').attr('href', ('https://www.openstreetmap.org/' +
+  props['osm_type'] + '/' + props['osm_id']))
+
+  if (props['action'] == 'create')
+    $('#toOSM').hide();
+  else
+    $('#toOSM').show();
 
   $('#buttons button').each(function() { $(this).prop('disabled', false); });
   if (AP.readonly) {
@@ -534,7 +543,7 @@ function renderTagTable(data, audit, editNewTags) {
 
 
   function buildTable() {
-    var rows = '<tr><th>TAG</th><th>New</th><th>Old</th></tr>', notset = '<span class="notset">not set</span>'
+    var rows = '<tr><th>Tag</th><th>New</th><th>Old</th></tr>', notset = '<span class="notset">not set</span>'
     for(var i = 0; i < keys.length; i++){
       key = keys[i];
       if (key.length == 2) {
@@ -687,7 +696,6 @@ function submit(e) {
   // Send audit result and query the next feature
   var audit = prepareAudit(e.data);
   var properties = feature['properties'];
-  console.log(JSON.stringify(audit));
   $('#reason_box').hide();
   $('#buttons button').each(function() { $(this).prop('disabled', true); });
   queryNext([feature.ref, e.data.msg == 'skip' ? null : audit, properties]);

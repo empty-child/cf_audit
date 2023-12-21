@@ -32,12 +32,13 @@
 <main class="container-fluid">
     <div id="left-panel">
       <header class="mb-4">
-        <p>
+        <section class="mb-4" id="left-panel-navigation">
           <a class="btn btn-outline-secondary" href="{{ url_for('project', name=project.name) }}">&lt; Return to the Project</a>
-        </p>
-        <!-- <p class="toproject">, <a href="#" id="browselink">browse around</a></p> -->
+          <a role="button" id="toOSM" class="btn btn-outline-secondary btn float-end">View on OpenStreetMap &gt;</a>
+        </section>
       </header>
-      <h1 id="title">{{ project.title }}</h1>
+      <h1 id="main_title">{{ project.title }}</h1>
+      <h3 id="title"></h3>
       <p id="last_action" class="last_action">The last reviewer rejected this change with the verdict "<span id="last_verdict"></span>".</p>
       <p id="hint" class="hint">
         <span id="canmove">You can move the marker to a better location. Imagery may be misaligned.</span>
