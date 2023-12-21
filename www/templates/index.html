@@ -16,7 +16,7 @@
     
     <div class="dropdown pr-1">
       <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        {{ username.name }} <img src="{{ username.img }}" class="rounded-circle shadow-4" style="width: 25px;" alt="Avatar">
+        <img src="{{ username.img }}" class="rounded-circle shadow-4" style="width: 25px;" alt="Avatar"> {{ username.name }}
       </button>
       <ul class="dropdown-menu">
         <li><a role="button" class="dropdown-item" href="{{ url_for('profile') }}">User Settings</a></li>
