@@ -24,3 +24,16 @@ deploy:
     - curl -X POST https://portainer.geoh.infs.ch/api/webhooks/8eebc153-cf8f-4007-ac41-4fea7c2eaa32
   only:
     - master
+
+
+build-updated-gui:
+  stage: build
+  # see https://docs.gitlab.com/ee/ci/docker/using_kaniko.html
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG $CI_PROJECT_DIR" 
+  only:
+    - updatedUI
