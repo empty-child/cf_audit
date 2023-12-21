@@ -34,6 +34,8 @@ build-updated-gui:
     entrypoint: [""]
   script:
     - mkdir -p /kaniko/.docker
-    - echo "$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG $CI_PROJECT_DIR" 
+    - echo "$CI_REGISTRY_IMAGE - $CI_COMMIT_TAG - $CI_PROJECT_DIR" 
   only:
     - updatedUI
+
+JzQwS1THnNBpqwj6jwMk
