@@ -390,6 +390,10 @@ function prepareSidebar(data, audit) {
   var ref = data.ref, props = data['properties'],
       remarks = props['remarks'];
 
+  var geometry = data['geometry'];
+
+  coord = data['geometry']['coordinates'],
+
   $('#good').text('Good');
 
   if (AP.readonly) {
@@ -426,6 +430,8 @@ function prepareSidebar(data, audit) {
 
   $('#toOSM').attr('href', ('https://www.openstreetmap.org/' +
   props['osm_type'] + '/' + props['osm_id']))
+
+  $('#toMaptillery').attr('href', (`https://www.mapillary.com/app/?lat=${coord[0]}&lng=${coord[1]}&z=19.9`))
 
   if (props['action'] == 'create')
     $('#toOSM').hide();
