@@ -390,8 +390,6 @@ function prepareSidebar(data, audit) {
   var ref = data.ref, props = data['properties'],
       remarks = props['remarks'];
 
-  var geometry = data['geometry'];
-
   coord = data['geometry']['coordinates'],
 
   $('#good').text('Good');
