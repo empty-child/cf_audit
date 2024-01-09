@@ -34,8 +34,8 @@
       <header class="mb-4">
         <section class="mb-4" id="left-panel-navigation">
           <a class="btn btn-outline-secondary" href="{{ url_for('project', name=project.name) }}">&lt; Return to the Project</a>
-          <a role="button" id="toMaptillery" class="btn btn-outline-secondary btn float-end mp-2">View on Mapillary</a>
-          <a role="button" id="toOSM" class="btn btn-outline-secondary btn float-end">View on OpenStreetMap</a>
+          <a role="button" id="toOSM" class="btn btn-outline-secondary btn float-end mx-2" target="_blank">View on OpenStreetMap</a>
+          <a role="button" id="toMaptillery" class="btn btn-outline-secondary btn float-end" target="_blank">View on Mapillary</a>
         </section>
       </header>
       <h1 id="main_title">{{ project.title }}</h1>
