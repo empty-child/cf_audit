@@ -18,7 +18,7 @@ $(function() {
       attribution: '© <a href="https://openstreetmap.org">OpenStreetMap contributors</a>', maxZoom: 19
     }),
     'swisstopo SWISSIMAGE': L.tileLayer("https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg", {
-      attribution: '<p>Federal Office of Topography swisstopo</p>', maxZoom: 22
+      attribution: '<a>Federal Office of Topography swisstopo</a>', maxZoom: 22
     }),
     'Esri': L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       attribution: '<a href="https://wiki.openstreetmap.org/wiki/Esri">Esri World Imagery</a>', maxZoom: 22
@@ -390,6 +390,10 @@ function prepareSidebar(data, audit) {
   var ref = data.ref, props = data['properties'],
       remarks = props['remarks'];
 
+  coord = data['geometry']['coordinates'],
+
+  console.log(props)
+
   $('#good').text('Good');
 
   if (AP.readonly) {
@@ -406,9 +410,6 @@ function prepareSidebar(data, audit) {
 
   function formatObjectRef(props) {
     return (props['osm_type'] == 'node' ? 'point' : 'polygon')
-    return ' a <a href="https://www.openstreetmap.org/' +
-      props['osm_type'] + '/' + props['osm_id'] + '" target="_blank">' +
-      (props['osm_type'] == 'node' ? 'point' : 'polygon') + '</a>';
   }
 
   var title;
@@ -426,6 +427,8 @@ function prepareSidebar(data, audit) {
 
   $('#toOSM').attr('href', ('https://www.openstreetmap.org/' +
   props['osm_type'] + '/' + props['osm_id']))
+
+  $('#toMaptillery').attr('href', (`https://www.mapillary.com/app/?lat=${coord[1]}&lng=${coord[0]}&z=18`))
 
   if (props['action'] == 'create')
     $('#toOSM').hide();
