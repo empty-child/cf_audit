@@ -71,11 +71,9 @@ def get_user():
 def get_full_user():
     if 'osm_uid' in session:
         user_details = openstreetmap.get('user/details.json').data['user']
-
-        img = user_details['img']['href']
-        if not img:
-            img = 'https://i2.wp.com/www.openstreetmap.org/assets/avatar_large-54d681ddaf47c4181b05dbfae378dc0201b393bbad3ff0e68143c3d5f3880ace.png?ssl=1'
-
+        img = 'https://i2.wp.com/www.openstreetmap.org/assets/avatar_large-54d681ddaf47c4181b05dbfae378dc0201b393bbad3ff0e68143c3d5f3880ace.png?ssl=1'
+        if 'img' in user_details:
+            img = user_details['img']['href']
         return {'id': user_details['id'], 'name': user_details['display_name'], 'img': img}
     else:
         return {'id': '', 'name': '', 'img': ''}
