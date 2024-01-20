@@ -63,14 +63,14 @@ $(function() {
 
   L.control.zoom({position: map2 ? 'topright' : 'topleft'}).addTo(map1);
   L.control.layers(imageryLayers, {}, {collapsed: false, position: 'bottomright'}).addTo(map2 || map1);
-  if (map2 && L.streetView) {
+  /*if (map2 && L.streetView) {
     svOptions = { position: 'bottomright' };
     if (!AP.proprietarySV)
       svOptions.google = false;
     if (AP.mapillaryId)
       svOptions.mapillaryId = AP.mapillaryId;
     svButton = L.streetView(svOptions).addTo(map2);
-  }
+  }*/
   var popups = $('#popup').length > 0;
 
   if (AP.readonly && features) {
@@ -425,15 +425,15 @@ function prepareSidebar(data, audit) {
     title = 'Mark ' + formatObjectRef(props) + ' as obsolete';
   $('#title').html(title);
 
-  $('#toOSM').attr('href', ('https://www.openstreetmap.org/' +
-  props['osm_type'] + '/' + props['osm_id']))
-
+  // Add View on Buttons
+ 
   $('#toMaptillery').attr('href', (`https://www.mapillary.com/app/?lat=${coord[1]}&lng=${coord[0]}&z=18`))
-
+  $('#toBing').attr('href', (`https://www.bing.com/maps?cp=${coord[1]}~${coord[0]}&lvl=19&style=x&v=2`))
+  
   if (props['action'] == 'create')
-    $('#toOSM').hide();
+  $('#toOSM').attr('href', (`https://www.openstreetmap.org/#map=19/${coord[1]}/${coord[0]}`))
   else
-    $('#toOSM').show();
+  $('#toOSM').attr('href', ('https://www.openstreetmap.org/' + props['osm_type'] + '/' + props['osm_id']))
 
   $('#buttons button').each(function() { $(this).prop('disabled', false); });
   if (AP.readonly) {
