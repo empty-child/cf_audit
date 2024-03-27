@@ -42,7 +42,7 @@ $(function() {
     }).addTo(map2);
 
     delete imageryLayers['OSM'];
-    imageryLayers['swisstopo SWISSIMAGE'].addTo(map2);
+    imageryLayers['swisstopo'].addTo(map2);
 
     var move = true;
     map1.on('move', function() {
@@ -247,9 +247,9 @@ function queryForPopup(target) {
 function setChanged(fast) {
   var $good = $('#good');
   if (!fast)
-    $good.text('Good');
+    $good.text('Confirm');
   else
-    $good.text($.isEmptyObject(prepareAudit()) ? 'Good' : 'Good');
+    $good.text($.isEmptyObject(prepareAudit()) ? 'Confirm' : 'Confirm');
 }
 
 function updateMarkers(data, audit, panMap) {
