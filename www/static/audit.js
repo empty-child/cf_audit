@@ -247,9 +247,9 @@ function queryForPopup(target) {
 function setChanged(fast) {
   var $good = $('#good');
   if (!fast)
-    $good.text('Record changes');
+    $good.text('Good');
   else
-    $good.text($.isEmptyObject(prepareAudit()) ? 'Good' : 'Record changes');
+    $good.text($.isEmptyObject(prepareAudit()) ? 'Good' : 'Good');
 }
 
 function updateMarkers(data, audit, panMap) {
