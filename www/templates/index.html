@@ -44,7 +44,7 @@
       href="{{ url_for('project', name=proj.name) }}"
     >
       {% if proj.hidden %}🕶️ {% endif %} {{ proj.title }} {% if admin %} ({{
-      proj.feature_count }} features) {% endif %}
+      proj.feature_count }} proposed changes) {% endif %}
     </a>
     {% endif %} {% endfor %}
   </ul>
