@@ -603,7 +603,7 @@ function renderTagTable(data, audit, editNewTags) {
 
 function displayPoint(data, audit, forPopup) {
   if (!data.ref) {
-    window.alert('Received an empty feature. You must have validated all of them.');
+    window.alert('Validated all changes in this session. Return to the project overview.');
     hidePoint();
     return;
   }
