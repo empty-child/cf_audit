@@ -96,6 +96,15 @@ def front():
     username = get_full_user()
     projects = Project.select().order_by(Project.updated.desc())
 
+    for proj in projects:
+        project = Project.get(Project.name == proj.name)
+        val1 = Feature.select(Feature.id).where(
+            Feature.project == project, Feature.validates_count > 0
+        )
+
+        proj.checked = val1.count()
+
+
     def local_is_admin(proj):
         return is_admin(user, proj)
 

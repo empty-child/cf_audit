@@ -17,7 +17,7 @@ $(function() {
     "OSM": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://openstreetmap.org">OpenStreetMap contributors</a>', maxZoom: 19
     }),
-    'swisstopo SWISSIMAGE': L.tileLayer("https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg", {
+    'swisstopo': L.tileLayer("https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg", {
       attribution: '<a>Federal Office of Topography swisstopo</a>', maxZoom: 22
     }),
     'Esri': L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
@@ -42,7 +42,7 @@ $(function() {
     }).addTo(map2);
 
     delete imageryLayers['OSM'];
-    imageryLayers['swisstopo SWISSIMAGE'].addTo(map2);
+    imageryLayers['swisstopo'].addTo(map2);
 
     var move = true;
     map1.on('move', function() {
@@ -247,9 +247,9 @@ function queryForPopup(target) {
 function setChanged(fast) {
   var $good = $('#good');
   if (!fast)
-    $good.text('Record changes');
+    $good.text('Confirm');
   else
-    $good.text($.isEmptyObject(prepareAudit()) ? 'Good' : 'Record changes');
+    $good.text($.isEmptyObject(prepareAudit()) ? 'Confirm' : 'Confirm');
 }
 
 function updateMarkers(data, audit, panMap) {
@@ -603,7 +603,7 @@ function renderTagTable(data, audit, editNewTags) {
 
 function displayPoint(data, audit, forPopup) {
   if (!data.ref) {
-    window.alert('Received an empty feature. You must have validated all of them.');
+    window.alert('Validated all changes in this session. Return to the project overview.');
     hidePoint();
     return;
   }
