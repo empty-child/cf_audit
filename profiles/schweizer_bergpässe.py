@@ -1,6 +1,5 @@
 """
-Profile for Winterthurer Spielplaete
-
+Profile for Swiss Peaks
 Date: 2023-08-30
 Author: OST
 License: MIT
@@ -14,19 +13,19 @@ download_url = 'https://gitlab.ost.ch/ifs/geometalab/cf_audit/-/raw/master/profi
 # '''
 # What will be put into "source" tags.
 # '''
-source = 'https://alltheplaces.xyz'
+source = 'https://www.swisstopo.admin.ch/de/landschaftsmodell-swissnames3d'
 
 # '''
 # Tags for querying with overpass api
 # '''
-query = '[leisure~"playground|park"]'
+query = [('natural', 'saddle')] #[mountain_pass=yes]'
 
 # '''
 # A set of tags, which are more trustworthy from the external source than the ones from OSM
 # This is only for faster validation by a user (preselected radio button).
 # It does not influence the matching algorithm
 # '''
-master_tags = ('name', 'access')
+master_tags = ('name', 'ele')
 
 # '''
 # How close OSM point should be to register a match, in meters. Default is 100
@@ -34,18 +33,18 @@ master_tags = ('name', 'access')
 # that should actually be duplicates.
 # this issue should be looked into further for non-example datasets, and might need some adaptations for each dataset
 # '''
-max_distance = 80
+max_distance = 500
 
 # '''
 # Dataset points that are closer than this distance (in meters) will be considered duplicates of each other.
 # '''
-duplicate_distance = 20
+duplicate_distance = 10
 
 # '''
 # Use bbox from dataset points (default). False = query whole world, [minlat, minlon, maxlat, maxlon] to override
 # restrict bounding box, makes query much, much faster!
 # '''
-bbox = [45.7309, 5.8509, 47.8443, 10.5805]
+bbox = True #[45.6755, 5.7349, 47.9163, 10.6677]
 
 # '''
 # increase overpass timeout for large datasets!
@@ -56,7 +55,6 @@ overpass_timeout = 10000
 # If set to True, unmatched OSM points will be deleted. Default is False: they are retagged instead.
 # '''
 delete_unmatched = False
-
 # '''
 # A fairly unique id of the dataset to query OSM, used for "ref:mos_parking" tags
 # If you omit it, set explicitly "no_dataset_id = True"
@@ -70,49 +68,40 @@ no_dataset_id = True
 # '''
 def dataset(fileobj):
     # by the way the import happens, all imports and functions must be defined inside this function!
-    import requests
-    
+    import csv
+    from pyproj import Transformer
 
-    data_url = 'https://gitlab.ost.ch/ifs/geometalab/cf_audit/-/raw/master/profiles/geojson/winterthurer_spielplaetze.geojson'
-    r = requests.get(data_url)
+    transformer = Transformer.from_crs("EPSG:2056", "EPSG:4326")
     
-    result = r.json()
-    json_data = result['features']
 
     data = []
     processed_ids = []
     
-    for element in json_data:
+    with open('./csv/swissNAMES3D_PKT.csv', mode='r') as csv_file:
+        csv_dict = csv.DictReader(csv_file, delimiter=';')
+        for element in csv_dict:
+            if element['OBJEKTART'] in ['Pass',]:
 
-        el_prop = element['properties']
-        shop_id = element['id']
-
-        if 'ref:emergency' in el_prop:
-            el_prop['ref'] = el_prop['ref:emergency']
-
-            el_prop.pop('ref:emergency')
-
-
-
-        # Not all entries have geometry set
-        if 'geometry' in element:
-            lat = element['geometry']['coordinates'][1]
-            lon = element['geometry']['coordinates'][0]
-        else:
-            print(f'-- NO GEOMETRY for {shop_id}')
+                el_prop = {
+                    'name': element['NAME'],
+                    'ele': element['HOEHE'],
+                    'natural': 'saddle', 
+                }
+                
+                
+                lat, lon = transformer.transform(element['E'], element['N'])
 
 
-        tags = el_prop
+                tags = el_prop
 
-        # Remove undesired tag which is required by alltheplaces
-        tags.pop('@spider')  # irrelevant for OSM
+                shop_id = element['NAME_UUID']
 
-        if shop_id in processed_ids:
-            print(f'-- Shop {shop_id} already present')
-        else:
-            processed_ids.append(shop_id)
+                if shop_id in processed_ids:
+                    #print(f'-- Shop {shop_id} already present')
+                    continue
+                else:
+                    processed_ids.append(shop_id)
 
-            # Class SourcePoint() will be available after this file was imported during execution            
-            data.append(SourcePoint(shop_id, lat, lon, tags))
-
+                    # Class SourcePoint() will be available after this file was imported during execution            
+                    data.append(SourcePoint(shop_id, lat, lon, tags))
     return data

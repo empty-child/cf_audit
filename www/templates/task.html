@@ -30,7 +30,7 @@
 {% endblock %}
 {% block content %}
 <main class="container-fluid">
-    <div id="left-panel">
+    <div id="left-panel" class="d-flex flex-column">
       <header class="mb-4">
         <section class="mb-4" id="left-panel-navigation">
           <a class="btn btn-outline-secondary" href="{{ url_for('project', name=project.name) }}">&lt; Return to the Project</a>
@@ -46,42 +46,48 @@
           </div>
         </section>
       </header>
-      <h1 id="main_title">{{ project.title }}</h1>
-      <h3 id="title"></h3>
-      <p id="last_action" class="last_action">The last reviewer rejected this change with the verdict "<span id="last_verdict"></span>".</p>
-      <p id="hint" class="hint">
-        <span id="canmove">You can move the marker to a better location. Imagery may be misaligned.</span>
-        <span id="transparent">Semi-transparent marker is the location from <span id="tr_which"></span>.</span>
-      </p>
-      <div class="tags_wrapper">
-        <table id="tags" class="table table-sm tags">
-        </table>
-      </div>
-      <div id="fixme_box">
-        <p>Value for the <tt>fixme</tt> tag, if needed:<br>
-        <input type="text" id="fixme"></p>
-      </div>
-      <div id="remarks_box" class="remarks_box">
-        <b>Remarks:</b> <span id="remarks_content"></span>
-      </div>
-      <div id="buttons" class="d-flex flex-column gap-2">
-        <button id="good" class="btn btn-lg btn-success">Confirm</button>
-        <div class="d-flex gap-2">
-          <button id="bad" class="btn flex-fill btn-outline-success">Don't Change</button>
-          <button id="bad_dup" class="btn flex-fill btn-outline-warning">Mark as Duplicate</button>
-          <button id="bad_nosuch" class="btn flex-fill btn-outline-warning">Invalid Point</button>
+      <div id="info-section" class="overflow-auto">
+        <h1 id="main_title">{{ project.title }}</h1>
+        <h3 id="title"></h3>
+        <p id="last_action" class="last_action">The last reviewer rejected this change with the verdict "<span id="last_verdict"></span>".</p>
+        <p id="hint" class="hint">
+          <span id="canmove">You can move the marker to a better location. Imagery may be misaligned.</span>
+          <span id="transparent">Semi-transparent marker is the location from <span id="tr_which"></span>.</span>
+        </p>
+        <div class="tags_wrapper">
+          <table id="tags" class="table table-sm tags">
+          </table>
         </div>
-        <div id="reason_box">
-          <p>Reason (optional):<br>
-          <input type="text" id="reason">
-          <button class="btn btn-light" id="submit_reason">OK</button</p>
-          <button class="btn btn-light" id="create">Create New Instead</button>
+        <div id="fixme_box">
+          <p>Value for the <tt>fixme</tt> tag, if needed:<br>
+          <input type="text" id="fixme"></p>
         </div>
-        <button  id="skip" class="btn btn btn-secondary">Skip</button>
+        <div id="remarks_box" class="remarks_box">
+          <b>Remarks:</b> <span id="remarks_content"></span>
+        </div>
+      </div>
+      <div id="button-box" class="fixed-bottom p-3">
+        <div id="buttons" class="d-flex flex-column gap-2">
+          <button id="good" class="btn btn-lg btn-success">Confirm</button>
+          <div class="d-flex gap-2">
+            <button id="bad" class="btn flex-fill btn-outline-success">Don't Change</button>
+            <button id="bad_dup" class="doubleButtons btn flex-fill btn-outline-warning">Mark as Duplicate</button>
+            <button id="bad_nosuch" class="doubleButtons btn flex-fill btn-outline-warning">Invalid Point</button>
+          </div>
+          <div id="reason_box">
+            <p>Reason (optional):<br>
+            <input type="text" id="reason">
+            <button class="btn btn-light" id="submit_reason">OK</button</p>
+            <button class="btn btn-light" id="create">Create New Instead</button>
+          </div>
+          <button  id="skip" class="btn btn btn-secondary">Skip</button>
+        </div>
       </div>
     </div>
-    <div id="map1"></div>
-    <div id="map2"></div>
+    <div id="maps-box">
+      <div id="map1"></div>
+      <div id="map2"></div>
+    </div>
   </main>
 
 {% endblock %}
