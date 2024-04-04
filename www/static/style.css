@@ -41,10 +41,18 @@
 }
 
 #buttons {
-  position: fixed;
   background: white;
   bottom: 1rem;
   width: calc(35% - 2.5rem);
+}
+
+#info-section {
+  height: calc(100vh - 270px);
+/*  overflow-y: scroll;*/
+}
+
+#button-box {
+  height: 170px;
 }
 
 p.toproject {
@@ -117,4 +125,8 @@ td input {
 
 #fixme {
   width: 100%;
+}
+
+.doubleButtons {
+  width: 50%;
 }
