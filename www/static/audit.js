@@ -14,17 +14,17 @@ $(function() {
   map1.setView([20, 5], 7, {animate: false});
 
   var imageryLayers = {
-    "OSM": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    "OSM Standard": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://openstreetmap.org">OpenStreetMap contributors</a>', maxZoom: 19
     }),
-    'swisstopo SWISSIMAGE': L.tileLayer("https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg", {
+    'SWISSIMAGE': L.tileLayer("https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg", {
       attribution: '<a>Federal Office of Topography swisstopo</a>', maxZoom: 22
     }),
-    'Esri': L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    'Esri Satellite': L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       attribution: '<a href="https://wiki.openstreetmap.org/wiki/Esri">Esri World Imagery</a>', maxZoom: 22
     }),
   };
-  imageryLayers['OSM'].addTo(map1);
+  imageryLayers['OSM Standard'].addTo(map1);
 
   var miniMap;
   if ($('#map2').length && $('#map2').is(':visible')) {
@@ -41,8 +41,8 @@ $(function() {
       minimized: true
     }).addTo(map2);
 
-    delete imageryLayers['OSM'];
-    imageryLayers['swisstopo SWISSIMAGE'].addTo(map2);
+    delete imageryLayers['OSM Standard'];
+    imageryLayers['SWISSIMAGE'].addTo(map2);
 
     var move = true;
     map1.on('move', function() {
