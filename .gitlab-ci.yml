@@ -24,3 +24,25 @@ deploy:
     - curl -X POST https://portainer.geoh.infs.ch/api/webhooks/8eebc153-cf8f-4007-ac41-4fea7c2eaa32
   only:
     - master
+
+
+build-updated-gui:
+  stage: build
+  # see https://docs.gitlab.com/ee/ci/docker/using_kaniko.html
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/docker/Dockerfile --destination $CI_REGISTRY_IMAGE/updated-gui:$CI_COMMIT_TAG
+  only:
+    - updatedUI
+
+deploy-updated-gui:
+  stage: deploy
+  image: curlimages/curl
+  script:
+    - curl -X POST https://portainer.geoh.infs.ch/api/webhooks/0072e80a-6366-4dda-b995-7b2a70e6d22e
+  only:
+    - updatedUI

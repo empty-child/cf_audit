@@ -17,11 +17,11 @@ $(function() {
     "OSM": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://openstreetmap.org">OpenStreetMap contributors</a>', maxZoom: 19
     }),
-    'Esri World Imagery': L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-      attribution: '<a href="https://wiki.openstreetmap.org/wiki/Esri">Esri World Imagery</a>', maxZoom: 22
-    }),
     'swisstopo SWISSIMAGE': L.tileLayer("https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg", {
       attribution: '<a>Federal Office of Topography swisstopo</a>', maxZoom: 22
+    }),
+    'Esri': L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      attribution: '<a href="https://wiki.openstreetmap.org/wiki/Esri">Esri World Imagery</a>', maxZoom: 22
     }),
   };
   imageryLayers['OSM'].addTo(map1);
@@ -32,7 +32,7 @@ $(function() {
     map2.attributionControl.setPrefix('');
     map2.setView([20, 5], 7, {animate: false});
     var miniLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>', maxZoom: 19
+      attribution: '© <a href="https://openstreetmap.org">© OpenStreetMap contributors</a>', maxZoom: 19
     });
     miniMap = new L.Control.MiniMap(miniLayer, {
       position: 'topright',
@@ -59,21 +59,6 @@ $(function() {
         move = true;
       }
     });
-  }
-
-  if (!$('p.toproject').length) {
-    var ProjectButton = L.Control.extend({
-      onAdd: function() {
-        var container = L.DomUtil.create('div', 'leaflet-bar'),
-            button = L.DomUtil.create('a', '', container);
-        button.href = AP.projectUrl;
-        button.innerHTML = '← to the project';
-        button.style.width = 'auto';
-        button.style.padding = '0 4px';
-        return container;
-      }
-    });
-    map1.addControl(new ProjectButton({ position: 'topleft' }));
   }
 
   L.control.zoom({position: map2 ? 'topright' : 'topleft'}).addTo(map1);
@@ -405,6 +390,10 @@ function prepareSidebar(data, audit) {
   var ref = data.ref, props = data['properties'],
       remarks = props['remarks'];
 
+  coord = data['geometry']['coordinates'],
+
+  console.log(props)
+
   $('#good').text('Good');
 
   if (AP.readonly) {
@@ -420,23 +409,31 @@ function prepareSidebar(data, audit) {
   }
 
   function formatObjectRef(props) {
-    return ' a <a href="https://www.openstreetmap.org/' +
-      props['osm_type'] + '/' + props['osm_id'] + '" target="_blank">' +
-      (props['osm_type'] == 'node' ? 'point' : 'polygon') + '</a>';
+    return (props['osm_type'] == 'node' ? 'point' : 'polygon')
   }
 
   var title;
   if (props['action'] == 'create')
     title = 'Create new node';
   else if (props['action'] == 'delete')
-    title = 'Delete' + formatObjectRef(props);
+    title = 'Delete ' + formatObjectRef(props);
   else if (props['were_coords'])
-    title = 'Modify and move' + formatObjectRef(props);
+    title = 'Modify and move ' + formatObjectRef(props);
   else if (props['ref_coords'])
-    title = 'Update tags on' + formatObjectRef(props);
+    title = 'Update tags on ' + formatObjectRef(props);
   else
-    title = 'Mark' + formatObjectRef(props) + ' as obsolete';
+    title = 'Mark ' + formatObjectRef(props) + ' as obsolete';
   $('#title').html(title);
+
+  $('#toOSM').attr('href', ('https://www.openstreetmap.org/' +
+  props['osm_type'] + '/' + props['osm_id']))
+
+  $('#toMaptillery').attr('href', (`https://www.mapillary.com/app/?lat=${coord[1]}&lng=${coord[0]}&z=18`))
+
+  if (props['action'] == 'create')
+    $('#toOSM').hide();
+  else
+    $('#toOSM').show();
 
   $('#buttons button').each(function() { $(this).prop('disabled', false); });
   if (AP.readonly) {
@@ -535,6 +532,7 @@ function renderTagTable(data, audit, editNewTags) {
     }
   }
 
+
   // Render the table
   function esc(s) {
     s = s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -546,19 +544,23 @@ function renderTagTable(data, audit, editNewTags) {
     return a.length == b.length ? ((a[0] > b[0]) - (b[0] - a[0])) : a.length - b.length;
   });
 
-  var rows = '', notset = '<span class="notset">not set</span>';
-  for (var i = 0; i < keys.length; i++) {
-    key = keys[i];
-    if (key.length == 2)
-      rows += '<tr class="notagedit"><th>' + esc(key[0]) + '</th><td>' + esc(key[1]) + '</td></tr>';
-    else {
-      rows += '<tr class="tagedit"><th rowspan="2">' + esc(key[0]) + '</th>';
-      rows += '<td>' + (!key[1] ? notset : esc(key[1])) + '&nbsp;<input type="radio" name="r'+i+'" value="1-'+i+'"></td>';
-      rows += '</tr><tr class="tagedit lower"><td>' + (!key[2] ? notset : esc(key[2])) + '&nbsp;<input type="radio" name="r'+i+'" value="2-'+i+'"></td></tr>';
-    }
-  }
-  $('#tags').empty().append(rows);
 
+  function buildTable() {
+    var rows = '<tr><th>Tag</th><th>New</th><th>Old</th></tr>', notset = '<span class="notset">not set</span>'
+    for(var i = 0; i < keys.length; i++){
+      key = keys[i];
+      if (key.length == 2) {
+        rows += '<tr class="notagedit"><th>' + esc(key[0]) + '</th><td>' + esc(key[1]) + '</td></tr>';
+      } else {
+        rows += '<tr class="tagedit"><th>' + esc(key[0]) + '</th>';
+        rows += '<td>' + (!key[2] ? notset : esc(key[2])) + '&nbsp;<input type="radio" name="r'+i+'" value="2-'+i+'"></td>';
+        rows += '<td>' + (!key[1] ? notset : esc(key[1])) + '&nbsp;<input type="radio" name="r'+i+'" value="1-'+i+'"></td></tr>';
+      }
+    }
+    $('#tags').empty().append(rows);
+  }
+
+  buildTable()
   // Set state of each row
   function cellColor(row, which) {
     if (which == 1)
@@ -697,7 +699,6 @@ function submit(e) {
   // Send audit result and query the next feature
   var audit = prepareAudit(e.data);
   var properties = feature['properties'];
-  console.log(JSON.stringify(audit));
   $('#reason_box').hide();
   $('#buttons button').each(function() { $(this).prop('disabled', true); });
   queryNext([feature.ref, e.data.msg == 'skip' ? null : audit, properties]);

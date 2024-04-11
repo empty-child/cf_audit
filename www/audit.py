@@ -19,6 +19,7 @@ import codecs
 import datetime
 import math
 import os
+import requests
 
 oauth = OAuth()
 openstreetmap = oauth.remote_app(
@@ -67,6 +68,15 @@ def get_user():
                 del session['osm_uid']
     return None
 
+def get_full_user():
+    if 'osm_uid' in session:
+        user_details = openstreetmap.get('user/details.json').data['user']
+        img = 'https://i2.wp.com/www.openstreetmap.org/assets/avatar_large-54d681ddaf47c4181b05dbfae378dc0201b393bbad3ff0e68143c3d5f3880ace.png?ssl=1'
+        if 'img' in user_details:
+            img = user_details['img']['href']
+        return {'id': user_details['id'], 'name': user_details['display_name'], 'img': img}
+    else:
+        return {'id': '', 'name': '', 'img': ''}
 
 def is_admin(user, project=None):
     if not user:
@@ -83,6 +93,7 @@ def is_admin(user, project=None):
 @app.route('/')
 def front():
     user = get_user()
+    username = get_full_user()
     projects = Project.select().order_by(Project.updated.desc())
 
     def local_is_admin(proj):
@@ -91,6 +102,7 @@ def front():
     return render_template(
         'index.html',
         user=user,
+        username=username,
         projects=projects,
         admin=is_admin(user),
         is_admin=local_is_admin,
@@ -174,6 +186,9 @@ def project(name, region=None):
         Feature.project == project, Feature.audit.contains('"skip": true')
     )
 
+    updated_nodes = Feature.select(Feature.id).where(Feature.project == project, Feature.action == 'm')
+    created_nodes = Feature.select(Feature.id).where(Feature.project == project, Feature.action == 'c')
+
     if region is not None:
         val1 = val1.where(Feature.region == region)
         val2 = val2.where(Feature.region == region)
@@ -226,6 +241,8 @@ def project(name, region=None):
         desc=desc,
         val1=val1.count(),
         val2=val2.count(),
+        created_nodes=created_nodes.count(),
+        updated_nodes=updated_nodes.count(),
         corrected=corrected.count(),
         skipped=skipped.count(),
         has_skipped=has_skipped,
