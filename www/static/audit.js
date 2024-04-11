@@ -69,7 +69,7 @@ $(function() {
       svOptions.google = false;
     if (AP.mapillaryId)
       svOptions.mapillaryId = AP.mapillaryId;
-    svButton = L.streetView(svOptions).addTo(map2);
+    //svButton = L.streetView(svOptions).addTo(map2);
   }
   var popups = $('#popup').length > 0;
 
