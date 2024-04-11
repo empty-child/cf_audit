@@ -40,6 +40,27 @@
       </header>
       <h1 id="main_title">{{ project.title }}</h1>
       <h3 id="title"></h3>
+
+      <span data-bs-toggle="modal" data-bs-target="#helpModal">?</span>
+
+      <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Help</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
       <p id="last_action" class="last_action">The last reviewer rejected this change with the verdict "<span id="last_verdict"></span>".</p>
       <p id="hint" class="hint">
         <span id="canmove">You can move the marker to a better location. Imagery may be misaligned.</span>
