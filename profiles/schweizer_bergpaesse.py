@@ -69,9 +69,12 @@ no_dataset_id = True
 def dataset(fileobj):
     # by the way the import happens, all imports and functions must be defined inside this function!
     import csv
-    from pyproj import Transformer
+    import osmnx as ox
+    from shapely.geometry import Point
+    from shapely.ops import transform
+    import pyproj
 
-    transformer = Transformer.from_crs("EPSG:2056", "EPSG:4326")
+    transformer = pyproj.Transformer.from_crs("EPSG:2056", "EPSG:4326")
     
 
     data = []
@@ -90,10 +93,10 @@ def dataset(fileobj):
                 
                 lat, lon = transformer.transform(element['E'], element['N'])
 
-                tags = {"natural" : ["peak", "saddle"], "mountain_pass" : "yes", "place" : "locality", "tourism" : "viewpoint"} # "natural" : "saddle", ¨
+                tags = {"natural" : ["peak", "saddle"], "mountain_pass" : "yes", "place" : "locality", "tourism" : "viewpoint"}
 
                 try:
-                    gdf = ox.features.features_from_point((lat, lon), tags, dist=50)
+                    gdf = ox.features.features_from_point((lat, lon), tags, dist=100)
 
                     if not gdf.empty:
                         skip = True
