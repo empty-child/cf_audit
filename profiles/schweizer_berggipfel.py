@@ -8,7 +8,7 @@ License: MIT
 # '''
 # Where to get the latest feed
 # '''
-download_url = 'https://gitlab.ost.ch/ifs/geometalab/cf_audit/-/raw/master/profiles/geojson/winterthurer_spielplaetze.geojson'
+download_url = 'https://data.geo.admin.ch/ch.swisstopo.swissnames3d/swissnames3d_2023/swissnames3d_2023_2056.csv.zip'
 
 # '''
 # What will be put into "source" tags.
@@ -19,7 +19,7 @@ source = 'https://www.swisstopo.admin.ch/de/landschaftsmodell-swissnames3d'
 # Tags for querying with overpass api
 # '''
 query = [('natural', 'peak')] #[mountain_pass=yes]'
-
+ 
 # '''
 # A set of tags, which are more trustworthy from the external source than the ones from OSM
 # This is only for faster validation by a user (preselected radio button).
@@ -69,17 +69,25 @@ no_dataset_id = True
 def dataset(fileobj):
     # by the way the import happens, all imports and functions must be defined inside this function!
     import csv
-    from pyproj import Transformer
+    import osmnx as ox
+    from shapely.geometry import Point
+    from shapely.ops import transform
+    import pyproj
 
-    transformer = Transformer.from_crs("EPSG:2056", "EPSG:4326")
+    transformer = pyproj.Transformer.from_crs("EPSG:2056", "EPSG:4326")
     
+    radius = 50
 
     data = []
     processed_ids = []
     
+    print("HEY!!!")
+
     with open('./csv/swissNAMES3D_PKT.csv', mode='r') as csv_file:
         csv_dict = csv.DictReader(csv_file, delimiter=';')
         for element in csv_dict:
+            skip = False
+
             if element['OBJEKTART'] in ['Alpiner Gipfel', 'Hauptgipfel', 'Gipfel']:
 
                 el_prop = {
@@ -88,20 +96,27 @@ def dataset(fileobj):
                     'natural' : 'peak',
                 }
                 
-                
                 lat, lon = transformer.transform(element['E'], element['N'])
 
+                tags = {"natural" : ["peak", "saddle"], "mountain_pass" : "yes", "place" : "locality", "tourism" : "viewpoint"} # "natural" : "saddle", ¨
+
+                try:
+                    gdf = ox.features.features_from_point((lat, lon), tags, dist=50)
+
+                    if not gdf.empty:
+                        skip = True
+                except:
+                       skip = False 
 
                 tags = el_prop
 
                 shop_id = element['NAME_UUID']
 
-                if shop_id in processed_ids:
-                    #print(f'-- Shop {shop_id} already present')
+                if (shop_id in processed_ids) or skip:
+                    print(f"Skipping {shop_id}")
                     continue
                 else:
-                    processed_ids.append(shop_id)
-
-                    # Class SourcePoint() will be available after this file was imported during execution            
+                    print(f"Adding {shop_id}")
+                    processed_ids.append(shop_id)       
                     data.append(SourcePoint(shop_id, lat, lon, tags))
     return data

@@ -1,5 +1,5 @@
 """
-Profile for Swiss Peaks
+Profile for Swiss Saddles
 Date: 2023-08-30
 Author: OST
 License: MIT
@@ -8,7 +8,7 @@ License: MIT
 # '''
 # Where to get the latest feed
 # '''
-download_url = 'https://gitlab.ost.ch/ifs/geometalab/cf_audit/-/raw/master/profiles/geojson/winterthurer_spielplaetze.geojson'
+download_url = 'https://data.geo.admin.ch/ch.swisstopo.swissnames3d/swissnames3d_2023/swissnames3d_2023_2056.csv.zip'
 
 # '''
 # What will be put into "source" tags.
@@ -88,20 +88,27 @@ def dataset(fileobj):
                     'natural': 'saddle', 
                 }
                 
-                
                 lat, lon = transformer.transform(element['E'], element['N'])
 
+                tags = {"natural" : ["peak", "saddle"], "mountain_pass" : "yes", "place" : "locality", "tourism" : "viewpoint"} # "natural" : "saddle", ¨
+
+                try:
+                    gdf = ox.features.features_from_point((lat, lon), tags, dist=50)
+
+                    if not gdf.empty:
+                        skip = True
+                except:
+                       skip = False 
 
                 tags = el_prop
 
                 shop_id = element['NAME_UUID']
 
-                if shop_id in processed_ids:
-                    #print(f'-- Shop {shop_id} already present')
+                if (shop_id in processed_ids) or skip:
+                    print(f"Skipping {shop_id}")
                     continue
                 else:
-                    processed_ids.append(shop_id)
-
-                    # Class SourcePoint() will be available after this file was imported during execution            
+                    print(f"Adding {shop_id}")
+                    processed_ids.append(shop_id)       
                     data.append(SourcePoint(shop_id, lat, lon, tags))
     return data
