@@ -425,15 +425,13 @@ function prepareSidebar(data, audit) {
     title = 'Mark ' + formatObjectRef(props) + ' as obsolete';
   $('#title').html(title);
 
-  $('#toOSM').attr('href', ('https://www.openstreetmap.org/' +
-  props['osm_type'] + '/' + props['osm_id']))
-
   $('#toMaptillery').attr('href', (`https://www.mapillary.com/app/?lat=${coord[1]}&lng=${coord[0]}&z=18`))
 
   if (props['action'] == 'create')
-    $('#toOSM').hide();
+    $('#toOSM').attr('href', (`https://www.openstreetmap.org/#map=19/${coord[1]}/${coord[0]}`))
   else
-    $('#toOSM').show();
+    $('#toOSM').attr('href', ('https://www.openstreetmap.org/' +
+    props['osm_type'] + '/' + props['osm_id']))
 
   $('#buttons button').each(function() { $(this).prop('disabled', false); });
   if (AP.readonly) {
