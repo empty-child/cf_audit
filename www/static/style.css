@@ -115,6 +115,18 @@ td input {
   display: inline-block;
 }
 
+.about_button {
+  border-radius: 30px;
+}
+
+.title_box {
+  height: 60px;
+}
+
 #fixme {
   width: 100%;
+}
+
+.modal-body {
+  height: 80vh;
 }
