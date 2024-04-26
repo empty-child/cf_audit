@@ -38,20 +38,26 @@
           <a role="button" id="toMaptillery" class="btn btn-outline-secondary btn float-end" target="_blank">View on Mapillary</a>
         </section>
       </header>
-      <h1 id="main_title">{{ project.title }}</h1>
-      <h3 id="title"></h3>
-
-      <span data-bs-toggle="modal" data-bs-target="#helpModal">?</span>
-
+      <div>
+        <div class="title_box">
+          <h1 class="float-start" id="main_title">{{ project.title }}</h1>
+          <button class="about_button float-end float-top btn btn-outline-dark mt-2" type="button" data-bs-toggle="modal" data-bs-target="#helpModal">?</button>
+        </div>
+        <div>
+          <h3 id="title"></h3>
+        </div>
+      </div>
       <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-xl">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Help</h1>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">About</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              ...
+              <div>
+                <iframe src="https://md.coredump.ch/s/VbcxpQQ5g#" width="1100" height="700"/>
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
