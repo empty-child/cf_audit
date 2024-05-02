@@ -1,4 +1,7 @@
 {% extends "layout.html" %} {% block content %}
+<header>
+  <link rel="stylesheet" href="{{ dated_url_for('static', filename='style.css') }}" />
+</header>
 <main class="container">
   <div class="d-flex flex-row justify-content-end gap-2 mb-4">
     {% if not user %}
@@ -27,7 +30,10 @@
     {% endif %}
   </div>
   <header class="row">
-    <h1>cf_audit GUI: Auditing Tool for OSM Conflator</h1>
+    <div class="title_box">
+      <h1 class="float-start" id="main_title">cf_audit GUI: Auditing Tool for OSM Conflator</h1>
+      <button class="about_button float-start mx-3 float-top btn btn-outline-dark mt-2" type="button" data-bs-toggle="modal" data-bs-target="#helpModal">?</button>
+    </div>
     <p>
       This website takes a JSON output from OSM Conflate and presents logged-in
       users an interface for validating each affected OSM element, one-by-one. It
@@ -35,6 +41,20 @@
       the Conflator using JOSM.
     </p>
   </header>
+
+  <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">About</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <iframe id="about_iframe" src="https://md.coredump.ch/s/VbcxpQQ5g#" width="100%" height="100%"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <p><b>Projects</b> that need validating (click on one to see the details):</p>
   <ul class="list-group">
