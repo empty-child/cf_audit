@@ -130,3 +130,8 @@ td input {
 .modal-body {
   height: 80vh;
 }
+
+.return-buttons {
+  color: #6c757d;
+  font-weight: bold;
+}
