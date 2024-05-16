@@ -26,6 +26,8 @@ $(function() {
   };
   imageryLayers['OSM Standard'].addTo(map1);
 
+  L.control.scale().addTo(map1);
+
   var miniMap;
   if ($('#map2').length && $('#map2').is(':visible')) {
     map2 = L.map('map2', {minZoom: AP.readonly ? 4 : 15, maxZoom: 19, zoomControl: false});
@@ -601,8 +603,9 @@ function renderTagTable(data, audit, editNewTags) {
 
 function displayPoint(data, audit, forPopup) {
   if (!data.ref) {
-    window.alert('Received an empty feature. You must have validated all of them.');
+    $('#allFeaturesSeen').click()
     hidePoint();
+    
     return;
   }
   feature = data;
