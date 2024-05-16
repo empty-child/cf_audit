@@ -120,7 +120,7 @@ td input {
 }
 
 .title_box {
-  height: 60px;
+  height: 45px;
 }
 
 #fixme {
@@ -129,6 +129,10 @@ td input {
 
 .modal-body {
   height: 80vh;
+}
+
+.font-weight-bold {
+  font-weight: bold;
 }
 
 .return-buttons {

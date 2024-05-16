@@ -546,11 +546,11 @@ function renderTagTable(data, audit, editNewTags) {
 
 
   function buildTable() {
-    var rows = '<tr><th>Tag</th><th>New</th><th>Old</th></tr>', notset = '<span class="notset">not set</span>'
+    var rows = '<tr><th>Tag</th><th>New</th><th>Old</th></tr>', notset = '<span class="notset">not set</span>', novalue = '<span class="notset></span>"'
     for(var i = 0; i < keys.length; i++){
       key = keys[i];
       if (key.length == 2) {
-        rows += '<tr class="notagedit"><th>' + esc(key[0]) + '</th><td>' + esc(key[1]) + '</td></tr>';
+        rows += '<tr class="notagedit"><th>' + esc(key[0]) + '</th><td>' + esc(key[1]) + '</td><td>' + novalue + '</td></tr>';
       } else {
         rows += '<tr class="tagedit"><th>' + esc(key[0]) + '</th>';
         rows += '<td>' + (!key[2] ? notset : esc(key[2])) + '&nbsp;<input type="radio" name="r'+i+'" value="2-'+i+'"></td>';
