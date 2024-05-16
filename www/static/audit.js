@@ -603,7 +603,7 @@ function renderTagTable(data, audit, editNewTags) {
 
 function displayPoint(data, audit, forPopup) {
   if (!data.ref) {
-    $('#allFeaturesSeen').click()
+    $('#allFeaturesSeen')[0].click()
     hidePoint();
     
     return;
