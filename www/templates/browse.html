@@ -29,28 +29,30 @@
     </script>
     <script src="{{ url_for('all_features', pid=project.id) }}"></script>
     <script src="{{ dated_url_for('static', filename='audit.js') }}"></script>
+    <script>window.alert('Received an empty feature. You must have validated all of them.');</script>
 {% endblock %}
 {% block content %}
     <div id="left">
-      <p class="toproject"><a href="{{ url_for('project', name=project.name) }}">← To the Project</a>{% if project.can_validate %}<span id="editthis">, <a href="#" id="editlink">edit this</a></span>{% endif %}</p>
-      <h1 id="title">{{ project.title }}</h1>
-      <p id="hint" class="hint">
-        <span id="transparent">Transparent marker is the <span id="tr_which"></span> point location.</span>
-      </p>
-      <div class="tags_wrapper">
-        <table id="tags" class="tags">
-        </table>
-      </div>
-      <div id="remarks_box" class="remarks_box">
-        <b>Remarks:</b> <span id="remarks_content"></span>
-      </div>
-      <p id="last_action" class="last_action">The last reviewer rejected this change with the verdict "<span id="last_verdict"></span>".</p>
-      <div id="buttons">
-        <button id="zoom_all" class="b_zoom b_readonly">Zoom to dataset</button>
-        <button id="zoom_out" class="b_zoom b_readonly">Zoom back</button>
-        <button id="random" class="b_readonly">Random feature</button>
+      <div class="p-3">
+        <div class="mb-5">
+          <a class="btn btn-outline-secondary float-start" href="{{ url_for('project', name=project.name) }}">← To the Project</a>
+          {% if project.can_validate %}
+          <a class="btn btn-outline-secondary float-end" href="#" btn btn-outline-primary id="editlink">edit this</a>
+          {% endif %}
+        </div>
+        <h1 id="title">{{ project.title }}</h1>
+        <p id="hint" class="hint">
+          <span id="transparent">Transparent marker is the <span id="tr_which"></span> point location.</span>
+        </p>
+        <div class="tags_wrapper">
+          <table id="tags" class="tags">
+          </table>
+        </div>
+        <div id="remarks_box" class="remarks_box">
+          <b>Remarks:</b> <span id="remarks_content"></span>
+        </div>
+        <p id="last_action" class="last_action">The last reviewer rejected this change with the verdict "<span id="last_verdict"></span>".</p>
       </div>
     </div>
-    <div id="map1"></div>
-    <div id="map2"></div>
+    <div id="map1" class="fillmap"></div>
 {% endblock %}
