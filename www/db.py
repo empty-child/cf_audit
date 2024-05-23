@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from peewee import (
     fn,
     Model,
@@ -8,6 +9,7 @@ from peewee import (
     FixedCharField,
     BooleanField,
     DateField,
+    DoubleField,
     BigIntegerField,
     DateTimeField,
 )
@@ -97,12 +99,14 @@ class Stats(BaseModel):
     action = CharField(max_length=512)
     timestamp = DateTimeField()
     already_existed = BooleanField()
+    lat = DoubleField(default=0)
+    lon = DoubleField(default=0)
 
 
 # ------------------------------ MIGRATION ------------------------------
 
 
-LAST_VERSION = 6
+LAST_VERSION = 7
 
 
 class Version(BaseModel):
@@ -230,6 +234,22 @@ def migrate():
             )
 
         v.version = 6
+        v.save()
+    if v.version == 6:
+        peewee_migrate(
+            migrator.add_column(
+                Stats._meta.table_name,
+                'lat',
+                Stats.lat,
+            ),
+            migrator.add_column(
+                Stats._meta.table_name,
+                'lon',
+                Stats.lon,
+            ),
+        )
+
+        v.version = 7
         v.save()
 
     logging.info('Migrated the database to version %s', v.version)
