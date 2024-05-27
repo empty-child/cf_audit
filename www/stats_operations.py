@@ -9,7 +9,7 @@ def read_stats():
     csv_output = StringIO()
 
     csv_fields = Stats._meta.fields.copy();
-    #csv_fields.pop('id')
+ 
     writer = csv.DictWriter(csv_output, csv_fields.keys())
     writer.writeheader()
     results = Stats.select(*csv_fields.values()).dicts()
@@ -29,7 +29,7 @@ def is_ref_id_in_db(ref_id):
     return Stats.select(Stats.project_name).where(Stats.ref_id == ref_id).count() > 0
 
 
-def update_stats(project, user, ref_id, osm_id, osm_type, action):
+def update_stats(project, user, ref_id, osm_id, osm_type, action, coordinates):
     try:
         Stats(
             project_name=project,
@@ -40,6 +40,8 @@ def update_stats(project, user, ref_id, osm_id, osm_type, action):
             action=json.dumps(action),
             timestamp=datetime.now(),
             already_existed=is_ref_id_in_db(ref_id),
+            lat=coordinates[0],
+            lon=coordinates[1]
         ).save()
     except Exception:
         abort(500, "Can't connect to database")

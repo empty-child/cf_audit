@@ -731,7 +731,7 @@ def api_feature(pid):
     user = get_user()
     project = Project.get(Project.id == pid)
     if user and request.method == 'POST' and project.can_validate:
-        ref_id, action, properties  = request.get_json()
+        ref_id, action, properties, geometry  = request.get_json()
         if ref_id and properties['osm_id']:
             skipped = action is None
             feat = Feature.get(
@@ -757,7 +757,7 @@ def api_feature(pid):
                 elif not user_did_it:
                     feat.validates_count += 1
                 feat.save()
-                update_stats(project.title, user, ref_id, properties['osm_id'], properties['osm_type'], action)
+                update_stats(project.title, user, ref_id, properties['osm_id'], properties['osm_type'], action, geometry['coordinates'])
     region = request.args.get('region')
     fref = request.args.get('ref')
     if fref:
