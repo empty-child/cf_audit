@@ -29,7 +29,6 @@
     </script>
     <script src="{{ url_for('all_features', pid=project.id) }}"></script>
     <script src="{{ dated_url_for('static', filename='audit.js') }}"></script>
-    <script>window.alert('Received an empty feature. You must have validated all of them.');</script>
 {% endblock %}
 {% block content %}
     <div id="left">
@@ -55,4 +54,13 @@
       </div>
     </div>
     <div id="map1" class="fillmap"></div>
+    <script>
+      window.onload = function () {
+        setTimeout(function () {
+          window.alert('Received an empty feature. You must have validated all of them.');
+        }, 100); 
+      };
+
+    </script>
+    <script></script>
 {% endblock %}
