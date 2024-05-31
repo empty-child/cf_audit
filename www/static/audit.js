@@ -428,6 +428,7 @@ function prepareSidebar(data, audit) {
   $('#title').html(title);
 
   $('#toMaptillery').attr('href', (`https://www.mapillary.com/app/?lat=${coord[1]}&lng=${coord[0]}&z=18`))
+  $('#toPanoramax').attr('href', (`https://panoramax.openstreetmap.fr/#background=streets&focus=map&map=18/${coord[1]}/${coord[0]}`))
 
   if (props['action'] == 'create')
     $('#toOSM').attr('href', (`https://www.openstreetmap.org/#map=19/${coord[1]}/${coord[0]}`))
