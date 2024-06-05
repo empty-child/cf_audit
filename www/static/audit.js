@@ -63,6 +63,15 @@ $(function() {
     });
   }
 
+  var latLonControl = L.control({ position: 'topleft' });
+
+  latLonControl.onAdd = function (map) {
+      var div = L.DomUtil.create('div', 'markerPos');
+      return div;
+  };
+
+  latLonControl.addTo(map1);
+
   L.control.zoom({position: map2 ? 'topright' : 'topleft'}).addTo(map1);
   L.control.layers(imageryLayers, {}, {collapsed: false, position: 'bottomright'}).addTo(map2 || map1);
   if (map2 && L.streetView) {
@@ -254,6 +263,12 @@ function setChanged(fast) {
     $good.text($.isEmptyObject(prepareAudit()) ? 'Good' : 'Record changes');
 }
 
+function updateLatLonControl() {
+  var latlng = marker1.getLatLng();
+  var controlDiv = document.querySelector('.markerPos');
+  controlDiv.innerHTML = 'Latitude: ' + latlng.lat + '<br>Longitude: ' + latlng.lng;
+}
+
 function updateMarkers(data, audit, panMap) {
   var movePos = audit['move'], latlon, rlatlon, rIsOSM = false,
       coord = data['geometry']['coordinates'],
@@ -330,6 +345,9 @@ function updateMarkers(data, audit, panMap) {
     if (canMove) {
       $('#canmove').show();
 
+      marker1.on('move', updateLatLonControl);
+      updateLatLonControl()
+
       var guideLayer = L.layerGroup();
       L.marker(latlon).addTo(guideLayer);
       L.marker(rlatlon).addTo(guideLayer);
@@ -371,6 +389,8 @@ function updateMarkers(data, audit, panMap) {
         });
       }
     } else {
+      var controlDiv = document.querySelector('.markerPos');
+      controlDiv.innerHTML = '';
       $('#canmove').hide();
     }
   }
