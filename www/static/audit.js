@@ -20,6 +20,9 @@ $(function() {
     'SWISSIMAGE': L.tileLayer("https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg", {
       attribution: '<a>Federal Office of Topography swisstopo</a>', maxZoom: 22
     }),
+    'SwissTLM3D-Karte': L.tileLayer('https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swisstlm3d-karte-farbe/default/current/3857/{z}/{x}/{y}.png', {
+      attribution: '<a>Federal Office of Topography swisstopo</a>', maxZoom: 22
+    }),
     'Esri Satellite': L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       attribution: '<a href="https://wiki.openstreetmap.org/wiki/Esri">Esri World Imagery</a>', maxZoom: 22
     }),
