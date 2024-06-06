@@ -271,7 +271,7 @@ function setChanged(fast) {
 function updateLatLonControl() {
   var latlng = marker1.getLatLng();
   var controlDiv = document.querySelector('.markerPos');
-  controlDiv.innerHTML = 'Lat./Lon.;' + Math.round(latlng.lat*100000000)/100000000 + ', ' + Math.round(latlng.lng*100000000)/100000000;
+  controlDiv.innerHTML = 'Lat./Lon. ' + Math.round(latlng.lat*100000000)/100000000 + ', ' + Math.round(latlng.lng*100000000)/100000000;
 }
 
 function updateMarkers(data, audit, panMap) {
