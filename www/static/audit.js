@@ -75,6 +75,8 @@ $(function() {
 
   latLonControl.addTo(map1);
 
+  L.DomEvent.disableClickPropagation(document.querySelector('.markerPos'));
+
   L.control.zoom({position: map2 ? 'topright' : 'topleft'}).addTo(map1);
   L.control.layers(imageryLayers, {}, {collapsed: false, position: 'bottomright'}).addTo(map2 || map1);
   if (map2 && L.streetView) {
@@ -269,7 +271,7 @@ function setChanged(fast) {
 function updateLatLonControl() {
   var latlng = marker1.getLatLng();
   var controlDiv = document.querySelector('.markerPos');
-  controlDiv.innerHTML = 'Latitude: ' + latlng.lat + '<br>Longitude: ' + latlng.lng;
+  controlDiv.innerHTML = 'Lat./Lon.;' + Math.round(latlng.lat*100000000)/100000000 + ', ' + Math.round(latlng.lng*100000000)/100000000;
 }
 
 function updateMarkers(data, audit, panMap) {
@@ -348,6 +350,7 @@ function updateMarkers(data, audit, panMap) {
     if (canMove) {
       $('#canmove').show();
 
+      $('.markerPos').show();
       marker1.on('move', updateLatLonControl);
       updateLatLonControl()
 
@@ -394,6 +397,7 @@ function updateMarkers(data, audit, panMap) {
     } else {
       var controlDiv = document.querySelector('.markerPos');
       controlDiv.innerHTML = '';
+      $('.markerPos').hide();
       $('#canmove').hide();
     }
   }

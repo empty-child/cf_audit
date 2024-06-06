@@ -139,3 +139,8 @@ td input {
   color: #6c757d;
   font-weight: bold;
 }
+
+.markerPos {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+}
