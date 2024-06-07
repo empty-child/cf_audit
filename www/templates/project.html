@@ -104,7 +104,7 @@
       {% endif %}
       {% if project.can_validate %}
       <p class="px-2">
-        <a role="button" class="btn btn-primary" href="{{ url_for('tasks', name=project.name, region=region) }}">Start Auditing &gt;</a>
+        <a role="button" id="start-audit" class="btn btn-primary" href="{{ url_for('tasks', name=project.name, region=region) }}" data-toggle="tooltip" data-placement="bottom" title="You have audited all elements. Starting over again to double check.">Start Auditing &gt;</a>
       </p>
       {% endif %}
       {% if has_skipped %}
@@ -144,6 +144,21 @@
     </div>
 
     <script language="javascript">
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+
+      document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const source = urlParams.get('finished');
+
+            if (source === 'yes') {
+              $('#start-audit').tooltip('show')
+            }else{
+              $('#start-audit').tooltip('disable')
+            }
+      });
+
       function switchRegion(target) {
         var region = target.value;
         window.location = target.getAttribute('tmpl').replace(/REG/, region);
