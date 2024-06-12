@@ -59,7 +59,7 @@
 <main class="container-fluid">
   <div id="left-panel">
     <section class="mb-4" id="left-panel-navigation">
-      <a role="button" class="btn btn-outline-secondary" href="{{ url_for('front') }}">Conflator Audit &#9204;</a>
+      <a role="button" class="btn btn-outline-secondary" href="{{ url_for('front') }}">Conflator Audit &#11207;</a>
       <a role="button" class="btn btn-outline-secondary btn float-end" href="{{ url_for('table', name=project.name, region=region) }}">View OSM Elements in Table</a>
     </section>
     <div class="title_box">
@@ -70,7 +70,7 @@
       <div class="card-body">
         <p class="font-weight-bold card-title">Description</p>
         <div class="card-text"><p>{{ desc | safe }}</p>
-          {% if project.url %}<a href="{{ project.url }}">Additional info to project →</a>{% endif %}
+          {% if project.url %}<a href="{{ project.url }}">Additional info to project &#11208;</a>{% endif %}
       </div>
       </div>
     </div>
@@ -104,7 +104,7 @@
       {% endif %}
       {% if project.can_validate %}
       <p class="px-2">
-        <a role="button" id="start-audit" class="btn btn-primary" href="{{ url_for('tasks', name=project.name, region=region) }}" data-toggle="tooltip" data-placement="bottom" title="You have audited all elements. Starting over again to double check.">Start Auditing &gt;</a>
+        <a role="button" id="start-audit" class="btn btn-primary" href="{{ url_for('tasks', name=project.name, region=region) }}" data-toggle="tooltip" data-placement="bottom" title="You have audited all elements. Well done! Starting over again to double check (if you want)">Start Auditing &#11208;</a>
       </p>
       {% endif %}
       {% if has_skipped %}
@@ -123,7 +123,7 @@
     </div>
     <div class="card">
     <div class="card-body">
-        <p class="font-weight-bold card-title">Progress</p>
+        <p class="font-weight-bold card-title">Statistics</p>
         <div class="progress" role="progressbar" id="progress">
           <span class="progress-bar" id="p_val2"></span>
           <span class="progress-bar" id="p_val1"></span>
@@ -134,11 +134,11 @@
             <li>Updated nodes/polygon/relations: {{ updated_nodes }}</li>
             <li>Created nodes/polygon/relations: {{ created_nodes }} </li>
           </ul>
-          <li>OSM elements left to audit: {{ project.feature_count - val1 }}</li>
-          <li>OSM elements looked at: {{ val1 }}</li>
-          <li>Validated twice: {{ val2 }}</li>
-          <li>Have corrections: {{ corrected }}</li>
-          <li>Skipped items: {{ skipped }}</li>
+          <li>left to audit (overall): {{ project.feature_count - val1 }}</li>
+          <li>looked at (overall): {{ val1 }}</li>
+          <li>audited twice (overall): {{ val2 }}</li>
+          <li>with corrections (overall): {{ corrected }}</li>
+          <li>skipped (overall): {{ skipped }}</li>
         </ul>
       </div>
     </div>
