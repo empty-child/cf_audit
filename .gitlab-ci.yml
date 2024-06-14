@@ -17,7 +17,7 @@ build:
 
 deploy:
   stage: deploy
-  image: curlimages/curl:8.7.1
+  image: rancher/curlimages-curl:7.73.0
   script:
     - curl -X POST https://portainer.geoh.infs.ch/api/webhooks/f0ac9f2e-0ded-47cc-9327-2c54a817b6a9
     - sleep 20
