@@ -152,7 +152,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const source = urlParams.get('finished');
 
-            if (source === 'yes') {
+            if ("{{ project.feature_count - val1 - skipped }}" === '0') {
               $('#start-audit').tooltip('show')
             }else{
               $('#start-audit').tooltip('disable')
