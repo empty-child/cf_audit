@@ -183,10 +183,12 @@ def project(name, region=None):
         Feature.audit != '',
     )
 
-    skipped = (Feature.select(fn.COUNT(fn.DISTINCT(Feature.id)))
-                          .join(Task)
-                          .where(Task.skipped == True)
-                          .scalar())
+    skipped = (Feature
+             .select(fn.COUNT(fn.DISTINCT(Feature.id)))
+             .join(Task)
+             .where(Task.skipped == True).where(Feature.project == project))
+
+
 
     updated_nodes = Feature.select(Feature.id).where(Feature.project == project, Feature.action == 'm')
     created_nodes = Feature.select(Feature.id).where(Feature.project == project, Feature.action == 'c')
@@ -246,7 +248,7 @@ def project(name, region=None):
         created_nodes=created_nodes.count(),
         updated_nodes=updated_nodes.count(),
         corrected=corrected.count(),
-        skipped=skipped,
+        skipped=skipped.scalar(),
         has_skipped=has_skipped,
         region=region,
         regions=regions,
