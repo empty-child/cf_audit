@@ -35,10 +35,7 @@
       <button class="about_button float-start mx-3 float-top btn btn-outline-dark" type="button" data-bs-toggle="modal" data-bs-target="#helpModal">?</button>
     </div>
     <p>
-      This website takes a JSON output from OSM Conflate and presents logged-in
-      users an interface for validating each affected OSM element, one-by-one. It
-      records any changes and produces a file that can be later fed back to
-      the Conflator using JOSM.
+      Log in and audit external data, one at a time. With your expertise, you can help integrate them into OpenStreetMap (OSM) after the audit is complete. See Help (?) for more information.
     </p>
   </header>
 
@@ -56,7 +53,7 @@
     </div>
   </div>
 
-  <p><b>Projects</b> that need validating (click on one to see the details):</p>
+  <p><b>Projects</b> that need auditing:</p>
   <ul class="list-group">
     {% for proj in projects %} {% if not proj.hidden or is_admin(proj) %}
     <a
