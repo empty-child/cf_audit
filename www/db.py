@@ -134,6 +134,7 @@ def migrate():
     else:
         migrator = ExtendedPostgresqlMigrator(database)
 
+    v.version = 7
     if v.version == 0:
         # Making a copy of Project.owner field, because it's not nullable
         # and we need to migrate a default value.
