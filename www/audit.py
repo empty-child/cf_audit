@@ -25,12 +25,18 @@ oauth = OAuth()
 openstreetmap = oauth.remote_app(
     'OpenStreetMap',
     base_url='https://api.openstreetmap.org/api/0.6/',
-    request_token_url='https://www.openstreetmap.org/oauth/request_token',
-    access_token_url='https://www.openstreetmap.org/oauth/access_token',
-    authorize_url='https://www.openstreetmap.org/oauth/authorize',
+    request_token_params = {
+        'scope': 'read_prefs',
+    },
+    request_token_url=None,
+    access_token_method='POST',
+    access_token_url='https://www.openstreetmap.org/oauth2/token',
+    authorize_url='https://www.openstreetmap.org/oauth2/authorize',
     consumer_key=app.config['OAUTH_KEY'] or '123',
     consumer_secret=app.config['OAUTH_SECRET'] or '123',
 )
+
+
 
 
 @app.before_request
@@ -188,14 +194,12 @@ def project(name, region=None):
              .join(Task)
              .where(Task.skipped == True).where(Feature.project == project))
 
-
-
     updated_nodes = Feature.select(Feature.id).where(Feature.project == project, Feature.action == 'm')
     created_nodes = Feature.select(Feature.id).where(Feature.project == project, Feature.action == 'c')
 
     if region is not None:
         val1 = val1.where(Feature.region == region)
-        val2 = val2.where(Feature.region == region)
+        val2 = val2.where(Feature.region == region) 
         cnt = cnt.where(Feature.region == region)
         corrected = corrected.where(Feature.region == region)
         skipped = skipped.where(Feature.region == region)
