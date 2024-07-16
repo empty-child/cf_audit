@@ -135,9 +135,9 @@ def login():
 @app.route('/oauth')
 def oauth():
     resp = openstreetmap.authorized_response()
-    if resp is None:
+    if resp is None or resp.get('access_token') in None:
         return 'Denied. <a href="' + url_for('login') + '">Try again</a>.'
-    session['osm_token'] = (resp['oauth_token'], resp['oauth_token_secret'])
+    session['osm_token'] = (resp['access_token'], '')
     user_details = openstreetmap.get('user/details').data
     uid = int(user_details[0].get('id'))
     session['osm_uid'] = uid
