@@ -128,7 +128,7 @@ def login():
         session['objects'] = request.args.get('objects')
         if request.args.get('next'):
             session['next'] = request.args.get('next')
-        return openstreetmap.authorize(callback=url_for('oauth'))
+        return openstreetmap.authorize(callback=url_for('oauth', _external=True))
     return redirect(url_for('front'))
 
 
