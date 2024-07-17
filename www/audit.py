@@ -98,21 +98,33 @@ def is_admin(user, project=None):
 
 @app.route('/')
 def front():
-    user = get_user()
-    username = get_full_user()
-    projects = Project.select().order_by(Project.updated.desc())
+    try:
+        user = get_user()
+        username = get_full_user()
+        projects = Project.select().order_by(Project.updated.desc())
 
-    def local_is_admin(proj):
-        return is_admin(user, proj)
+        def local_is_admin(proj):
+            return is_admin(user, proj)
 
-    return render_template(
-        'index.html',
-        user=user,
-        username=username,
-        projects=projects,
-        admin=is_admin(user),
-        is_admin=local_is_admin,
-    )
+        return render_template(
+            'index.html',
+            user=user,
+            username=username,
+            projects=projects,
+            admin=is_admin(user),
+            is_admin=local_is_admin,
+        )
+
+    except:
+        return render_template(
+            'index.html',
+            user = get_user(),
+            username = "PLEASE LOGOUT",
+            projects=projects,
+            admin=is_admin(user)
+            is_admin=local_is_admin,
+        )
+
 
 
 @app.route('/robots.txt')
