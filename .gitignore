@@ -13,3 +13,5 @@ config_local.py
 *.sql
 *.gz
 .env
+cert.key
+cert.crt

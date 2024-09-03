@@ -55,4 +55,4 @@ USER ${USER_ID}
 
 ENTRYPOINT [ "dockerize", "-wait", "tcp://database:5432" ]
 
-CMD ["gunicorn", "-b", "0.0.0.0:8080", "cf_audit:application"]
+CMD ["gunicorn", "-b", "0.0.0.0:8080", "cf_audit:application", "--certfile=cert.crt", "--keyfile=cert.key"]
