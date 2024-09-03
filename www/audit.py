@@ -32,8 +32,8 @@ openstreetmap = oauth.remote_app(
     access_token_method='POST',
     access_token_url='https://www.openstreetmap.org/oauth2/token',
     authorize_url='https://www.openstreetmap.org/oauth2/authorize',
-    consumer_key=app.config['OAUTH_KEY'] or '123',
-    consumer_secret=app.config['OAUTH_SECRET'] or '123',
+    consumer_key=app.config['CLIENT_ID'] or '123',
+    consumer_secret=app.config['CLIENT_SECRET'] or '123',
 )
 
 
@@ -130,7 +130,7 @@ def login():
         session['objects'] = request.args.get('objects')
         if request.args.get('next'):
             session['next'] = request.args.get('next')
-        return openstreetmap.authorize(callback=url_for('oauth', _external=True).replace('http','https'))
+        return openstreetmap.authorize(callback=url_for('oauth', _external=True))
     return redirect(url_for('front'))
 
 

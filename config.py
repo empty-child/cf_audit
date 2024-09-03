@@ -23,8 +23,8 @@ else:
 
 # Override these (and anything else) in config_local.py or
 # set environment variables accordingly.
-OAUTH_KEY = os.environ.get('OAUTH_KEY', '')
-OAUTH_SECRET = os.environ.get('OAUTH_SECRET', '')
+CLIENT_ID = os.environ.get('CLIENT_ID', '')
+CLIENT_SECRET = os.environ.get('CLIENT_SECRET', '')
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 MAPILLARY_CLIENT_ID = os.environ.get('MAPILLARY_CLIENT_ID', '')
 
