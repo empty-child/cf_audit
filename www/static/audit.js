@@ -17,12 +17,6 @@ $(function() {
     "OSM Standard": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://openstreetmap.org">OpenStreetMap contributors</a>', maxZoom: 19
     }),
-    'SWISSIMAGE': L.tileLayer("https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg", {
-      attribution: '<a>Federal Office of Topography swisstopo</a>', maxZoom: 22
-    }),
-    'SwissTLM3D': L.tileLayer('https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swisstlm3d-karte-farbe/default/current/3857/{z}/{x}/{y}.png', {
-      attribution: '<a>Federal Office of Topography swisstopo</a>', maxZoom: 22
-    }),
     'Esri Satellite': L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       attribution: '<a href="https://wiki.openstreetmap.org/wiki/Esri">Esri World Imagery</a>', maxZoom: 22
     }),
@@ -47,7 +41,7 @@ $(function() {
     }).addTo(map2);
 
     delete imageryLayers['OSM Standard'];
-    imageryLayers['SWISSIMAGE'].addTo(map2);
+    imageryLayers['Esri Satellite'].addTo(map2);
 
     var move = true;
     map1.on('move', function() {
