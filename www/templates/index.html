@@ -1,7 +1,4 @@
 {% extends "layout.html" %} {% block content %}
-<header>
-  <link rel="stylesheet" href="{{ dated_url_for('static', filename='style.css') }}" />
-</header>
 <main class="container">
   <div class="d-flex flex-row justify-content-end gap-2 mb-4">
     {% if not user %}

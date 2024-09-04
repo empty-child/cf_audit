@@ -24,19 +24,6 @@
   width: {{ (300 * (val1 - val2 + 0.001) / (count + 0.0000000001)) | round(1) }}px;
 }
 </style>
-    <link rel="stylesheet" href="{{ dated_url_for('static', filename='style.css') }}" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.2.0/dist/MarkerCluster.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.2.0/dist/MarkerCluster.Default.css" />
-    <link rel="stylesheet" href="{{ dated_url_for('static', filename='style.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='Control.MiniMap.min.css') }}" />
-    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet.markercluster@1.2.0/dist/leaflet.markercluster.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='Bing.js') }}"></script>
-    <script src="{{ url_for('static', filename='Control.MiniMap.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='PermalinkAttribution.js') }}"></script>
-    <script src="{{ dated_url_for('static', filename='StreetViewButtons.js') }}"></script>
     <script>
       AP = {
         endpoint: '{{ url_for('api') }}',

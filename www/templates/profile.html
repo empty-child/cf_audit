@@ -1,14 +1,6 @@
 {% extends "layout.html" %} {% block title %}Profile — {% endblock %} {% block
 header %}
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
-/>
-<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://npmcdn.com/leaflet.path.drag@0.0.6/src/Path.Drag.js"></script>
-<script src="https://unpkg.com/leaflet-editable@1.1.0/src/Leaflet.Editable.js"></script>
-<script src="{{ url_for('static', filename='profile.js') }}"></script>
+
 <style>
   #map {
     height: 400px;
