@@ -1,8 +1,9 @@
 {% extends "layout.html" %} {% block title %}{{ project.title }} — {% endblock
 %} {% block header %}
 <script src="{{ url_for('static', filename='Bing.js') }}"></script>
-<script src="{{ url_for('static', filename='PermalinkAttribution.js') }}"></script>
-<script src="{{ url_for('static', filename='leaflet-hash.js') }}"></script>
+<script src="{{ url_for('all_features', pid=project.id, region=region) }}"></script>
+<script src="{{ dated_url_for('static', filename='audit.js') }}"></script>
+{% endblock %} {% block content %}
 <script>
   AP = {
     endpoint: '{{ url_for('api') }}',
@@ -16,9 +17,6 @@
     readonly: true
   };
 </script>
-<script src="{{ url_for('all_features', pid=project.id, region=region) }}"></script>
-<script src="{{ dated_url_for('static', filename='audit.js') }}"></script>
-{% endblock %} {% block content %}
 <div id="map1" class="bigmap"></div>
 <div id="popup">
   <p>

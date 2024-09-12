@@ -1,4 +1,4 @@
-var map1, map2, marker1, marker2, smarker1, smarker2, feature, keys, lastView, defaultTitle, svButton;
+var map1, map2, marker1, marker2, smarker1, smarker2, feature, keys, lastView, defaultTitle, svButton, AP;
 
 if (!String.prototype.startsWith) {
     String.prototype.startsWith = function(searchString, position){
@@ -8,9 +8,7 @@ if (!String.prototype.startsWith) {
 }
 
 $(function() {
-  map1 = L.map('map1', {minZoom: AP.readonly ? 4 : 15, maxZoom: 19, zoomControl: false, attributionControl: false});
-  L.control.permalinkAttribution().addTo(map1);
-  map1.attributionControl.setPrefix('');
+  map1 = L.map('map1', {minZoom: AP.readonly ? 4 : 15, maxZoom: 19, zoomControl: false });
   map1.setView([20, 5], 7, {animate: false});
 
   var imageryLayers = {
@@ -28,7 +26,6 @@ $(function() {
   var miniMap;
   if ($('#map2').length && $('#map2').is(':visible')) {
     map2 = L.map('map2', {minZoom: AP.readonly ? 4 : 15, maxZoom: 19, zoomControl: false});
-    map2.attributionControl.setPrefix('');
     map2.setView([20, 5], 7, {animate: false});
     var miniLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://openstreetmap.org">© OpenStreetMap contributors</a>', maxZoom: 19

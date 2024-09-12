@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 {% block title %}{{ project.title }} — {% endblock %}
 {% block header %}
-<link rel="stylesheet" href="{{ url_for('static', filename='Control.MiniMap.min.css') }}" />
 <script src="{{ url_for('static', filename='Bing.js') }}"></script>
-<script src="{{ url_for('static', filename='Control.MiniMap.min.js') }}"></script>
-<script src="{{ url_for('static', filename='PermalinkAttribution.js') }}"></script>
 <script src="{{ dated_url_for('static', filename='StreetViewButtons.js') }}"></script>
+<script src="{{ dated_url_for('static', filename='audit.js') }}"></script>
+{% endblock %}
+{% block content %}
 <script>
   AP = {
     endpoint: '{{ url_for('api') }}',
@@ -20,9 +20,6 @@
     readonly: false
   };
 </script>
-<script src="{{ dated_url_for('static', filename='audit.js') }}"></script>
-{% endblock %}
-{% block content %}
 <main class="container-fluid">
   <div id="left-panel">
     <header class="mb-4">

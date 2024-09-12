@@ -24,30 +24,26 @@
         width: {{ (300 * (val1 - val2 + 0.001) / (count + 0.0000000001)) | round(1) }}px;
       }
     </style>
-    <link rel="stylesheet" href="{{ url_for('static', filename='Control.MiniMap.min.css') }}" />
     <script src="{{ url_for('static', filename='Bing.js') }}"></script>
-    <script src="{{ url_for('static', filename='Control.MiniMap.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='PermalinkAttribution.js') }}"></script>
     <script src="{{ dated_url_for('static', filename='StreetViewButtons.js') }}"></script>
-    <script>
-      AP = {
-        endpoint: '{{ url_for('api') }}',
-        projectId: {{ project.id }},
-        projectUrl: '{{ url_for('project', name=project.name, region=region) }}',
-        forceRef: {% if ref %}'{{ ref }}'{% else %}null{% endif %},
-        imagesPath: '{{ url_for('static', filename='images') }}',
-        featureTemplateUrl: '{{ url_for('tasks', name=project.name, ref='tmpl', region=region) }}',
-        browseTemplateUrl: '{{ url_for('browse', name=project.name, ref='tmpl', region=region) }}',
-        region: '{{ region }}',
-        readonly: true
-      };
-      
-    </script>
     <script src="{{ url_for('all_features', pid=project.id) }}"></script>
     <script src="{{ dated_url_for('static', filename='audit.js') }}"></script>
 {% endblock %}
-
+    
 {% block content %}
+<script>
+  AP = {
+    endpoint: '{{ url_for('api') }}',
+    projectId: {{ project.id }},
+    projectUrl: '{{ url_for('project', name=project.name, region=region) }}',
+    forceRef: {% if ref %}'{{ ref }}'{% else %}null{% endif %},
+    imagesPath: '{{ url_for('static', filename='images') }}',
+    featureTemplateUrl: '{{ url_for('tasks', name=project.name, ref='tmpl', region=region) }}',
+    browseTemplateUrl: '{{ url_for('browse', name=project.name, ref='tmpl', region=region) }}',
+    region: '{{ region }}',
+    readonly: true
+  };
+</script>
 <main class="container-fluid">
   <div id="left-panel">
     <section class="mb-4" id="left-panel-navigation">
