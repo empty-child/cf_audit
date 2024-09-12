@@ -4,21 +4,26 @@
   #map {
     height: 200px;
   }
+
   .v_created,
   .v_create {
     color: green;
   }
+
   .v_changed,
   .v_modify {
     color: #f1c40f;
   }
+
   .v_deleted,
   .v_delete {
     color: red;
   }
+
   .pagination {
     margin: 1em 0;
   }
+
   #legend {
     list-style-type: none;
     padding-left: 1em;
@@ -28,11 +33,8 @@
 <main class="container-fluid">
   <header class="mb-4">
     <p>
-      <a
-        class="btn btn-link return-buttons"
-        href="{{ url_for('project', name=project.name) }}"
-        >Return to Project &#11207;</a
-      >
+      <a class="btn btn-link return-buttons" href="{{ url_for('project', name=project.name) }}">Return to Project
+        &#11207;</a>
     </p>
   </header>
   <h1>Table: {{ project.title }}</h1>
@@ -46,15 +48,12 @@
         </p>
         {% if show_validated %}
         <p>
-          <a href="{{ url_for('table', name=project.name) }}"
-            >Hide validated objects</a
-          >
+          <a href="{{ url_for('table', name=project.name) }}">Hide validated objects</a>
         </p>
         {% else %}
         <p>
-          <a role="button" class="btn btn-outline-secondary btn" href="{{ url_for('table', name=project.name, all=1) }}"
-            >Include validated objects in the list</a
-          >
+          <a role="button" class="btn btn-outline-secondary btn"
+            href="{{ url_for('table', name=project.name, all=1) }}">Include validated objects in the list</a>
         </p>
         {% endif %}
       </div>
@@ -84,25 +83,17 @@
         <td>
           <span class="v_{{ row.action }}">●</span>
           {% if project.can_validate %}
-          <a href="{{ url_for('tasks', name=project.name, ref=row.ref) }}"
-            >Edit</a
-          >
+          <a href="{{ url_for('tasks', name=project.name, ref=row.ref) }}">Edit</a>
           {% else %}
-          <a href="{{ url_for('browse', name=project.name, ref=row.ref) }}"
-            >View</a
-          >
+          <a href="{{ url_for('browse', name=project.name, ref=row.ref) }}">View</a>
           {% endif %}
         </td>
         {% for col in columns %} {% if col in row.tags %} {# TODO: v.before on
         hover, cross v.after if not chosen #}
-        <td
-          title="{{ col }}
-OSM: {{ row.tags[col].before }}"
-        >
-          {% if not row.tags[col].accepted %}<s
-            >{% endif %}<span class="v_{{ row.tags[col].action }}">●</span> {{
-            row.tags[col].after }}{% if not row.tags[col].accepted %}</s
-          >{% endif %}
+        <td title="{{ col }}
+OSM: {{ row.tags[col].before }}">
+          {% if not row.tags[col].accepted %}<s>{% endif %}<span class="v_{{ row.tags[col].action }}">●</span> {{
+            row.tags[col].after }}{% if not row.tags[col].accepted %}</s>{% endif %}
         </td>
         {% else %}
         <td>&nbsp;</td>
@@ -122,11 +113,8 @@ OSM: {{ row.tags[col].before }}"
     {% endif %} {% else %}
     <span class="ellipsis">…</span>
     {% endif %} {%- endfor %} {% if pagination.has_next %}
-    <a
-      href="{{ url_for_other_page(pagination.page + 1)
-      }}"
-      >Next &raquo;</a
-    >
+    <a href="{{ url_for_other_page(pagination.page + 1)
+      }}">Next &raquo;</a>
     {% endif %}
   </div>
   {% endif %}

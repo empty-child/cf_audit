@@ -11,23 +11,16 @@ header %}
 <main class="container">
   <header class="mb-4">
     <p>
-      <a class="btn btn-link return-buttons" href="{{ url_for('front') }}"
-        >Return to Project Overview &#11207;</a
-      >
+      <a class="btn btn-link return-buttons" href="{{ url_for('front') }}">Return to Project Overview &#11207;</a>
     </p>
   </header>
   <h1>User Settings</h1>
   <p>Please mark the regions you're most familiar with:</p>
   <div id="map"></div>
   <form action="{{ url_for('profile') }}" method="POST">
-    <input
-      type="hidden"
-      name="bboxes"
-      id="bboxes"
-      value="{{ user.bboxes or '' }}"
-    />
+    <input type="hidden" name="bboxes" id="bboxes" value="{{ user.bboxes or '' }}" />
     <div class="pt-1">
-      <input type="submit" value="Save" class="btn btn-primary"/>
+      <input type="submit" value="Save" class="btn btn-primary" />
     </div>
   </form>
 </main>

@@ -1,54 +1,61 @@
 {% extends "layout.html" %}
 {% block title %}{{ project.title }} — {% endblock %}
 {% block header %}
-    <script>
-      AP = {
-        endpoint: '{{ url_for('api') }}',
-        projectId: {{ project.id }},
-        forceRef: {% if ref %}'{{ ref }}'{% else %}null{% endif %},
-        imagesPath: '{{ url_for('static', filename='images') }}',
-        featureTemplateUrl: '{{ url_for('tasks', name=project.name, ref='tmpl') }}',
-        browseTemplateUrl: '{{ url_for('browse', name=project.name, ref='tmpl') }}',
-        proprietarySV: {{ project.prop_sv | tojson }},
-        mapillaryId: '{{ mapillary_id }}',
-        region: '{{ region }}',
-        readonly: true
-      };
-    </script>
-    <script src="{{ url_for('all_features', pid=project.id) }}"></script>
-    <script src="{{ dated_url_for('static', filename='audit.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='Control.MiniMap.min.css') }}" />
+<script src="{{ url_for('static', filename='Bing.js') }}"></script>
+<script src="{{ url_for('static', filename='Control.MiniMap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='PermalinkAttribution.js') }}"></script>
+<script src="{{ dated_url_for('static', filename='StreetViewButtons.js') }}"></script>
+<script>
+  AP = {
+    endpoint: '{{ url_for('api') }}',
+    projectId: {{ project.id }},
+    forceRef: {% if ref %} '{{ ref }}'{% else %} null{% endif %},
+    imagesPath: '{{ url_for('static', filename='images') }}',
+    featureTemplateUrl: '{{ url_for('tasks', name=project.name, ref='tmpl') }}',
+    browseTemplateUrl: '{{ url_for('browse', name=project.name, ref='tmpl') }}',
+    proprietarySV: { { project.prop_sv | tojson } },
+    mapillaryId: '{{ mapillary_id }}',
+    region: '{{ region }}',
+    readonly: true
+  };
+</script>
+<script src="{{ url_for('all_features', pid=project.id) }}"></script>
+<script src="{{ dated_url_for('static', filename='audit.js') }}"></script>
 {% endblock %}
 {% block content %}
-    <div id="left">
-      <div class="p-3">
-        <div class="mb-5">
-          <a class="btn btn-outline-secondary float-start" href="{{ url_for('project', name=project.name) }}">To the Project &#11207</a>
-          {% if project.can_validate %}
-          <a class="btn btn-outline-secondary float-end" href="#" btn btn-outline-primary id="editlink">edit this</a>
-          {% endif %}
-        </div>
-        <h1 id="title">{{ project.title }}</h1>
-        <p id="hint" class="hint">
-          <span id="transparent">Transparent marker is the <span id="tr_which"></span> point location.</span>
-        </p>
-        <div class="tags_wrapper">
-          <table id="tags" class="tags">
-          </table>
-        </div>
-        <div id="remarks_box" class="remarks_box">
-          <b>Remarks:</b> <span id="remarks_content"></span>
-        </div>
-        <p id="last_action" class="last_action">The last reviewer rejected this change with the verdict "<span id="last_verdict"></span>".</p>
-      </div>
+<div id="left">
+  <div class="p-3">
+    <div class="mb-5">
+      <a class="btn btn-outline-secondary float-start" href="{{ url_for('project', name=project.name) }}">To the Project
+        &#11207</a>
+      {% if project.can_validate %}
+      <a class="btn btn-outline-secondary float-end" href="#" btn btn-outline-primary id="editlink">edit this</a>
+      {% endif %}
     </div>
-    <div id="map1" class="fillmap"></div>
-    <script>
-      window.onload = function () {
-        setTimeout(function () {
-          window.alert('Received an empty feature. You must have validated all of them.');
-        }, 100); 
-      };
+    <h1 id="title">{{ project.title }}</h1>
+    <p id="hint" class="hint">
+      <span id="transparent">Transparent marker is the <span id="tr_which"></span> point location.</span>
+    </p>
+    <div class="tags_wrapper">
+      <table id="tags" class="tags">
+      </table>
+    </div>
+    <div id="remarks_box" class="remarks_box">
+      <b>Remarks:</b> <span id="remarks_content"></span>
+    </div>
+    <p id="last_action" class="last_action">The last reviewer rejected this change with the verdict "<span
+        id="last_verdict"></span>".</p>
+  </div>
+</div>
+<div id="map1" class="fillmap"></div>
+<script>
+  window.onload = function () {
+    setTimeout(function () {
+      window.alert('Received an empty feature. You must have validated all of them.');
+    }, 100);
+  };
 
-    </script>
-    <script></script>
+</script>
+<script></script>
 {% endblock %}
