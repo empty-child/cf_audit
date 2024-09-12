@@ -5,7 +5,7 @@
 <script src="{{ dated_url_for('static', filename='audit.js') }}"></script>
 {% endblock %} {% block content %}
 <script>
-  AP = {
+  var AP = {
     endpoint: '{{ url_for('api') }}',
     projectId: {{ project.id }},
     projectUrl: '{{ url_for('project', name=project.name, region=region) }}',

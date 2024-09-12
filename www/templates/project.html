@@ -32,7 +32,7 @@
     
 {% block content %}
 <script>
-  AP = {
+  var AP = {
     endpoint: '{{ url_for('api') }}',
     projectId: {{ project.id }},
     projectUrl: '{{ url_for('project', name=project.name, region=region) }}',
