@@ -76,6 +76,7 @@ $(function() {
       svOptions.google = false;
     if (AP.mapillaryId)
       svOptions.mapillaryId = AP.mapillaryId;
+    // TODO: fix link to services
     //svButton = L.streetView(svOptions).addTo(map2);
   }
   var popups = $('#popup').length > 0;
