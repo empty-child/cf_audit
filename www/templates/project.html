@@ -1,77 +1,68 @@
 {% extends "layout.html" %}
 {% block title %}{{ project.title }} — {% endblock %}
 {% block header %}
-<style>
-  #progress {
-    width: 300px;
-    height: 1em;
-    border: 1px lightgrey solid;
-    margin-bottom: 0.5rem;
-  }
+    <style>
+      #progress {
+        width: 300px;
+        height: 1em;
+        border: 1px lightgrey solid;
+        margin-bottom: 0.5rem;
+      }
 
-  #progress span {
-    height: 100%;
-    display: inline-block;
-  }
+      #progress span {
+        height: 100%;
+        display: inline-block;
+      }
 
-#p_val2 {
-  background-color: #52be80;
-  width: {{ (300 * (val2 + 0.001) / (count + 0.000000000001)) | round(1) }}px;
-}
+      #p_val2 {
+        background-color: #52be80;
+        width: {{ (300 * (val2 + 0.001) / (count + 0.000000000001)) | round(1) }}px;
+      }
 
-#p_val1 {
-  background-color: #f7dc6f;
-  width: {{ (300 * (val1 - val2 + 0.001) / (count + 0.0000000001)) | round(1) }}px;
-}
-</style>
-    <link rel="stylesheet" href="{{ dated_url_for('static', filename='style.css') }}" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.2.0/dist/MarkerCluster.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.2.0/dist/MarkerCluster.Default.css" />
-    <link rel="stylesheet" href="{{ dated_url_for('static', filename='style.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='Control.MiniMap.min.css') }}" />
-    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet.markercluster@1.2.0/dist/leaflet.markercluster.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      #p_val1 {
+        background-color: #f7dc6f;
+        width: {{ (300 * (val1 - val2 + 0.001) / (count + 0.0000000001)) | round(1) }}px;
+      }
+    </style>
     <script src="{{ url_for('static', filename='Bing.js') }}"></script>
-    <script src="{{ url_for('static', filename='Control.MiniMap.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='PermalinkAttribution.js') }}"></script>
     <script src="{{ dated_url_for('static', filename='StreetViewButtons.js') }}"></script>
-    <script>
-      AP = {
-        endpoint: '{{ url_for('api') }}',
-        projectId: {{ project.id }},
-        projectUrl: '{{ url_for('project', name=project.name, region=region) }}',
-        forceRef: {% if ref %}'{{ ref }}'{% else %}null{% endif %},
-        imagesPath: '{{ url_for('static', filename='images') }}',
-        featureTemplateUrl: '{{ url_for('tasks', name=project.name, ref='tmpl', region=region) }}',
-        browseTemplateUrl: '{{ url_for('browse', name=project.name, ref='tmpl', region=region) }}',
-        region: '{{ region }}',
-        readonly: true
-      };
-      
-    </script>
     <script src="{{ url_for('all_features', pid=project.id) }}"></script>
     <script src="{{ dated_url_for('static', filename='audit.js') }}"></script>
 {% endblock %}
-
+    
 {% block content %}
+<script>
+  var AP = {
+    endpoint: '{{ url_for('api') }}',
+    projectId: {{ project.id }},
+    projectUrl: '{{ url_for('project', name=project.name, region=region) }}',
+    forceRef: {% if ref %}'{{ ref }}'{% else %}null{% endif %},
+    imagesPath: '{{ url_for('static', filename='images') }}',
+    featureTemplateUrl: '{{ url_for('tasks', name=project.name, ref='tmpl', region=region) }}',
+    browseTemplateUrl: '{{ url_for('browse', name=project.name, ref='tmpl', region=region) }}',
+    region: '{{ region }}',
+    readonly: true
+  };
+</script>
 <main class="container-fluid">
   <div id="left-panel">
     <section class="mb-4" id="left-panel-navigation">
       <a role="button" class="btn btn-outline-secondary" href="{{ url_for('front') }}">Conflator Audit &#11207;</a>
-      <a role="button" class="btn btn-outline-secondary btn float-end" href="{{ url_for('table', name=project.name, region=region) }}">View OSM Elements in Table</a>
+      <a role="button" class="btn btn-outline-secondary btn float-end"
+        href="{{ url_for('table', name=project.name, region=region) }}">View OSM Elements in Table</a>
     </section>
     <div class="title_box">
       <h3 class="float-start" id="main_title">{{ project.title }}</h3>
-      <button class="about_button float-start mx-3 float-top btn btn-outline-dark" type="button" data-bs-toggle="modal" data-bs-target="#helpModal">?</button>
+      <button class="about_button float-start mx-3 float-top btn btn-outline-dark" type="button" data-bs-toggle="modal"
+        data-bs-target="#helpModal">?</button>
     </div>
     <div class="card">
       <div class="card-body">
         <p class="font-weight-bold card-title">Description</p>
-        <div class="card-text"><p>{{ desc | safe }}</p>
+        <div class="card-text">
+          <p>{{ desc | safe }}</p>
           {% if project.url %}<a href="{{ project.url }}">Additional info to project &#11208;</a>{% endif %}
-      </div>
+        </div>
       </div>
     </div>
 
@@ -92,37 +83,45 @@
     <div class="d-flex flex-row pt-4">
       {% if admin %}
       <div class="dropdown pr-1">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <span>&#8942;</span> 
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <span>&#8942;</span>
         </button>
         <ul class="dropdown-menu">
           <li><a role="button" class="dropdown-item" href="{{ url_for('add_project', pid=project.id) }}">Edit</a></li>
-          <li><a role="button" class="dropdown-item" href="{{ url_for('export_audit', pid=project.id) }}">Download Audit</a></li>
-          <li><a role="button" class="dropdown-item" href="{{ url_for('external_audit', pid=project.id) }}">Download for Source</a></li>
+          <li><a role="button" class="dropdown-item" href="{{ url_for('export_audit', pid=project.id) }}">Download
+              Audit</a></li>
+          <li><a role="button" class="dropdown-item" href="{{ url_for('external_audit', pid=project.id) }}">Download for
+              Source</a></li>
         </ul>
       </div>
       {% endif %}
       {% if project.can_validate %}
       <p class="px-2">
-        <a role="button" id="start-audit" class="btn btn-primary" href="{{ url_for('tasks', name=project.name, region=region) }}" data-toggle="tooltip" data-placement="bottom" title="You have audited all elements. Well done! Starting over again to double check (if you want)">Start Auditing &#11208;</a>
+        <a role="button" id="start-audit" class="btn btn-primary"
+          href="{{ url_for('tasks', name=project.name, region=region) }}" data-toggle="tooltip" data-placement="bottom"
+          title="You have audited all elements. Well done! Starting over again to double check (if you want)">Start
+          Auditing &#11208;</a>
       </p>
       {% endif %}
       {% if has_skipped %}
-      <p class=""><a role="button" class="btn btn-secondary" href="{{ url_for('clear_skipped', pid=project.id) }}">Put Skipped Items Back</a></p>
+      <p class=""><a role="button" class="btn btn-secondary" href="{{ url_for('clear_skipped', pid=project.id) }}">Put
+          Skipped Items Back</a></p>
       {% endif %}
       {% if regions %}
       Filter by region:
       <select onchange="javascript:switchRegion(this)" tmpl="{{ url_for('project', name=project.name, region='REG') }}">
         {% for r in regions %}
-        <option value="{{ r[0] or '' }}" {% if (r[0] or None)==region %} selected{% endif %}>{{ r[0] or 'All' }} ({{ r[2]
+        <option value="{{ r[0] or '' }}" {% if (r[0] or None)==region %} selected{% endif %}>{{ r[0] or 'All' }} ({{
+          r[2]
           }} / {{ r[1] }})</option>
         {% endfor %}
       </select>
       {% endif %}
-      
+
     </div>
     <div class="card">
-    <div class="card-body">
+      <div class="card-body">
         <p class="font-weight-bold card-title">Statistics</p>
         <div class="progress" role="progressbar" id="progress">
           <span class="progress-bar" id="p_val2"></span>
@@ -149,14 +148,14 @@
       })
 
       document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const source = urlParams.get('finished');
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('finished');
 
-            if ("{{ project.feature_count - val1 - skipped }}" === '0') {
-              $('#start-audit').tooltip('show')
-            }else{
-              $('#start-audit').tooltip('disable')
-            }
+        if ("{{ project.feature_count - val1 - skipped }}" === '0') {
+          $('#start-audit').tooltip('show')
+        } else {
+          $('#start-audit').tooltip('disable')
+        }
       });
 
       function switchRegion(target) {
@@ -167,19 +166,20 @@
   </div>
   <div id="map1" class="fillmap"></div>
   <div id="popup">
-      <p><span id="title">{{ project.title }}</span>.{% if project.can_validate %} <span id="editthis"><a href="#" id="editlink">Edit this</a></span>{% endif %}</p>
-      <p id="hint" class="hint">
-        <span id="transparent">Transparent marker is the <span id="tr_which"></span> point location.</span>
-      </p>
-      <div class="tags_wrapper">
-        <table id="tags" class="tags">
-        </table>
-      </div>
-      <div id="remarks_box" class="remarks_box">
-        <b>Remarks:</b> <span id="remarks_content"></span>
-      </div>
-      <p id="last_action" class="last_action">Rejected with the verdict "<span id="last_verdict"></span>".</p>
+    <p><span id="title">{{ project.title }}</span>.{% if project.can_validate %} <span id="editthis"><a href="#"
+          id="editlink">Edit this</a></span>{% endif %}</p>
+    <p id="hint" class="hint">
+      <span id="transparent">Transparent marker is the <span id="tr_which"></span> point location.</span>
+    </p>
+    <div class="tags_wrapper">
+      <table id="tags" class="tags">
+      </table>
     </div>
+    <div id="remarks_box" class="remarks_box">
+      <b>Remarks:</b> <span id="remarks_content"></span>
+    </div>
+    <p id="last_action" class="last_action">Rejected with the verdict "<span id="last_verdict"></span>".</p>
+  </div>
 
 </main>
 {% endblock %}

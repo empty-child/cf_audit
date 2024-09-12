@@ -1,7 +1,4 @@
 {% extends "layout.html" %} {% block content %}
-<header>
-  <link rel="stylesheet" href="{{ dated_url_for('static', filename='style.css') }}" />
-</header>
 <main class="container">
   <div class="d-flex flex-row justify-content-end gap-2 mb-4">
     {% if not user %}
@@ -9,17 +6,17 @@
     {% else %}
 
     {% if admin %}
-    <a class="btn btn-light" href="{{ url_for('add_project') }}"
-      >Add a new project</a
-    >
+    <a class="btn btn-light" href="{{ url_for('add_project') }}">Add a new project</a>
     <a class="btn btn-light" href="{{ url_for('download_csv') }}">
       Download Audit CSV
     </a>
-    {% endif %} 
-    
+    {% endif %}
+
     <div class="dropdown pr-1">
-      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="{{ username.img }}" class="rounded-circle shadow-4" style="width: 25px;" alt="Avatar"> {{ username.name }}
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <img src="{{ username.img }}" class="rounded-circle shadow-4" style="width: 25px;" alt="Avatar"> {{
+        username.name }}
       </button>
       <ul class="dropdown-menu">
         <li><a role="button" class="dropdown-item" href="{{ url_for('profile') }}">User Settings</a></li>
@@ -32,10 +29,12 @@
   <header class="row">
     <div class="title_box">
       <h3 class="float-start" id="main_title">Conflator Audit - an OSM Conflator Tool</h3>
-      <button class="about_button float-start mx-3 float-top btn btn-outline-dark" type="button" data-bs-toggle="modal" data-bs-target="#helpModal">?</button>
+      <button class="about_button float-start mx-3 float-top btn btn-outline-dark" type="button" data-bs-toggle="modal"
+        data-bs-target="#helpModal">?</button>
     </div>
     <p>
-      Log in and audit external data, one at a time. With your expertise, you can help integrate them into OpenStreetMap (OSM) after the audit is complete. See Help (?) for more information.
+      Log in and audit external data, one at a time. With your expertise, you can help integrate them into OpenStreetMap
+      (OSM) after the audit is complete. See Help (?) for more information.
     </p>
   </header>
 
@@ -56,10 +55,7 @@
   <p><b>Projects</b> that need auditing:</p>
   <ul class="list-group">
     {% for proj in projects %} {% if not proj.hidden or is_admin(proj) %}
-    <a
-      class="list-group-item list-group-item-action"
-      href="{{ url_for('project', name=proj.name) }}"
-    >
+    <a class="list-group-item list-group-item-action" href="{{ url_for('project', name=proj.name) }}">
       {% if proj.hidden %}🕶️ {% endif %} {{ proj.title }} {% if admin %} ({{
       proj.feature_count }} features) {% endif %}
     </a>

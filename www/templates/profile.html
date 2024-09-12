@@ -1,40 +1,26 @@
 {% extends "layout.html" %} {% block title %}Profile — {% endblock %} {% block
 header %}
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
-/>
-<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://npmcdn.com/leaflet.path.drag@0.0.6/src/Path.Drag.js"></script>
-<script src="https://unpkg.com/leaflet-editable@1.1.0/src/Leaflet.Editable.js"></script>
-<script src="{{ url_for('static', filename='profile.js') }}"></script>
+
 <style>
   #map {
     height: 400px;
   }
 </style>
+<script src="{{ dated_url_for('static', filename='profile.js') }}"></script>
 {% endblock %} {% block content %}
 <main class="container">
   <header class="mb-4">
     <p>
-      <a class="btn btn-link return-buttons" href="{{ url_for('front') }}"
-        >Return to Project Overview &#11207;</a
-      >
+      <a class="btn btn-link return-buttons" href="{{ url_for('front') }}">Return to Project Overview &#11207;</a>
     </p>
   </header>
   <h1>User Settings</h1>
   <p>Please mark the regions you're most familiar with:</p>
   <div id="map"></div>
   <form action="{{ url_for('profile') }}" method="POST">
-    <input
-      type="hidden"
-      name="bboxes"
-      id="bboxes"
-      value="{{ user.bboxes or '' }}"
-    />
+    <input type="hidden" name="bboxes" id="bboxes" value="{{ user.bboxes or '' }}" />
     <div class="pt-1">
-      <input type="submit" value="Save" class="btn btn-primary"/>
+      <input type="submit" value="Save" class="btn btn-primary" />
     </div>
   </form>
 </main>
