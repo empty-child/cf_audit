@@ -3,7 +3,7 @@ var bboxesLayer;
 $(function() {
     map = L.map('map', {minZoom: 4, maxZoom: 15, editable: true});
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>'
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
 	L.BoxControl = L.Control.extend({
