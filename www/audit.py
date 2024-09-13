@@ -11,7 +11,7 @@ from flask import (
     flash,
     jsonify,
 )
-from flask_oauthlib.client import OAuth
+from authlib.integrations.flask_client import OAuth, OAuthError
 from peewee import fn, OperationalError
 import json
 import config
@@ -21,10 +21,15 @@ import math
 import os
 import requests
 
-oauth = OAuth()
-openstreetmap = oauth.remote_app(
-    'OpenStreetMap',
-    base_url='https://api.openstreetmap.org/api/0.6/',
+def get_token(token='user'):
+    if token == 'user' and 'osm_token' in session:
+        return session['osm_token']
+    return None
+
+oauth = OAuth(app)
+openstreetmap = oauth.register(
+    name='openstreetmap',
+    api_base_url='https://api.openstreetmap.org/api/0.6/',
     request_token_params = {
         'scope': 'read_prefs',
     },
@@ -32,12 +37,15 @@ openstreetmap = oauth.remote_app(
     access_token_method='POST',
     access_token_url='https://www.openstreetmap.org/oauth2/token',
     authorize_url='https://www.openstreetmap.org/oauth2/authorize',
-    consumer_key=app.config['CLIENT_ID'] or '123',
-    consumer_secret=app.config['CLIENT_SECRET'] or '123',
+    client_id=app.config['CLIENT_ID'] or '123',
+    client_secret=app.config['CLIENT_SECRET'] or '123',
+    client_kwargs=None,
+    fetch_token=get_token,
 )
 
-
-
+@app.errorhandler(OAuthError)
+def handle_error(error):
+    return render_template('error.html', error=error)
 
 @app.before_request
 def before_request():
@@ -71,7 +79,7 @@ def get_user():
             if 'osm_token' in session:
                 del session['osm_token']
             if 'osm_uid' in session:
-                del session['osm_uid']
+                del session['osm_uid'] 
     return None
 
 def get_full_user():
@@ -130,13 +138,13 @@ def login():
         session['objects'] = request.args.get('objects')
         if request.args.get('next'):
             session['next'] = request.args.get('next')
-        return openstreetmap.authorize(callback=url_for('oauth', _external=True))
+        return openstreetmap.authorize_redirect(callback=url_for('oauth', _external=True))
     return redirect(url_for('front'))
 
 
 @app.route('/oauth')
 def oauth():
-    resp = openstreetmap.authorized_response()
+    resp = openstreetmap.authorize_access_token()
     if resp is None or resp.get('access_token') is None:
         return 'Denied. <a href="' + url_for('login') + '">Try again</a>.'
     session['osm_token'] = (resp['access_token'], '')
@@ -154,13 +162,6 @@ def oauth():
     else:
         redir = url_for('front')
     return redirect(redir)
-
-
-@openstreetmap.tokengetter
-def get_token(token='user'):
-    if token == 'user' and 'osm_token' in session:
-        return session['osm_token']
-    return None
 
 
 @app.route('/logout')

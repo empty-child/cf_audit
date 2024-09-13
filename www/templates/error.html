@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block title %}Error — {% endblock %}
+{% block header %}
+<script src="{{ url_for('all_features', error=error) }}"></script>
+{% endblock %}
+{% block content %}
+<h1>Error</h1>
+<p>{{error}}</p>
+{% endblock %}
