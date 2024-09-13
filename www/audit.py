@@ -30,13 +30,15 @@ oauth = OAuth(app)
 openstreetmap = oauth.register(
     name='openstreetmap',
     api_base_url='https://api.openstreetmap.org/api/0.6/',
-    request_token_params = {
+
+    access_token_url='https://www.openstreetmap.org/oauth2/token',
+    access_token_method='POST',
+
+    authorize_url='https://www.openstreetmap.org/oauth2/authorize',
+    authorize_params = {
         'scope': 'read_prefs',
     },
-    request_token_url=None,
-    access_token_method='POST',
-    access_token_url='https://www.openstreetmap.org/oauth2/token',
-    authorize_url='https://www.openstreetmap.org/oauth2/authorize',
+
     client_id=app.config['CLIENT_ID'] or '123',
     client_secret=app.config['CLIENT_SECRET'] or '123',
     client_kwargs=None,
@@ -85,6 +87,7 @@ def get_user():
 def get_full_user():
     if 'osm_uid' in session:
         user_details = {'display_name' : 'Please Logout', 'id' : '', 'img' : ''}
+        print('osm', openstreetmap.get('user/details.json'))
         if openstreetmap.get('user/details.json') != None:
             user_details = openstreetmap.get('user/details.json').data['user']
         img = 'https://i2.wp.com/www.openstreetmap.org/assets/avatar_large-54d681ddaf47c4181b05dbfae378dc0201b393bbad3ff0e68143c3d5f3880ace.png?ssl=1'
@@ -138,7 +141,7 @@ def login():
         session['objects'] = request.args.get('objects')
         if request.args.get('next'):
             session['next'] = request.args.get('next')
-        return openstreetmap.authorize_redirect(callback=url_for('oauth', _external=True))
+        return openstreetmap.authorize_redirect(url_for('oauth', _external=True))
     return redirect(url_for('front'))
 
 
