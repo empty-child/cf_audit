@@ -15,3 +15,5 @@ config_local.py
 .env
 cert.key
 cert.crt
+audit/
+profiles/

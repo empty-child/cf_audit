@@ -1,115 +1,111 @@
 {% extends "layout.html" %}
 {% block title %}{{ project.title }} — {% endblock %}
 {% block header %}
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
-    <link rel="stylesheet" href="{{ dated_url_for('static', filename='style.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='Control.MiniMap.min.css') }}" />
-    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-geometryutil@0.8.1/src/leaflet.geometryutil.js"></script>
-    <script src="https://unpkg.com/leaflet-snap@0.0.4/leaflet.snap.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='Bing.js') }}"></script>
-    <script src="{{ url_for('static', filename='Control.MiniMap.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='PermalinkAttribution.js') }}"></script>
-    <script src="{{ dated_url_for('static', filename='StreetViewButtons.js') }}"></script>
-    <script>
-      AP = {
-        endpoint: '{{ url_for('api') }}',
-        projectId: {{ project.id }},
-        forceRef: {% if ref %}'{{ ref }}'{% else %}null{% endif %},
-        imagesPath: '{{ url_for('static', filename='images') }}',
-        featureTemplateUrl: '{{ url_for('tasks', name=project.name, ref='tmpl') }}',
-        browseTemplateUrl: '{{ url_for('browse', name=project.name, ref='tmpl') }}',
-        proprietarySV: {{ project.prop_sv | tojson }},
-        mapillaryId: '{{ mapillary_id }}',
-        region: '{{ region }}',
-        readonly: false
-      };
-    </script>
-    <script src="{{ dated_url_for('static', filename='audit.js') }}"></script>
+<script src="{{ url_for('static', filename='Bing.js') }}"></script>
+<script src="{{ dated_url_for('static', filename='StreetViewButtons.js') }}"></script>
+<script src="{{ dated_url_for('static', filename='audit.js') }}"></script>
 {% endblock %}
 {% block content %}
+<script>
+  var AP = {
+    endpoint: '{{ url_for('api') }}',
+    projectId: {{ project.id }},
+    forceRef: {% if ref %} '{{ ref }}'{% else %} null{% endif %},
+    imagesPath: '{{ url_for('static', filename='images') }}',
+    featureTemplateUrl: '{{ url_for('tasks', name=project.name, ref='tmpl') }}',
+    browseTemplateUrl: '{{ url_for('browse', name=project.name, ref='tmpl') }}',
+    proprietarySV: {{ project.prop_sv | tojson }},
+    mapillaryId: '{{ mapillary_id }}',
+    region: '{{ region }}',
+    readonly: false
+  };
+</script>
 <main class="container-fluid">
-    <div id="left-panel">
-      <header class="mb-4">
-        <section class="mb-4" id="left-panel-navigation">
-          <a class="btn btn-outline-secondary" href="{{ url_for('project', name=project.name) }}">Conflator Audit &#11207;</a>
-          <div class="dropdown pr-1 float-end mx-2">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <span>View on...</span> 
-            </button>
-            <ul class="dropdown-menu">
-              <li><a role="button" id="toOSM" class="dropdown-item" target="_blank">OpenStreetMap</a></li>
-              <li><a role="button" id="toMaptillery" class="dropdown-item" target="_blank">Mapillary</a></li>
-              <li><a role="button" id="toPanoramax" class="dropdown-item" target="_blank">Panoramax (FR)</a></li>
-            </ul>
-          </div>
-        </section>
-      </header>
+  <div id="left-panel">
+    <header class="mb-4">
+      <section class="mb-4" id="left-panel-navigation">
+        <a class="btn btn-outline-secondary" href="{{ url_for('project', name=project.name) }}">Conflator Audit
+          &#11207;</a>
+        <div class="dropdown pr-1 float-end mx-2">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span>View on...</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a role="button" id="toOSM" class="dropdown-item" target="_blank">OpenStreetMap</a></li>
+            <li><a role="button" id="toMaptillery" class="dropdown-item" target="_blank">Mapillary</a></li>
+            <li><a role="button" id="toPanoramax" class="dropdown-item" target="_blank">Panoramax (FR)</a></li>
+          </ul>
+        </div>
+      </section>
+    </header>
+    <div>
+      <div class="title_box">
+        <h3 class="float-start" id="main_title">{{ project.title }}</h3>
+        <button class="about_button float-start mx-3 float-top btn btn-outline-dark" type="button"
+          data-bs-toggle="modal" data-bs-target="#helpModal">?</button>
+      </div>
       <div>
-        <div class="title_box">
-          <h3 class="float-start" id="main_title">{{ project.title }}</h3>
-          <button class="about_button float-start mx-3 float-top btn btn-outline-dark" type="button" data-bs-toggle="modal" data-bs-target="#helpModal">?</button>
-        </div>
-        <div>
-          <div id="title" class="font-weight-bold"></div>
-        </div>
-      </div>
-      <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">About</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <iframe id="about_iframe" src="https://md.infs.ch/s/wJIYRFGB3" width="100%" height="100%"></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-
-      <p id="last_action" class="last_action">The last reviewer rejected this change with the verdict "<span id="last_verdict"></span>".</p>
-      <p id="hint" class="hint">
-        <span id="canmove">You can move the marker to a better location. Imagery may be misaligned.</span>
-        <span id="transparent">Semi-transparent marker is the location from <span id="tr_which"></span>.</span>
-      </p>
-      <div class="tags_wrapper">
-        <table id="tags" class="table table-sm tags">
-        </table>
-      </div>
-      {% if project.title == 'Winterthurer Sitzbänke' %}
-      <div class="hint">
-        <span>Bitte kontrollieren, besonders auch "direction" (Blickrichtung als Altgrad, z.B. 315).</span>        
-      </div>
-      {% endif %}
-      <div id="fixme_box">
-        <p>Value for the <tt>fixme</tt> tag, if needed:<br>
-        <input type="text" id="fixme"></p>
-      </div>
-      <div id="remarks_box" class="remarks_box">
-        <b>Remarks:</b> <span id="remarks_content"></span>
-      </div>
-      <div id="buttons" class="d-flex flex-column gap-2">
-        <button id="good" class="btn btn-lg btn-success">Node is valid</button>
-        <div class="d-flex gap-2">
-          <button id="bad" class="btn flex-fill btn-outline-success">Don't Change</button>
-          <button id="bad_dup" class="btn flex-fill btn-outline-warning">Mark as Duplicate</button>
-          <button id="bad_nosuch" class="btn flex-fill btn-outline-warning">Invalid / Insufficient</button>
-        </div>
-        <div id="reason_box">
-          <p>Why?<br>
-          <input type="text" id="reason">
-          <button class="btn btn-light" id="submit_reason">OK</button</p>
-          <button class="btn btn-light" id="create">Create New Instead</button>
-        </div>
-        <button  id="skip" class="btn btn btn-secondary">Skip</button>
+        <div id="title" class="font-weight-bold"></div>
       </div>
     </div>
-    <div id="map1"></div>
-    <div id="map2"></div>
-    <a id="allFeaturesSeen" class="hidden" href="{{ url_for('project', name=project.name) }}?finished=yes"></a>
-  </main>
+    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">About</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <iframe id="about_iframe" src="https://md.infs.ch/s/wJIYRFGB3" width="100%" height="100%"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <p id="last_action" class="last_action">The last reviewer rejected this change with the verdict "<span
+        id="last_verdict"></span>".</p>
+    <p id="hint" class="hint">
+      <span id="canmove">You can move the marker to a better location. Imagery may be misaligned.</span>
+      <span id="transparent">Semi-transparent marker is the location from <span id="tr_which"></span>.</span>
+    </p>
+    <div class="tags_wrapper">
+      <table id="tags" class="table table-sm tags">
+      </table>
+    </div>
+    {% if project.title == 'Winterthurer Sitzbänke' %}
+    <div class="hint">
+      <span>Bitte kontrollieren, besonders auch "direction" (Blickrichtung als Altgrad, z.B. 315).</span>
+    </div>
+    {% endif %}
+    <div id="fixme_box">
+      <p>Value for the <tt>fixme</tt> tag, if needed:<br>
+        <input type="text" id="fixme">
+      </p>
+    </div>
+    <div id="remarks_box" class="remarks_box">
+      <b>Remarks:</b> <span id="remarks_content"></span>
+    </div>
+    <div id="buttons" class="d-flex flex-column gap-2">
+      <button id="good" class="btn btn-lg btn-success">Node is valid</button>
+      <div class="d-flex gap-2">
+        <button id="bad" class="btn flex-fill btn-outline-success">Don't Change</button>
+        <button id="bad_dup" class="btn flex-fill btn-outline-warning">Mark as Duplicate</button>
+        <button id="bad_nosuch" class="btn flex-fill btn-outline-warning">Invalid / Insufficient</button>
+      </div>
+      <div id="reason_box">
+        <p>Why?<br>
+          <input type="text" id="reason">
+          <button class="btn btn-light" id="submit_reason">OK</button< /p>
+            <button class="btn btn-light" id="create">Create New Instead</button>
+      </div>
+      <button id="skip" class="btn btn btn-secondary">Skip</button>
+    </div>
+  </div>
+  <div id="map1"></div>
+  <div id="map2"></div>
+  <a id="allFeaturesSeen" class="hidden" href="{{ url_for('project', name=project.name) }}?finished=yes"></a>
+</main>
 
 {% endblock %}

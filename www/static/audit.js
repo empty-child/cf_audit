@@ -1,4 +1,4 @@
-var map1, map2, marker1, marker2, smarker1, smarker2, feature, keys, lastView, defaultTitle, svButton;
+var map1, map2, marker1, marker2, smarker1, smarker2, feature, keys, lastView, defaultTitle, svButton, AP;
 
 if (!String.prototype.startsWith) {
     String.prototype.startsWith = function(searchString, position){
@@ -8,20 +8,12 @@ if (!String.prototype.startsWith) {
 }
 
 $(function() {
-  map1 = L.map('map1', {minZoom: AP.readonly ? 4 : 15, maxZoom: 19, zoomControl: false, attributionControl: false});
-  L.control.permalinkAttribution().addTo(map1);
-  map1.attributionControl.setPrefix('');
+  map1 = L.map('map1', {minZoom: AP.readonly ? 4 : 15, maxZoom: 19, zoomControl: false });
   map1.setView([20, 5], 7, {animate: false});
 
   var imageryLayers = {
     "OSM Standard": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© <a href="https://openstreetmap.org">OpenStreetMap contributors</a>', maxZoom: 19
-    }),
-    'SWISSIMAGE': L.tileLayer("https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg", {
-      attribution: '<a>Federal Office of Topography swisstopo</a>', maxZoom: 22
-    }),
-    'SwissTLM3D': L.tileLayer('https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swisstlm3d-karte-farbe/default/current/3857/{z}/{x}/{y}.png', {
-      attribution: '<a>Federal Office of Topography swisstopo</a>', maxZoom: 22
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 19
     }),
     'Esri Satellite': L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       attribution: '<a href="https://wiki.openstreetmap.org/wiki/Esri">Esri World Imagery</a>', maxZoom: 22
@@ -34,10 +26,9 @@ $(function() {
   var miniMap;
   if ($('#map2').length && $('#map2').is(':visible')) {
     map2 = L.map('map2', {minZoom: AP.readonly ? 4 : 15, maxZoom: 19, zoomControl: false});
-    map2.attributionControl.setPrefix('');
     map2.setView([20, 5], 7, {animate: false});
     var miniLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© <a href="https://openstreetmap.org">© OpenStreetMap contributors</a>', maxZoom: 19
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 19
     });
     miniMap = new L.Control.MiniMap(miniLayer, {
       position: 'topright',
@@ -47,7 +38,7 @@ $(function() {
     }).addTo(map2);
 
     delete imageryLayers['OSM Standard'];
-    imageryLayers['SWISSIMAGE'].addTo(map2);
+    imageryLayers['Esri Satellite'].addTo(map2);
 
     var move = true;
     map1.on('move', function() {
@@ -85,6 +76,7 @@ $(function() {
       svOptions.google = false;
     if (AP.mapillaryId)
       svOptions.mapillaryId = AP.mapillaryId;
+    // TODO: fix link to services
     //svButton = L.streetView(svOptions).addTo(map2);
   }
   var popups = $('#popup').length > 0;

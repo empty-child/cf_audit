@@ -18,7 +18,7 @@ ENV PYTHONUNBUFFERED=rununbuffered \
     PIP_DISABLE_PIP_VERSION_CHECK=on \
     PIP_DEFAULT_TIMEOUT=100 \
     MAX_POETRY_VERSION=2 \
-    DOCKERIZE_VERSION=v0.6.1 \
+    DOCKERIZE_VERSION=v0.8.0 \
     DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
