@@ -15,7 +15,7 @@ flask-oauthlib = "^0.9.6"
 uwsgi = "^2.0.21"
 psycopg2-binary = "^2.9.5"
 uvicorn = "^0.19.0"
-gunicorn = "^20.1.0"
+gunicorn = "^22.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
