@@ -11,7 +11,7 @@ from flask import (
     flash,
     jsonify,
 )
-from flask_oauthlib.client import OAuth
+from authlib.integrations.flask_client import OAuth, OAuthError
 from peewee import fn, OperationalError
 import json
 import config
@@ -21,23 +21,33 @@ import math
 import os
 import requests
 
-oauth = OAuth()
-openstreetmap = oauth.remote_app(
-    'OpenStreetMap',
-    base_url='https://api.openstreetmap.org/api/0.6/',
-    request_token_params = {
+def get_token(token='user'):
+    if token == 'user' and 'osm_token' in session:
+        return session['osm_token']
+    return None
+
+oauth = OAuth(app)
+openstreetmap = oauth.register(
+    name='openstreetmap',
+    api_base_url='https://api.openstreetmap.org/api/0.6/',
+
+    access_token_url='https://www.openstreetmap.org/oauth2/token',
+    access_token_method='POST',
+
+    authorize_url='https://www.openstreetmap.org/oauth2/authorize',
+    authorize_params = {
         'scope': 'read_prefs',
     },
-    request_token_url=None,
-    access_token_method='POST',
-    access_token_url='https://www.openstreetmap.org/oauth2/token',
-    authorize_url='https://www.openstreetmap.org/oauth2/authorize',
-    consumer_key=app.config['CLIENT_ID'] or '123',
-    consumer_secret=app.config['CLIENT_SECRET'] or '123',
+
+    client_id=app.config['CLIENT_ID'] or '123',
+    client_secret=app.config['CLIENT_SECRET'] or '123',
+    client_kwargs=None,
+    fetch_token=get_token,
 )
 
-
-
+@app.errorhandler(OAuthError)
+def handle_error(error):
+    return render_template('error.html', error=error)
 
 @app.before_request
 def before_request():
@@ -71,14 +81,14 @@ def get_user():
             if 'osm_token' in session:
                 del session['osm_token']
             if 'osm_uid' in session:
-                del session['osm_uid']
+                del session['osm_uid'] 
     return None
 
 def get_full_user():
     if 'osm_uid' in session:
         user_details = {'display_name' : 'Please Logout', 'id' : '', 'img' : ''}
-        if openstreetmap.get('user/details.json') != None:
-            user_details = openstreetmap.get('user/details.json').data['user']
+        if session['user_data'] != None:
+            user_details = session['user_data']
         img = 'https://i2.wp.com/www.openstreetmap.org/assets/avatar_large-54d681ddaf47c4181b05dbfae378dc0201b393bbad3ff0e68143c3d5f3880ace.png?ssl=1'
         if 'img' in user_details:
             img = user_details['img']['href']
@@ -130,19 +140,23 @@ def login():
         session['objects'] = request.args.get('objects')
         if request.args.get('next'):
             session['next'] = request.args.get('next')
-        return openstreetmap.authorize(callback=url_for('oauth', _external=True))
+        return openstreetmap.authorize_redirect(url_for('oauth', _external=True))
     return redirect(url_for('front'))
 
 
 @app.route('/oauth')
 def oauth():
-    resp = openstreetmap.authorized_response()
+    resp = openstreetmap.authorize_access_token()
     if resp is None or resp.get('access_token') is None:
         return 'Denied. <a href="' + url_for('login') + '">Try again</a>.'
     session['osm_token'] = (resp['access_token'], '')
-    user_details = openstreetmap.get('user/details').data
-    uid = int(user_details[0].get('id'))
-    session['osm_uid'] = uid
+    try:
+        user_details = openstreetmap.get('user/details.json').json()
+        uid = int(user_details['user']['id'])
+        session['osm_uid'] = int(user_details['user']['id'])
+        session['user_data'] = user_details['user']
+    except:
+        return render_template('error.html', error='Unexpected error in JSON processing')
     try:
         User.get(User.uid == uid)
     except User.DoesNotExist:
@@ -154,13 +168,6 @@ def oauth():
     else:
         redir = url_for('front')
     return redirect(redir)
-
-
-@openstreetmap.tokengetter
-def get_token(token='user'):
-    if token == 'user' and 'osm_token' in session:
-        return session['osm_token']
-    return None
 
 
 @app.route('/logout')
