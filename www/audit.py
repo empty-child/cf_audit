@@ -87,9 +87,8 @@ def get_user():
 def get_full_user():
     if 'osm_uid' in session:
         user_details = {'display_name' : 'Please Logout', 'id' : '', 'img' : ''}
-        print('osm', openstreetmap.get('user/details.json'))
-        if openstreetmap.get('user/details.json') != None:
-            user_details = openstreetmap.get('user/details.json').data['user']
+        if session['user_data'] != None:
+            user_details = session['user_data']
         img = 'https://i2.wp.com/www.openstreetmap.org/assets/avatar_large-54d681ddaf47c4181b05dbfae378dc0201b393bbad3ff0e68143c3d5f3880ace.png?ssl=1'
         if 'img' in user_details:
             img = user_details['img']['href']
@@ -151,9 +150,13 @@ def oauth():
     if resp is None or resp.get('access_token') is None:
         return 'Denied. <a href="' + url_for('login') + '">Try again</a>.'
     session['osm_token'] = (resp['access_token'], '')
-    user_details = openstreetmap.get('user/details').data
-    uid = int(user_details[0].get('id'))
-    session['osm_uid'] = uid
+    try:
+        user_details = openstreetmap.get('user/details.json').json()
+        uid = int(user_details['user']['id'])
+        session['osm_uid'] = int(user_details['user']['id'])
+        session['user_data'] = user_details['user']
+    except:
+        return render_template('error.html', error='Unexpected error in JSON processing')
     try:
         User.get(User.uid == uid)
     except User.DoesNotExist:
