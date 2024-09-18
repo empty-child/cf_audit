@@ -18,6 +18,13 @@ $(function() {
     'Esri Satellite': L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       attribution: '<a href="https://wiki.openstreetmap.org/wiki/Esri">Esri World Imagery</a>', maxZoom: 22
     }),
+    'OpenAerialMap': L.tileLayer('https://apps.kontur.io/raster-tiler/oam/mosaic/{z}/{x}/{y}.png', {
+      attribution: '<a href="https://wiki.openstreetmap.org/wiki/OpenAerialMap">OpenAerialMap</a>', maxZoom: 22
+    }),
+    'Sentinel-2 (cloudless-2023_3857)': L.tileLayer.wms('https://tiles.maps.eox.at/?', {
+      layers: 's2cloudless-2023_3857',
+      attribution: '<a href="https://wiki.openstreetmap.org/wiki/Sentinel-2">Sentinel-2 programme</a>', maxZoom: 22
+    }),
   };
   imageryLayers['OSM Standard'].addTo(map1);
 
