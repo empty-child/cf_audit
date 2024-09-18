@@ -6,8 +6,8 @@ It records any changes and produces a file that can be later feeded back to the 
 
 ## Author and License
 
-The original version of the auditor was written by Ilya Zverev for MAPS.ME. 
-Further development was carried out by Geometalab.
+The original version of the auditor was written by [Ilya Zverev](https://github.com/Zverik) for MAPS.ME. 
+Further development was carried out by [Geometalab](https://github.com/geometalab).
 
 Published under Apache License 2.0.
 
