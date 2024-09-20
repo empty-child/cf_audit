@@ -8,6 +8,24 @@ if (!String.prototype.startsWith) {
 }
 
 $(function() {
+  const iconRed = new L.Icon({
+    iconUrl: AP.imagesPath + '/red-pin.svg',
+    iconSize: [35, 41],
+    iconAnchor: [17, 41],
+    shadowSize: [41, 51]
+  });
+  const iconGreen = new L.Icon({
+    iconUrl: AP.imagesPath + '/green-pin.svg',
+    iconSize: [35, 41],
+    iconAnchor: [17, 41],
+    shadowSize: [41, 51]
+  });
+  const iconBlue = new L.Icon({
+    iconUrl: AP.imagesPath + '/blue-pin.svg',
+    iconSize: [35, 41],
+    iconAnchor: [13, 41],
+    shadowSize: [17, 51]
+  });
   map1 = L.map('map1', {minZoom: AP.readonly ? 4 : 15, maxZoom: 19, zoomControl: false });
   map1.setView([20, 5], 7, {animate: false});
 
@@ -92,24 +110,10 @@ $(function() {
     var fl = L.markerClusterGroup({
           showCoverageOnHover: false,
           maxClusterRadius: function(zoom) { return zoom < 15 ? 40 : 10; }
-        }),
-        iconRed = new L.Icon({
-          iconUrl: AP.imagesPath + '/marker-red.png',
-          shadowUrl: AP.imagesPath + '/marker-shadow.png',
-          iconSize: [25, 41],
-          iconAnchor: [12, 41],
-          shadowSize: [41, 41]
-        }),
-        iconGreen = new L.Icon({
-          iconUrl: AP.imagesPath + '/marker-green.png',
-          shadowUrl: AP.imagesPath + '/marker-shadow.png',
-          iconSize: [25, 41],
-          iconAnchor: [12, 41],
-          shadowSize: [41, 41]
         });
     for (var i = 0; i < features.length; i++) {
       var action = features[i][2],
-          icon = action == 'c' ? iconGreen : (action == 'd' ? iconRed : new L.Icon.Default()),
+          icon = action == 'c' ? iconGreen : (action == 'd' ? iconRed : iconBlue),
           m = L.marker(features[i][1], {icon: icon});
       m.ref = features[i][0];
       if (!popups) {
@@ -274,6 +278,19 @@ function updateLatLonControl() {
 }
 
 function updateMarkers(data, audit, panMap) {
+  const iconGreen = new L.Icon({
+    iconUrl: AP.imagesPath + '/green-pin.svg',
+    iconSize: [35, 41],
+    iconAnchor: [17, 41],
+    shadowSize: [41, 51]
+  });
+  const iconBlue = new L.Icon({
+    iconUrl: AP.imagesPath + '/blue-pin.svg',
+    iconSize: [35, 41],
+    iconAnchor: [13, 41],
+    shadowSize: [17, 51]
+  });
+  
   var movePos = audit['move'], latlon, rlatlon, rIsOSM = false,
       coord = data['geometry']['coordinates'],
       props = data['properties'],
@@ -316,9 +333,9 @@ function updateMarkers(data, audit, panMap) {
   $('#hint').show();
   if (rlatlon && (props['action'] != 'create' || movePos)) {
     var smTitle = rIsOSM ? 'OSM location' : 'External dataset location';
-    smarker1 = L.marker(rlatlon, {opacity: 0.4, title: smTitle, zIndexOffset: -100}).addTo(map1);
+    smarker1 = L.marker(rlatlon, {opacity: 0.4, title: smTitle, zIndexOffset: -100, icon: iconBlue}).addTo(map1);
     if (map2)
-      smarker2 = L.marker(rlatlon, {opacity: 0.4, title: smTitle, zIndexOffset: -100}).addTo(map2);
+      smarker2 = L.marker(rlatlon, {opacity: 0.4, title: smTitle, zIndexOffset: -100, icon: iconBlue}).addTo(map2);
     $('#tr_which').text(rIsOSM ? 'OpenStreetMap' : 'external dataset');
     $('#transparent').show();
     if (panMap)
@@ -333,14 +350,7 @@ function updateMarkers(data, audit, panMap) {
     svButton.fixCoord(latlon);
 
   var mTitle = rIsOSM ? 'New location after moving' : 'OSM object location',
-      iconGreen = new L.Icon({
-        iconUrl: AP.imagesPath + '/marker-green.png',
-        shadowUrl: AP.imagesPath + '/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        shadowSize: [41, 41]
-      }),
-      mIcon = canMove ? iconGreen : new L.Icon.Default();
+      mIcon = canMove ? iconGreen : iconBlue;
   if (map2)
     marker2 = L.marker(latlon, {draggable: canMove, title: mTitle, icon: mIcon}).addTo(map2);
   if (!AP.readonly) {
